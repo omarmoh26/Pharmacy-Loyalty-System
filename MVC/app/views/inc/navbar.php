@@ -29,7 +29,7 @@
             <?php if (isset($_SESSION['user_id'])) : ?>
               <li><a class="dropdown-item" href="users/logout">Logout</a></li>
             <?php else : ?>
-              <li><a class="dropdown-item" href="<?php echo URLROOT . 'users/login'; ?>">Login</a></li>
+              <li><a class="dropdown-item" href="<?php echo URLROOT . 'users/login'; ?>">hhhhh</a></li>
               <li><a class="dropdown-item" href="<?php echo URLROOT . 'users/register'; ?>">Sign Up</a></li>
               <li>
                 <hr class="dropdown-divider">
