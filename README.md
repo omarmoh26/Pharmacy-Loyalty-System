@@ -1,1 +1,0 @@
-# Pharmacy-Loyalty-System
