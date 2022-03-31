@@ -7,18 +7,6 @@ class Login extends view
 
     require APPROOT . '/views/inc/header.php';
     flash('register_success');
-    $text = <<<EOT
-    <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4"> $title</h1>
-    </div>
-  </div>
-
-  </div>
-  </div>
-  </div>
-EOT;
-    echo $text;
     $this->printForm();
     require APPROOT . '/views/inc/footer.php';
   }
@@ -32,7 +20,7 @@ EOT;
     <div class="row">
     <div class="col-md-6 mx-auto">
     <div class="card card-body bg-light mt-5">
-    <h2>Sign Up</h2>
+    <h2>Login</h2>
     <form action="$action" method="post">
 EOT;
 
@@ -42,11 +30,6 @@ EOT;
 
     $text = <<<EOT
     <div class="container">
-    <div class="checkbox mb-3 mt-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
       <div class="row mt-4">
         <div class="col">
           <input type="submit" value="Login" class="form-control btn btn-lg btn-primary btn-block">
