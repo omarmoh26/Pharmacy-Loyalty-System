@@ -25,7 +25,7 @@ class Login extends view
 EOT;
 
     echo $text;
-    $this->printEmail();
+    $this->printUsername();
     $this->printPassword();
 
     $text = <<<EOT
@@ -47,13 +47,13 @@ EOT;
     echo $text;
   }
 
-  private function printEmail()
+  private function printUsername()
   {
-    $val = $this->model->getEmail();
-    $err = $this->model->getEmailErr();
+    $val = $this->model->getUsername();
+    $err = $this->model->getUsernameerr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('email', 'email', $val, $err, $valid);
+    $this->printInput('text', 'username', $val, $err, $valid);
   }
 
   private function printPassword()

@@ -1,31 +1,55 @@
 <?php
 class UserModel extends model
 {
-    protected $email;
+    protected $ID;
+    protected $name;
+    protected $username;
     protected $password;
+    protected $type;
 
-    protected $emailErr;
+    protected $usernameerr;
     protected $passwordErr;
 
     public function __construct()
     {
         parent::__construct();
-        $this->email    = '';
+        $this->ID    = '';
+        $this->name    = '';
+        $this->username    = '';
         $this->password = '';
+        $this->type = '';
 
-        $this->emailErr    = '';
+        $this->usernameerr    = '';
         $this->passwordErr = '';
     }
-
-    public function getEmail()
+    //id
+    public function getID()
     {
-        return $this->email;
+        return $this->ID;
     }
-    public function setEmail($email)
+    public function setID($ID)
     {
-        $this->email = $email;
+        $this->ID = $ID;
     }
-
+    //username
+    public function getUsername()
+    {
+        return $this->username;
+    }
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+    //name
+    public function getName()
+    {
+        return $this->name;
+    }
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    //password
     public function getPassword()
     {
         return $this->password;
@@ -34,16 +58,27 @@ class UserModel extends model
     {
         $this->password = $password;
     }
-
-    public function getEmailErr()
+    //type
+    public function getType()
     {
-        return $this->emailErr;
+        return $this->type;
     }
-    public function setEmailErr($emailErr)
+    public function setType($type)
     {
-        $this->emailErr = $emailErr;
+        $this->type = $type;
     }
 
+    //username err
+    public function getUsernameerr()
+    {
+        return $this->usernameerr;
+    }
+    public function setUsernameerr($usernameerr)
+    {
+        $this->usernameerr = $usernameerr;
+    }
+
+    //password err
     public function getPasswordErr()
     {
         return $this->passwordErr;
@@ -53,17 +88,17 @@ class UserModel extends model
         $this->passwordErr = $passwordErr;
     }
 
-    public function findUserByEmail($email)
+    public function findUserByUsername($username)
     {
-        $this->dbh->query('select * from users where email= :email');
-        $this->dbh->bind(':email', $email);
+        $this->dbh->query('select * from users where username= :username');
+        $this->dbh->bind(':username', $username);
 
         $userRecord = $this->dbh->single();
         return $this->dbh->rowCount();
     }
 
-    public function emailExist($email)
+    public function usernameExist($username)
     {
-        return $this->findUserByEmail($email) > 0;
+        return $this->findUserByUsername($username) > 0;
     }
 }

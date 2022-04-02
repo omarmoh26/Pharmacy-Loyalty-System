@@ -60,14 +60,14 @@ class Users extends Controller
         $userModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //process form
-            $userModel->setEmail(trim($_POST['email']));
+            $userModel->setUsername(trim($_POST['username']));
             $userModel->setPassword(trim($_POST['password']));
 
             //validate login form
-            if (empty($userModel->getEmail())) {
-                $userModel->setEmailErr('Please enter an email');
-            } elseif (!($userModel->emailExist($_POST['email']))) {
-                $userModel->setEmailErr('No user found');
+            if (empty($userModel->getUsername())) {
+                $userModel->setUsernameerr('Please enter a Username');
+            } elseif (!($userModel->usernameExist($_POST['username']))) {
+                $userModel->setUsernameerr('No user found');
             }
 
             if (empty($userModel->getPassword())) {
@@ -78,7 +78,7 @@ class Users extends Controller
 
             // If no errors
             if (
-                empty($userModel->getEmailErr()) &&
+                empty($userModel->getUsernameerr()) &&
                 empty($userModel->getPasswordErr())
             ) {
                 //Check login is correct
