@@ -7,7 +7,7 @@ class Users extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
             $registerModel->setName(trim($_POST['name']));
-            $registerModel->setEmail(trim($_POST['email']));
+            $registerModel->setUsername(trim($_POST['username']));
             $registerModel->setPassword(trim($_POST['password']));
             $registerModel->setConfirmPassword(trim($_POST['confirm_password']));
 
@@ -15,10 +15,10 @@ class Users extends Controller
             if (empty($registerModel->getName())) {
                 $registerModel->setNameErr('Please enter a name');
             }
-            if (empty($registerModel->getEmail())) {
-                $registerModel->setEmailErr('Please enter an email');
-            } elseif ($registerModel->emailExist($_POST['email'])) {
-                $registerModel->setEmailErr('Email is already registered');
+            if (empty($registerModel->getUsername())) {
+                $registerModel->setUsernameerr('Please enter an a username');
+            } elseif ($registerModel->usernameExist($_POST['username'])) {
+                $registerModel->setUsernameerr('username is already registered');
             }
             if (empty($registerModel->getPassword())) {
                 $registerModel->setPasswordErr('Please enter a password');
@@ -32,12 +32,12 @@ class Users extends Controller
 
             if (
                 empty($registerModel->getNameErr()) &&
-                empty($registerModel->getEmailErr()) &&
+                empty($registerModel->getUsernameerr()) &&
                 empty($registerModel->getPasswordErr()) &&
                 empty($registerModel->getConfirmPasswordErr())
             ) {
                 //Hash Password
-                $registerModel->setPassword(password_hash($registerModel->getPassword(), PASSWORD_DEFAULT));
+               // $registerModel->setPassword(password_hash($registerModel->getPassword(), PASSWORD_DEFAULT));
 
                 if ($registerModel->signup()) {
                     //header('location: ' . URLROOT . 'users/login');

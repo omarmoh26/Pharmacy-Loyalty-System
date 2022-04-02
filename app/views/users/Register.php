@@ -29,7 +29,7 @@ class Register extends view
 EOT;
     echo $text;
     $this->printName();
-    $this->printEmail();
+    $this->printUsername();
     $this->printPassword();
     $this->printConfirmPassword();
     $text = <<<EOT
@@ -57,13 +57,13 @@ EOT;
 
     $this->printInput('text', 'name', $val, $err, $valid);
   }
-  private function printEmail()
+  private function printUsername()
   {
-    $val = $this->model->getEmail();
-    $err = $this->model->getEmailErr();
+    $val = $this->model->getUsername();
+    $err = $this->model->getUsernameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('email', 'email', $val, $err, $valid);
+    $this->printInput('text', 'username', $val, $err, $valid);
   }
 
   private function printPassword()

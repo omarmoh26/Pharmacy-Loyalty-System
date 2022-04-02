@@ -7,6 +7,7 @@ class RegisterModel extends UserModel
     protected $nameErr;
     protected $confirmPassword;
     protected $confirmPasswordErr;
+    protected $type;
 
 
     public function __construct()
@@ -14,6 +15,7 @@ class RegisterModel extends UserModel
         parent::__construct();
         $this->name     = "";
         $this->nameErr = "";
+        $this->type=2;
 
         $this->confirmPassword = "";
         $this->confirmPasswordErr = "";
@@ -56,14 +58,23 @@ class RegisterModel extends UserModel
     {
         $this->confirmPasswordErr = $confirmPasswordErr;
     }
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 
     public function signup()
     {
-        $this->dbh->query("INSERT INTO users (`name`, `email`, `password`) VALUES(:uname, :email, :pass)");
+        $this->dbh->query("INSERT INTO users (`name`, `username`, `password`, `type`) VALUES(:uname, :username, :pass, :utype)");
         $this->dbh->bind(':uname', $this->name);
-        $this->dbh->bind(':email', $this->email);
+        $this->dbh->bind(':username', $this->username);
         $this->dbh->bind(':pass', $this->password);
-
+        $this->dbh->bind(':utype', $this->type);
         return $this->dbh->execute();
     }
 }
