@@ -16,11 +16,16 @@ class Register extends view
     $loginUrl = URLROOT . 'users/login';
 
     $text = <<<EOT
-    <div class="row">
-    <div class="col-md-6 mx-auto">
-    <div class="card card-body bg-light mt-5">
-    <h2>Sign Up</h2>
-    <form action="$action" method="post">
+    <div class="container">
+		<div class="row main">
+			<div class="panel-heading">
+				<div class="panel-title text-center">
+    <h1>Sign Up</h1>
+    <hr />
+				</div>
+			</div> 
+			<div class="main-login main-center">
+    <form action="$action"class="form-horizontal" method="post">
 EOT;
     echo $text;
     $this->printName();
@@ -28,20 +33,18 @@ EOT;
     $this->printPassword();
     $this->printConfirmPassword();
     $text = <<<EOT
-    <div class="container">
-      <div class="row mt-4">
-        <div class="col">
+    <div class="form-group">
+    <div class="cols-sm-10">
+      <div class="input-group">
           <input type="submit" value="Register" class="form-control btn btn-lg btn-primary btn-block">
-        </div>
-        <div class="col">
           <a href="$loginUrl" class="form-control btn btn-lg btn-block">Current user, login here</a>
+          </div>
+          <div class="message" id="message_name">
+          </div>
         </div>
-      </div>
       </div>
     </form>
-    </div>
-    </div>
-    </div>
+   
 EOT;
     echo $text;
   }
@@ -86,10 +89,17 @@ EOT;
     $label = ucwords($label);
     $text = <<<EOT
     <div class="form-group">
+						<div class="cols-sm-10">
+							<div class="input-group">
+							
       <label for="$fieldName"> $label: <sup>*</sup></label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
       <span class="invalid-feedback">$err</span>
+      </div>
+      <div class="message" id="message_mail">
+      </div>
     </div>
+  </div>
 EOT;
     echo $text;
   }
