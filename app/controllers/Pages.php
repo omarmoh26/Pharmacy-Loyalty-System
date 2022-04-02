@@ -18,5 +18,13 @@ class Pages extends Controller
         $View = new ViewUsers($this->getModel(), $this);
         $View->output();
     }
+    //done
+    public function User()
+    {
+        $viewPath = VIEWS_PATH . 'pages/User.php';
+        require_once $viewPath;
+        $UserView = new User($this->getModel(), $this);
+        $UserView->output();
+    }
 
 }

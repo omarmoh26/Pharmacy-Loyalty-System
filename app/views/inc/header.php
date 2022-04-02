@@ -21,6 +21,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/js.js"></script>
   <link rel="stylesheet" href="<?php echo URLROOT; ?>css/style.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/User.css">
+
   <title><?php echo SITENAME; ?></title>
 </head>
 
