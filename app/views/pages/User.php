@@ -5,7 +5,6 @@ class User extends View
   {
 
     require APPROOT . '/views/inc/header.php';
-    $title = $this->model->title;
     $action = URLROOT . 'pages/User';
     $text = <<<EOT
     <form action="$action" method="post">
