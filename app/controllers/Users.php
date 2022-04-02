@@ -104,8 +104,12 @@ class Users extends Controller
     {
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_name'] = $user->name;
+        $_SESSION['type'] = $user->type;
         //header('location: ' . URLROOT . 'pages');
-        redirect('pages');
+        if($user->type==2)
+            redirect('pages/User');
+        else
+            redirect('pages/User');
     }
 
     public function logout()
