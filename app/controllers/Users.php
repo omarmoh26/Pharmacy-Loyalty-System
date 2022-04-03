@@ -109,7 +109,7 @@ class Users extends Controller
         if($user->type==2)
             redirect('pages/User');
         else
-            redirect('pages/User');
+            redirect('pages');
     }
 
     public function logout()
