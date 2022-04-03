@@ -34,14 +34,12 @@ EOT;
     $text = <<<EOT
     <div class="form-group">
     <div class="cols-sm-10">
-      <div class="input-group">
           <input type="submit" value="Register" class="form-control btn btn-lg btn-primary btn-block">
           <a href="$loginUrl" class="form-control btn btn-lg btn-block">Current user, login here</a>
           </div>
           <div class="message" id="message_name">
           </div>
         </div>
-      </div>
     </form>
    
 EOT;
