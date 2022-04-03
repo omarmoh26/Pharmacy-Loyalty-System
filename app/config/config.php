@@ -13,7 +13,7 @@ define('URLROOT', 'http://localhost/mvc/public/');
 // Site Name
 define('SITENAME', 'Saraya Care');
 
-define('APP_VERSION', '1.2');
+define('APP_VERSION', '1');
 
 //public pages path
 define('VIEWS_PATH', '../app/views/');
