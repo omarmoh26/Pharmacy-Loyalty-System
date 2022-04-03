@@ -11,8 +11,9 @@ class Admin extends View
     $text = <<<EOT
     <form action="$action" method="post">
     <div class="wrapper ">
-    <input type="button" value=" Edit Employees  " >
+    <input type="button" value="  Add Employees  " >
     <input type="button" value=" View Employees  " >
+    <input type="button" value=" Edit Employees   " >
     <input type="button" value="delete Employees" >
     </div>
     </form>
