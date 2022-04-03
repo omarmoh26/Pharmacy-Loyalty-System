@@ -10,8 +10,8 @@ class User extends View
     $text = <<<EOT
     <form action="$action" method="post">
     <div class="wrapper ">
-    <input type="button" value="newcustomer" >
-    <input type="button" value="oldcustomer" >
+    <input type="button" value="new customer" >
+    <input type="button" value="old customer" >
     </div>
     </form>
   
