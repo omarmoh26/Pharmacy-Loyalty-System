@@ -55,31 +55,23 @@ class Customers extends Controller
         $view = new NewCust($this->getModel(), $this);
         $view->output();
     }
-    public function login()
+    public function oldCust()
     {
         $userModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //process form
-            $userModel->setUsername(trim($_POST['username']));
-            $userModel->setPassword(trim($_POST['password']));
+            $userModel->setPhone_number(trim($_POST['phone_number']));
 
             //validate login form
-            if (empty($userModel->getUsername())) {
-                $userModel->setUsernameerr('Please enter a Username');
-            } elseif (!($userModel->usernameExist($_POST['username']))) {
-                $userModel->setUsernameerr('No user found');
-            }
-
-            if (empty($userModel->getPassword())) {
-                $userModel->setPasswordErr('Please enter a password');
-            } elseif (strlen($userModel->getPassword()) < 4) {
-                $userModel->setPasswordErr('Password must contain at least 4 characters');
+            if (empty($userModel->getPhone_number())) {
+                $userModel->setPhone_numberErr('Please enter a Phone Number');
+            } elseif (!($userModel->Phone_numberExist($_POST['phone_number']))) {
+                $userModel->setPhone_numberErr('No phone number found');
             }
 
             // If no errors
             if (
-                empty($userModel->getUsernameerr()) &&
-                empty($userModel->getPasswordErr())
+                empty($userModel->getPhone_numberErr())
             ) {
                 //Check login is correct
                 $loggedUser = $userModel->login();
@@ -94,35 +86,35 @@ class Customers extends Controller
         }
         // Load form
         //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
-        $viewPath = VIEWS_PATH . 'users/Login.php';
+        $viewPath = VIEWS_PATH . 'customers/OldCust.php';
         require_once $viewPath;
-        $view = new Login($userModel, $this);
+        $view = new OldCust($userModel, $this);
         $view->output();
     }
 
-    public function createCustSession($user)
+    public function createCustSession($customer)
     {
-        $_SESSION['user_id'] = $user->id;
-        $_SESSION['user_name'] = $user->name;
-        $_SESSION['type'] = $user->type;
+        $_SESSION['customer_id'] = $customer->id;
+        $_SESSION['customer_name'] = $customer->name;
+        $_SESSION['customer_address'] = $customer->address;
+        $_SESSION['customer_type'] = $customer->type;
         //header('location: ' . URLROOT . 'pages');
-        if($user->type==2)
-            redirect('pages/User');
-        else
-            redirect('pages');
+        redirect('pages');
     }
 
     public function logout()
     {
         echo 'logout called';
-        unset($_SESSION['user_id']);
-        unset($_SESSION['user_name']);
+        unset($_SESSION['customer_id']);
+        unset($_SESSION['customer_name']);
+        unset($_SESSION['customer_address']);
+        unset($_SESSION['customer_type']);
         session_destroy();
-        redirect('users/login');
+        redirect('customers/OldCust');
     }
 
     public function isLoggedIn()
     {
-        return isset($_SESSION['user_id']);
+        return isset($_SESSION['customer_id']);
     }
 }
