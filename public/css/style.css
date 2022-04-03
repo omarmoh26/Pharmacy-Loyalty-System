@@ -1,7 +1,9 @@
-body{
-    background: url('http://phucgroup.vn/profiles/phucgroupvn/uploads/attach/1455617082_services4.jpg');
+
+  body{
+    background-image: url('http://localhost/mvc/public/ph1.jpg');
+    background-repeat: no-repeat;
+    background-size: 1550px 800px;
     font-family: 'Oxygen', sans-serif;
-    color: rgb(0, 0, 0) !important;
   }
   p {
     margin: 0 !important;

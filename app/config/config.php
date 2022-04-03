@@ -18,5 +18,4 @@ define('APP_VERSION', '1.2');
 //public pages path
 define('VIEWS_PATH', '../app/views/');
 //images 
-define('IMAGE_PATH','../app/views/images/');
-define('IMAGEROOT','http://localhost/mvc/public/images/');
+define('IMAGEROOT','http://localhost/mvc/public/');
