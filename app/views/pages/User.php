@@ -1,3 +1,4 @@
+<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/User.css"></head>
 <?php
 class User extends View
 {
