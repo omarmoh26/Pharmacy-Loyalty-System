@@ -22,3 +22,4 @@ class User extends View
 }
 ?>
 <a class="dropdown-item" href="<?php echo URLROOT . 'customers/NewCust'; ?>">New Custromer</a>
+<a class="dropdown-item" href="<?php echo URLROOT . 'customers/OldCust'; ?>">Old Custromer</a>
