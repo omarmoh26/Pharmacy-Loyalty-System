@@ -108,6 +108,8 @@ class Users extends Controller
         //header('location: ' . URLROOT . 'pages');
         if($user->type==2)
             redirect('pages/User');
+        else if($user->type==1)
+            redirect('pages/Admin');
         else
             redirect('pages');
     }
