@@ -1,6 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container-fluid">
-    <a class="navbar-brand" href="<?php echo URLROOT . 'public'; ?>"><?php echo SITENAME; ?></a>
+    <a class="new" href="<?php echo URLROOT . 'public'; ?>"><?php echo SITENAME; ?></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
@@ -30,4 +29,3 @@
       </ul>
     </div>
   </div>
-</nav>

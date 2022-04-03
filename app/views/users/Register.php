@@ -21,7 +21,6 @@ class Register extends view
 			<div class="panel-heading">
 				<div class="panel-title text-center">
     <h1>Sign Up</h1>
-    <hr />
 				</div>
 			</div> 
 			<div class="main-login main-center">

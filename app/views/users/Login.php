@@ -22,7 +22,6 @@ class Login extends view
 			<div class="panel-heading">
 				<div class="panel-title text-center">
     <h1>Login</h1>
-    <hr />
 				</div>
 			</div> 
 			<div class="main-login main-center">
