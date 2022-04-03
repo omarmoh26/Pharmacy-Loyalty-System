@@ -27,4 +27,12 @@ class Pages extends Controller
         $UserView->output();
     }
 
+    public function Admin()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Admin.php';
+        require_once $viewPath;
+        $AdminView = new Admin($this->getModel(), $this);
+        $AdminView->output();
+    }
+
 }

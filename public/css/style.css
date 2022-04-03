@@ -28,6 +28,7 @@
   a{
     border-radius: 20px,20px;
     font-size:20px;
+    
 
   }
   .new{
@@ -77,4 +78,10 @@
     text-shadow: 1px 1px 2px red;
     padding-left: 50px;
     font-weight: bold;
+  }
+  
+  .navv {
+    flex: 1;
+  display: flex;
+  align-items: left;
   }

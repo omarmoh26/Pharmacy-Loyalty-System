@@ -4,6 +4,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
 		 <li class="nav-item dropdown">
+       <div class="new2">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <?php if (isset($_SESSION['user_id'])) {
               echo $_SESSION['user_name'];
