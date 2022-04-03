@@ -1,4 +1,3 @@
-<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/User.css"></head>
 <?php
 class User extends View
 {
@@ -7,11 +6,12 @@ class User extends View
 
     require APPROOT . '/views/inc/header.php';
     $action = URLROOT . 'pages/User';
+    
     $text = <<<EOT
     <form action="$action" method="post">
     <div class="wrapper ">
-    <input type="button" value="new customer" >
-    <input type="button" value="old customer" >
+    <input type="button" value="newcustomer" >
+    <input type="button" value="oldcustomer" >
     </div>
     </form>
   
@@ -21,3 +21,4 @@ class User extends View
   }
 }
 ?>
+<a class="dropdown-item" href="<?php echo URLROOT . 'customers/NewCust'; ?>">New Custromer</a>
