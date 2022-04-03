@@ -13,7 +13,6 @@ class NewCust extends view
   private function printForm()
   {
     $action = URLROOT . 'NewCust';
-    $loginUrl = URLROOT . 'users/login';
 
     $text = <<<EOT
     <div class="container">
