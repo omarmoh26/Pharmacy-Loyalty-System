@@ -1,3 +1,5 @@
+<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/newcust.css"></head>
+
 <?php
 class User extends View
 {
@@ -9,10 +11,12 @@ class User extends View
     
     $text = <<<EOT
     <form action="$action" method="post">
-    <div class="wrapper ">
-    <input type="button" value="newcustomer" >
-    <input type="button" value="oldcustomer" >
-    </div>
+    EOT
+    ?>
+    <a class="wrapper3" href="<?php echo URLROOT . 'customers/NewCust'; ?>">New Custromer</a>
+    <a class="wrapper2" href="<?php echo URLROOT . 'customers/OldCust'; ?>">Old Custromer</a>
+    <?php
+    <<<EOT
     </form>
   
     EOT;
@@ -21,5 +25,3 @@ class User extends View
   }
 }
 ?>
-<a class="dropdown-item" href="<?php echo URLROOT . 'customers/NewCust'; ?>">New Custromer</a>
-<a class="dropdown-item" href="<?php echo URLROOT . 'customers/OldCust'; ?>">Old Custromer</a>

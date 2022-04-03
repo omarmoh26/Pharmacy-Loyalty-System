@@ -36,7 +36,6 @@ EOT;
     <div class="form-group">
     <div class="cols-sm-10">
           <input type="submit" value="Login" class="form-control btn btn-lg btn-primary btn-block" >
-          <a href="$registerUrl" class="form-control btn btn-lg btn-block" >New User, Sign up</a>
           </div>
           <div class="message" id="message_name">
           </div>
