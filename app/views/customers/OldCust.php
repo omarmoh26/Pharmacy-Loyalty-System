@@ -20,7 +20,7 @@ class OldCust extends view
 		<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
-    <h1>Login</h1>
+    <h1>Old Customer</h1>
 				</div>
 			</div> 
 			<div class="main-login main-center">
