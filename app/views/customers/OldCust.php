@@ -13,14 +13,14 @@ class OldCust extends view
 
   private function printForm()
   {
-    $action = URLROOT . 'customers/NewCust';
+    $action = URLROOT . 'pages/Order';
 
     $text = <<<EOT
     <div class="container">
 		<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
-    <h1>Old Customer</h1>
+          <h1>Old Customer</h1>
 				</div>
 			</div> 
 			<div class="main-login main-center">

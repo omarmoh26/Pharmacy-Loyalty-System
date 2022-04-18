@@ -35,4 +35,11 @@ class Pages extends Controller
         $AdminView->output();
     }
 
+    public function Order()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Order.php';
+        require_once $viewPath;
+        $AdminView = new Order($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
