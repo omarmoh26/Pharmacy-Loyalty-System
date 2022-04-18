@@ -19,6 +19,26 @@ class Order extends View
         
         <div class="left">
           <input type="text" name="course" class="input-search" placeholder="Search For Products...">
+          <div class="radio">
+        
+            <label class="rad-label">
+              <input type="radio" class="rad-input" name="rad">
+              <div class="rad-design"></div>
+              <div class="rad-text">Cash</div>
+            </label>
+        
+            <label class="rad-label">
+              <input type="radio" class="rad-input" name="rad">
+              <div class="rad-design"></div>
+              <div class="rad-text">Cash&Points</div>
+            </label>
+        
+            <label class="rad-label">
+              <input type="radio" class="rad-input" name="rad">
+              <div class="rad-design"></div>
+              <div class="rad-text">Points</div>
+            </label>
+          </div>
         </div>
         
         <div class="right">

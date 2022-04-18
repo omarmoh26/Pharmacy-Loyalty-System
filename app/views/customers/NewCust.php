@@ -12,7 +12,7 @@ class NewCust extends view
 
   private function printForm()
   {
-    $action = URLROOT . 'pages/Order';
+    $action = URLROOT . 'customers/OldCust';
 
     $text = <<<EOT
     <div class="container">
