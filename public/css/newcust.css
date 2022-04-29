@@ -17,6 +17,8 @@ a{
     border-style: solid;
     border-radius: 20px;
     font-weight: bold;
+    border-style: none;
+
   }
   .wrapper2 {
       
@@ -32,13 +34,19 @@ a{
     border-style: solid;
     border-radius: 20px;
     font-weight: bold;
+    border-style: none;
+
   }
   .wrapper2:hover {
     color: rgb(255, 255, 255);
     background-color:rgb(0, 45, 63);
+    text-decoration: none;
+    
   }
   .wrapper3:hover {
     color: rgb(255, 255, 255);
     background-color:rgb(0, 45, 63);
+    text-decoration: none;
+
   }
   

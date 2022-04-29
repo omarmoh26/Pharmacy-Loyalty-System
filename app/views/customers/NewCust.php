@@ -13,8 +13,11 @@ class NewCust extends view
   private function printForm()
   {
     $action = URLROOT . 'customers/OldCust';
-
+    ?>
+    <a class="back" href="<?php echo URLROOT . 'pages/User'; ?>">Back</a>
+    <?php
     $text = <<<EOT
+
     <div class="container">
 		<div class="row main">
 			<div class="panel-heading">
@@ -23,6 +26,7 @@ class NewCust extends view
 				</div>
 			</div> 
 			<div class="main-login main-center">
+
     <form action="$action"class="form-horizontal" method="post">
 EOT;
     echo $text;
@@ -97,6 +101,7 @@ EOT;
       </div>
     </div>
   </div>
+
 EOT;
     echo $text;
   }

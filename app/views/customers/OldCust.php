@@ -14,7 +14,9 @@ class OldCust extends view
   private function printForm()
   {
     $action = URLROOT . 'pages/Order';
-
+    ?>
+    <a class="back" href="<?php echo URLROOT . 'pages/User'; ?>">Back</a>
+    <?php
     $text = <<<EOT
     <div class="container">
 		<div class="row main">
