@@ -18,6 +18,7 @@ class Order extends View
       <div class="wrapper">
         
         <div class="left">
+          <a class="checkout" href="<?php echo URLROOT . 'pages/Checkout'; ?>">Checkout</a>
           <input type="text" name="course" class="input-search" placeholder="Search For Products...">
           <div class="radio">
         
@@ -39,14 +40,19 @@ class Order extends View
               <div class="rad-text">Points</div>
             </label>
           </div>
+          <input type="text" class="cash" placeholder="cash" name="cash">
         </div>
         
         <div class="right">
-          <h2>BASKET</h2>
+          <div class="Bask"><h1>BASKET</h1></div>
+          
           
           <div class="btext">
-            <h3>Total:</h3>
-            <h4>Points:</h4>
+            <p4>Points: 412412414</p4>
+            <br>
+            <hr style="width:600px">
+            <p3>Total:</p3>
+            <hr>
           </div>
 
         </div>
