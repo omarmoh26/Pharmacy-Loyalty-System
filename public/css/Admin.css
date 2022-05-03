@@ -1,35 +1,132 @@
+a{
+    border-radius: 20px,20px;
+    font-size:20px;
+    
 
-.wrapper {
-    position: fixed;
-    
-    
-    width:400;
-    min-height: 300px;
-    top:200px;
-    left:600px;
   }
-  
-  input[type=button] ,[type=submit] {
-      background-color: rgb(0, 128, 255);
-      background-size: contain;
-      border: none;
-      color: white;
-      padding:20px 60px;
-      text-align: none;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 20px;
-      font-weight:1000;
+  .wrapper2 {
       
-      border-radius: 50px 50px 50px 50px;
-      margin: 5px 20px 40px 20px;
+    position: fixed;
+    width:350;
+    color:rgb(249, 249, 249);
+    background-color:rgb(0, 128, 255);
+
+    height: 80px;
+    padding:10px 0px 0px 35px;
+    top:170px;
+    left:600px;
+    font-size:40px;
+    border-style: solid;
+    border-radius: 20px;
+    font-weight: bold;
+    border-style: none;
+    text-transform: capitalize;
+    animation: color-transition 5s infinite;
+}
+
+
+.wrapper3 {
+      
+    position: fixed;
+    width:350;
+    background-color:rgb(0, 128, 255);
+    color:rgb(249, 249, 249);
+    height: 80px;
+    padding:10px 0px 0px 35px;
+    top:320px;
+    left:600px;
+    font-size:40px;
+    border-style: solid;
+    border-radius: 20px;
+    font-weight: bold;
+    border-style: none;
+    text-transform: capitalize;
+    animation: color-transition 5s infinite;
+}
+  .wrapper4 {
+      
+      position: fixed;
+      width:350;
+      background-color:rgb(0, 128, 255);
+      color:rgb(249, 249, 249);
+      height: 80px;
+      padding:10px 0px 0px 35px;
+      top:470px;
+      left:600px;
+      font-size:40px;
+      border-style: solid;
+      border-radius: 20px;
+      font-weight: bold;
+      border-style: none;
+      text-transform: capitalize;
+      animation: color-transition 5s infinite;
+    }
+    .wrapper5 {
+        
+        position: fixed;
+        width:350;
+        background-color:rgb(0, 128, 255);
+        color:rgb(249, 249, 249);
+        height: 80px;
+        padding:10px 5px 20px 10px;
+        top:620px;
+        left:600px;
+        font-size:40px;
+        border-style: solid;
+        border-radius: 20px;
+        font-weight: bold;
+    border-style: none;
+    text-transform: capitalize;
+    animation: color-transition 5s infinite;
+}
+.wrapper2:hover {
+    color: rgb(255, 255, 255);
+    background-color:rgb(0, 45, 63);
+    text-decoration: none;
+    animation:none;
+
     
-  }
-  
-  input[type=button]:hover,[type=submit]:hover {
-      background-color: rgb(0, 98, 196);
-  }
-  
-  *:focus {
-      outline: none;
-  } 
+}
+.wrapper3:hover {
+    color: rgb(255, 255, 255);
+    background-color:rgb(0, 45, 63);
+    text-decoration: none;
+    animation:none;
+
+    
+}
+.wrapper4:hover {
+    color: rgb(255, 255, 255);
+    background-color:rgb(0, 45, 63);
+
+    animation:none;
+    text-decoration: none;
+    
+}
+.wrapper5:hover {
+    color: rgb(255, 255, 255);
+    background-color:rgb(0, 45, 63);
+    text-decoration: none;
+    animation:none;
+
+    
+}
+
+@keyframes color-transition {
+    0% {
+        background-color: #2671fd;
+        border-color: #2671fd;
+    }
+    33% {
+        background-color: #d38080;
+        border-color: #d38080;
+    }
+    66% {
+        background-color: #733ebe;
+        border-color: #733ebe;
+    }
+    100% {
+        background-color: #2671fd;
+        border-color: #2671fd;
+    }
+}
