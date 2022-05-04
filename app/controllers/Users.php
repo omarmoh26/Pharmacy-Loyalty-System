@@ -55,6 +55,60 @@ class Users extends Controller
         $view = new Register($this->getModel(), $this);
         $view->output();
     }
+    public function Addemployee()
+    {
+        $AddemployeeModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            $AddemployeeModel->setName(trim($_POST['name']));
+            $AddemployeeModel->setUsername(trim($_POST['username']));
+            $AddemployeeModel->setPassword(trim($_POST['password']));
+            $AddemployeeModel->setConfirmPassword(trim($_POST['confirm_password']));
+
+            //validation
+            if (empty($AddemployeeModel->getName())) {
+                $AddemployeeModel->setNameErr('Please enter a name');
+            }
+            if (empty($AddemployeeModel->getUsername())) {
+                $AddemployeeModel->setUsernameerr('Please enter an a username');
+            } elseif ($AddemployeeModel->usernameExist($_POST['username'])) {
+                $AddemployeeModel->setUsernameerr('username is already Addemployeeed');
+            }
+            if (empty($AddemployeeModel->getPassword())) {
+                $AddemployeeModel->setPasswordErr('Please enter a password');
+            } elseif (strlen($AddemployeeModel->getPassword()) < 4) {
+                $AddemployeeModel->setPasswordErr('Password must contain at least 4 characters');
+            }
+
+            if ($AddemployeeModel->getPassword() != $AddemployeeModel->getConfirmPassword()) {
+                $AddemployeeModel->setConfirmPasswordErr('Passwords do not match');
+            }
+
+            if (
+                empty($AddemployeeModel->getNameErr()) &&
+                empty($AddemployeeModel->getUsernameerr()) &&
+                empty($AddemployeeModel->getPasswordErr()) &&
+                empty($AddemployeeModel->getConfirmPasswordErr())
+            ) {
+                //Hash Password
+               // $AddemployeeModel->setPassword(password_hash($AddemployeeModel->getPassword(), PASSWORD_DEFAULT));
+
+                if ($AddemployeeModel->signup()) {
+                    //header('location: ' . URLROOT . 'users/login');
+                    flash('Addemployee_success', 'You have Addemployeeed successfully');
+                    redirect('pages/Admin');
+                } else {
+                    die('Error in sign up');
+                }
+            }
+        }
+        // Load form
+        //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
+        $viewPath = VIEWS_PATH . 'users/Addemployee.php';
+        require_once $viewPath;
+        $view = new Addemployee($this->getModel(), $this);
+        $view->output();
+    }
     public function login()
     {
         $userModel = $this->getModel();

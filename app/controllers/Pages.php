@@ -42,12 +42,19 @@ class Pages extends Controller
         $AdminView = new Order($this->getModel(), $this);
         $AdminView->output();
     }
-    
+
     public function Checkout()
     {
         $viewPath = VIEWS_PATH . 'pages/Checkout.php';
         require_once $viewPath;
         $AdminView = new Checkout($this->getModel(), $this);
+        $AdminView->output();
+    }
+    public function Addemployee()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Addemployee.php';
+        require_once $viewPath;
+        $AdminView = new Addemployee($this->getModel(), $this);
         $AdminView->output();
     }
 }
