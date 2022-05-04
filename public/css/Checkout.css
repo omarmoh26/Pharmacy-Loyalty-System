@@ -1,0 +1,97 @@
+.wrapper{
+    position: fixed;
+    height: 625px;
+    width:736px;
+    background-color:rgba(72, 72, 72, 0.8);
+    top:120px;
+    left:400px;
+    border-radius: 20px;
+}
+.middle
+{
+    position: fixed;
+    height: 600px;
+    width:710px;
+    background-color:rgb(255, 255, 255,0.9);
+    top:133px;
+    left:413px;
+    border-radius: 20px;
+}
+.check
+{
+    position: fixed;
+    color:rgb(0, 0, 0);
+    top:140px;
+    left:680px;
+    font-size: 45px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.text1{
+    position: fixed;
+    color:rgb(55, 55, 55);
+    top:240px;
+    left:430px;
+    font-size:28px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.boldd
+{
+    color: black;
+    
+}
+
+h3
+{
+    position: fixed;
+    top:660px;
+    left:520px;
+}
+h4
+{
+    position: fixed;
+    top:680px;
+    left:1300px;
+}
+.btext
+{
+    font-size: 50px;
+
+}
+.left
+{
+    position: fixed;
+    height: 600px;
+    width:740px;
+    background-color:rgba(255, 255, 255, 0.9);
+    top:130px;
+    left:30px;
+    border-radius: 20px;
+}
+
+.wrapper2 {
+    
+  position: fixed;
+  width:55;
+  height: 30px;
+  background-color:rgb(0, 128, 255);
+  color:rgb(249, 249, 249);
+  padding:0px 0px 0px 5px;
+  top:25px;
+  left:1470px;
+  font-size:20px;
+  border-style: none;
+  border-radius: 10px;
+  font-weight: bold;
+  
+}
+.wrapper2:hover {
+  color: rgb(255, 255, 255);
+  background-color:rgb(0, 45, 63);
+  text-decoration: none;
+}
+.brmedium {
+    display: block;
+    margin-bottom: 1em;
+}
