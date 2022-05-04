@@ -50,11 +50,28 @@ class Pages extends Controller
         $AdminView = new Checkout($this->getModel(), $this);
         $AdminView->output();
     }
+
     public function Addemployee()
     {
         $viewPath = VIEWS_PATH . 'pages/Addemployee.php';
         require_once $viewPath;
         $AdminView = new Addemployee($this->getModel(), $this);
+        $AdminView->output();
+    }
+
+    public function Deleteemployee()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Deleteemployee.php';
+        require_once $viewPath;
+        $AdminView = new Deleteemployee($this->getModel(), $this);
+        $AdminView->output();
+    }
+
+    public function Viewemployee()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Viewemployee.php';
+        require_once $viewPath;
+        $AdminView = new Viewemployee($this->getModel(), $this);
         $AdminView->output();
     }
 }
