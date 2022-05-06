@@ -1,5 +1,5 @@
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Deleteemployee.css"></head>
-<a class="cancel" href="<?php echo URLROOT . 'pages/Admin'; ?>">Cancel</a>
+<a class="back" href="<?php echo URLROOT . 'pages/Admin'; ?>">Back</a>
 
 <?php
 class Deleteaccount extends View
@@ -23,7 +23,7 @@ class Deleteaccount extends View
                 <p1>Are you sure you want to delete this Account?</p1>
             </div>
         </div>
-        <a class="back" href="<?php echo URLROOT . 'pages/Admin'; ?>">Back</a>
+        <a class="cancel" href="<?php echo URLROOT . 'pages/Admin'; ?>">Cancel</a>
       <?php
       <<<EOT
       </form>
