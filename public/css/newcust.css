@@ -18,6 +18,8 @@ a{
     border-radius: 20px;
     font-weight: bold;
     border-style: none;
+    text-transform: capitalize;
+    animation: color-transition 5s infinite;
 
   }
   .wrapper2 {
@@ -35,18 +37,41 @@ a{
     border-radius: 20px;
     font-weight: bold;
     border-style: none;
+    text-transform: capitalize;
+
+    animation: color-transition 5s infinite;
 
   }
   .wrapper2:hover {
     color: rgb(255, 255, 255);
     background-color:rgb(0, 45, 63);
     text-decoration: none;
+    animation:none;
     
   }
   .wrapper3:hover {
     color: rgb(255, 255, 255);
     background-color:rgb(0, 45, 63);
     text-decoration: none;
+    animation:none;
 
+  }
+  @keyframes color-transition {
+    0% {
+      background-color: #2671fd;
+      border-color: #2671fd;
+    }
+    33% {
+      background-color: rgb(31, 144, 189);
+      border-color: rgb(31, 144, 189);
+    }
+    66% {
+      background-color: #6a64c0;
+      border-color: #6a64c0;
+    }
+    100% {
+      background-color: #2671fd;
+      border-color: #2671fd;
+    }
   }
   

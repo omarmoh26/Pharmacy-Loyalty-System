@@ -65,7 +65,7 @@ EOT;
     <div class="cols-sm-10">
       <div class="input-group">
 
-      <label for="$fieldName"> $label: <sup>*</sup></label>
+      <label for="$fieldName"> $label:</label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="">
       <span class="invalid-feedback">$err</span>
     </div>

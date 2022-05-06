@@ -1,101 +1,116 @@
 a{
-    font-size:20px;
+  font-size:20px;
 }
 
 .wrapper{
-    position: fixed;
-    height: 625px;
-    width:1490;
-    background-color:none;
-    top:120px;
-    left:20px;
-    border-radius: 20px;
+  position: fixed;
+  height: 625px;
+  width:1490;
+  background-color:none;
+  top:120px;
+  left:20px;
+  border-radius: 20px;
 }
 .midtext{
 
-  position: fixed;
-  left:225px;
-  top:250px;
-  font-size: 60px;
-  font-family:'Times New Roman', Times, serif;
-  font-weight: bolder;
-  color: black;
-  background-color:rgba(255, 255, 255, 0.219);
-  border-radius: 20px;
-  padding: 10px;
-  text-transform: capitalize;
+position: fixed;
+left:225px;
+top:250px;
+font-size: 60px;
+font-family:'Times New Roman', Times, serif;
+font-weight: bolder;
+color: black;
+background-color:rgba(255, 255, 255, 0.219);
+border-radius: 20px;
+padding: 10px;
+text-transform: capitalize;
+
+}
+.midtext2{
+
+position: fixed;
+left:150px;
+top:250px;
+font-size: 60px;
+font-family:'Times New Roman', Times, serif;
+font-weight: bolder;
+color: black;
+background-color:rgba(255, 255, 255, 0.219);
+border-radius: 20px;
+padding: 10px;
+text-transform: capitalize;
 
 }
 .cancel {
-      
-    top:420px;
-    left:800px;
-    position: fixed;
-    width:200;
-    background-color:rgb(0, 128, 255);
-    color:rgb(249, 249, 249);
-    height: 80px;
-    padding:10px 5px 20px 10px;
-    font-size:40px;
-    border-style: solid;
-    border-radius: 20px;
-    font-weight: bold;
-    border-style: none;
-    text-align: center;
-    text-transform: uppercase;
-    animation: color-transition 5s infinite;
-
-
-  }
-  .cancel:hover {
-    color: rgb(255, 255, 255);
-    background-color:rgb(0, 45, 63);
-    text-decoration: none;
-    animation:none;
     
-  }
+  top:420px;
+  left:800px;
+  position: fixed;
+  width:200;
+  background-color:rgb(0, 128, 255);
+  color:rgb(249, 249, 249);
+  height: 80px;
+  padding:10px 5px 20px 10px;
+  font-size:40px;
+  border-style: solid;
+  border-radius: 20px;
+  font-weight: bold;
+  border-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  animation: color-transition 5s infinite;
 
-  input[type=submit]{
-    position: fixed;
-    width:200;
-    height: 80px;
-    top:420px;
-    left:500px;
-    background-color: rgb(0, 128, 255);
-    border: none;
-    color: white;
-    padding:10px 5px 20px 10px;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 40px;
-    font-weight: bold;
-    border-radius: 20px ;
-    animation: color-transition 5s infinite;
 
-  }
-  input[type=submit]:hover {
-    color: rgb(255, 255, 255);
-    background-color:rgb(0, 45, 63);
-    text-decoration: none;
-    animation:none;
-    
-  }
-  @keyframes color-transition {
-  0% {
-    background-color: #2671fd;
-    border-color: #2671fd;
-  }
-  33% {
-    background-color: rgb(31, 144, 189);
-    border-color: rgb(31, 144, 189);
-  }
-  66% {
-    background-color: #6a64c0;
-    border-color: #6a64c0;
-  }
-  100% {
-    background-color: #2671fd;
-    border-color: #2671fd;
-  }
+}
+.cancel:hover {
+  color: rgb(255, 255, 255);
+  background-color:rgb(0, 45, 63);
+  text-decoration: none;
+  animation:none;
+  
+}
+
+input[type=submit]{
+  position: fixed;
+  width:200;
+  height: 80px;
+  top:420px;
+  left:500px;
+  background-color: rgb(0, 128, 255);
+  border: none;
+  color: white;
+  padding:10px 5px 20px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 20px ;
+  animation: color-transition 5s infinite;
+
+}
+input[type=submit]:hover {
+  color: rgb(255, 255, 255);
+  background-color:rgb(0, 45, 63);
+  text-decoration: none;
+  animation:none;
+  
+}
+@keyframes color-transition {
+0% {
+  background-color: #2671fd;
+  border-color: #2671fd;
+}
+33% {
+  background-color: rgb(31, 144, 189);
+  border-color: rgb(31, 144, 189);
+}
+66% {
+  background-color: #6a64c0;
+  border-color: #6a64c0;
+}
+100% {
+  background-color: #2671fd;
+  border-color: #2671fd;
+}
 }

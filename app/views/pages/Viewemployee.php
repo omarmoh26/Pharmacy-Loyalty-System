@@ -50,8 +50,7 @@ class Viewemployee extends View
                                                 <a href="#">marlon@brando.com</a>
                                             </td>
                                             <td style="width: 20%;">
-                                                
-                                                <a href="#" class="table-link text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -80,7 +79,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -109,7 +108,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -138,7 +137,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -167,7 +166,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -196,7 +195,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -225,7 +224,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -254,7 +253,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -283,7 +282,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -312,7 +311,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -341,7 +340,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -370,7 +369,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -399,7 +398,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -428,7 +427,7 @@ class Viewemployee extends View
                                             </td>
                                             <td style="width: 20%;">
                                                 
-                                                <a href="#" class="table-link  text-info">
+                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
