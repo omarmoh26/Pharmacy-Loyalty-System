@@ -74,4 +74,28 @@ class Pages extends Controller
         $AdminView = new Viewemployee($this->getModel(), $this);
         $AdminView->output();
     }
+
+    public function Deleteaccount()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Deleteaccount.php';
+        require_once $viewPath;
+        $AdminView = new Deleteaccount($this->getModel(), $this);
+        $AdminView->output();
+    }
+
+    public function Editaccount()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Editaccount.php';
+        require_once $viewPath;
+        $AdminView = new Editaccount($this->getModel(), $this);
+        $AdminView->output();
+    }
+
+    public function Editemployee()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Editemployee.php';
+        require_once $viewPath;
+        $AdminView = new Editemployee($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
