@@ -31,7 +31,7 @@
 .radio{
 
 position: fixed;
-top: 400;
+top: 320;
 left:5px;
 
 
@@ -84,7 +84,7 @@ left:5px;
   height: inherit;
   border-radius: inherit;
 
-  background: hsl(0, 0%, 90%);
+  background: hsl(0, 0%, 73%);
   transform: scale(1.1);
   transition: .3s;
 }

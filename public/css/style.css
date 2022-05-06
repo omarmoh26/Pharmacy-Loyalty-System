@@ -94,18 +94,18 @@
   }
 
   .back{
-    position: fixed;
-  width:55;
-  height: 30px;
-  background-color:rgb(0, 128, 255);
-  color:rgb(249, 249, 249);
-  padding:0px 5px 0px 5px;
-  top:25px;
-  left:1470px;
-  font-size:20px;
-  border-style: none;
-  border-radius: 10px;
-  font-weight: bold;
+    position: relative;
+    width:55;
+    height: 30px;
+    background-color:rgb(0, 128, 255);
+    color:rgb(249, 249, 249);
+    padding:0px 5px 0px 5px;
+    top:25px;
+    left:1470px;
+    font-size:20px;
+    border-style: none;
+    border-radius: 10px;
+    font-weight: bold;
   }
 .back:hover
 {

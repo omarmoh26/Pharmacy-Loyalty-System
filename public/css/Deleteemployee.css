@@ -13,17 +13,17 @@ a{
 }
 .midtext{
 
-    position: fixed;
-    left:225px;
-    top:250px;
-    font-size: 60px;
-    font-family:'Times New Roman', Times, serif;
-    font-weight: bolder;
-    color: black;
-    background-color:rgba(255, 255, 255, 0.219);
-    border-radius: 20px;
-    padding: 10px
-
+  position: fixed;
+  left:225px;
+  top:250px;
+  font-size: 60px;
+  font-family:'Times New Roman', Times, serif;
+  font-weight: bolder;
+  color: black;
+  background-color:rgba(255, 255, 255, 0.219);
+  border-radius: 20px;
+  padding: 10px;
+  text-transform: capitalize;
 
 }
 .cancel {
@@ -82,20 +82,20 @@ a{
     
   }
   @keyframes color-transition {
-    0% {
-        background-color: #2671fd;
-        border-color: #2671fd;
-    }
-    33% {
-        background-color: #d38080;
-        border-color: #d38080;
-    }
-    66% {
-        background-color: #733ebe;
-        border-color: #733ebe;
-    }
-    100% {
-        background-color: #2671fd;
-        border-color: #2671fd;
-    }
+  0% {
+    background-color: #2671fd;
+    border-color: #2671fd;
+  }
+  33% {
+    background-color: rgb(31, 144, 189);
+    border-color: rgb(31, 144, 189);
+  }
+  66% {
+    background-color: #6a64c0;
+    border-color: #6a64c0;
+  }
+  100% {
+    background-color: #2671fd;
+    border-color: #2671fd;
+  }
 }
