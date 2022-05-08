@@ -95,7 +95,7 @@ class Users extends Controller
 
                 if ($AddemployeeModel->signup()) {
                     //header('location: ' . URLROOT . 'users/login');
-                    flash('Addemployee_success', 'You have Addemployeeed successfully');
+                    flash('Adding employee', 'You have Added an employee successfully');
                     redirect('pages/Admin');
                 } else {
                     die('Error in sign up');
@@ -104,7 +104,7 @@ class Users extends Controller
         }
         // Load form
         //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
-        $viewPath = VIEWS_PATH . 'users/Addemployee.php';
+        $viewPath = VIEWS_PATH . 'pages/Addemployee.php';
         require_once $viewPath;
         $view = new Addemployee($this->getModel(), $this);
         $view->output();

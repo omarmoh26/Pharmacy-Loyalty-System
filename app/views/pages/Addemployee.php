@@ -4,19 +4,19 @@
 <?php
 class Addemployee extends view
 {
-    public function output()
-    {
-        $title = $this->model->title;
-        
-        require APPROOT . '/views/inc/header.php';
-        $this->printForm();
-        require APPROOT . '/views/inc/footer.php';
-    }
-    
-    private function printForm()
-    {
-        $action = URLROOT . 'pages/Addemployee';
-        $text = <<<EOT
+  public function output()
+  {
+    $title = $this->model->title;
+
+    require APPROOT . '/views/inc/header.php';
+    $this->printForm();
+    require APPROOT . '/views/inc/footer.php';
+  }
+
+  private function printForm()
+  {
+    $action = URLROOT . 'users/Addemployee';
+    $text = <<<EOT
 
     <div class="container">
 		<div class="row main">
