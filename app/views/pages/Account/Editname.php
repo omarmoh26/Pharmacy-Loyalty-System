@@ -1,8 +1,8 @@
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css"></head>
-<a class="back" href="<?php echo URLROOT . 'pages/Admin'; ?>">Back</a>
+<a class="back" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Back</a>
 
 <?php
-class Editaccount extends view
+class Editname extends view
 {
     public function output()
     {
@@ -22,7 +22,7 @@ class Editaccount extends view
 		<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
-    <h1>Edit Account</h1>
+    <h1>Edit Name</h1>
 				</div>
 			</div> 
 			<div class="main-login main-center">
@@ -31,12 +31,11 @@ EOT;
     echo $text;
     $this->printName();
     $this->printUsername();
-    $this->printPassword();
-    $this->printConfirmPassword();
+
     $text = <<<EOT
     <div class="form-group">
     <div class="cols-sm-10">
-          <input type="submit" value="Register" class="form-control btn btn-lg btn-primary btn-block">
+          <input type="submit" value="Confirm" class="form-control btn btn-lg btn-primary btn-block">
           </div>
           <div class="message" id="message_name">
           </div>
@@ -62,23 +61,6 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
     $this->printInput('text', 'username', $val, $err, $valid);
-  }
-
-  private function printPassword()
-  {
-    $val = $this->model->getPassword();
-    $err = $this->model->getPasswordErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('password', 'password', $val, $err, $valid);
-  }
-  private function printConfirmPassword()
-  {
-    $val = $this->model->getConfirmPassword();
-    $err = $this->model->getConfirmPasswordErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('password', 'confirm_password', $val, $err, $valid);
   }
 
   private function printInput($type, $fieldName, $val, $err, $valid)
