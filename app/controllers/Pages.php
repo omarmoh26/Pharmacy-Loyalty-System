@@ -53,7 +53,7 @@ class Pages extends Controller
 
     public function Addemployee()
     {
-        $viewPath = VIEWS_PATH . 'pages/Addemployee.php';
+        $viewPath = VIEWS_PATH . 'users/Addemployee.php';
         require_once $viewPath;
         $AdminView = new Addemployee($this->getModel(), $this);
         $AdminView->output();
