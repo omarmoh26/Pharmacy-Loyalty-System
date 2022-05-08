@@ -85,9 +85,25 @@ class Pages extends Controller
 
     public function Editaccount()
     {
-        $viewPath = VIEWS_PATH . 'pages/Editaccount.php';
+        $viewPath = VIEWS_PATH . 'pages/Account/Editaccount.php';
         require_once $viewPath;
         $AdminView = new Editaccount($this->getModel(), $this);
+        $AdminView->output();
+    }
+
+    public function Editname()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Account/Editname.php';
+        require_once $viewPath;
+        $AdminView = new Editname($this->getModel(), $this);
+        $AdminView->output();
+    }
+
+    public function Editpassword()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Account/Editpassword.php';
+        require_once $viewPath;
+        $AdminView = new Editpassword($this->getModel(), $this);
         $AdminView->output();
     }
 
