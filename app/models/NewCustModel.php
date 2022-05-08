@@ -85,10 +85,10 @@ class NewCustModel extends CustomerModel
     }
     public function signup()
     {
-        $this->dbh->query("INSERT INTO customer (`name`, `phone_number`, `address`, `type`) VALUES(:uname, :phone_number, :uaddress, :utype)");
+        $this->dbh->query("INSERT INTO customer (`name`, `phone_number`, `address`, `type`) VALUES(:uname, :phone_number, :addr, :utype)");
         $this->dbh->bind(':uname', $this->name);
         $this->dbh->bind(':phone_number', $this->phone_number);
-        $this->dbh->bind(':uaddress', $this->address);
+        $this->dbh->bind(':addr', $this->address);
         $this->dbh->bind(':utype', $this->type);
         return $this->dbh->execute();
     }

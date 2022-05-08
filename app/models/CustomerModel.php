@@ -12,7 +12,7 @@ class CustomerModel extends model
         $this->phone_numberErr = '';
     }
     
-    //Phone Number
+    //phone_number
     public function getPhone_number()
     {
         return $this->phone_number;
@@ -22,7 +22,7 @@ class CustomerModel extends model
         $this->phone_number = $phone_number;
     }
 
-    //Phone number err
+    //phone_number err
     public function getPhone_numberErr()
     {
         return $this->phone_numberErr;
@@ -34,8 +34,8 @@ class CustomerModel extends model
 
     public function findUserByPhone_number($phone_number)
     {
-        $this->dbh->query('select * from customer where phone_number= :phonenum');
-        $this->dbh->bind(':phonenum', $phone_number);
+        $this->dbh->query('select * from customer where phone_number= :phone_number');
+        $this->dbh->bind(':phone_number', $phone_number);
 
         $userRecord = $this->dbh->single();
         return $this->dbh->rowCount();
@@ -43,6 +43,6 @@ class CustomerModel extends model
 
     public function Phone_numberExist($phone_number)
     {
-        return $this->findUserByID($phone_number) > 0;
+        return $this->findUserByPhone_number($phone_number) > 0;
     }
 }

@@ -32,7 +32,7 @@ EOT;
     echo $text;
     $this->printName();
     $this->printPhone_number();
-    $this->printAdress();
+    $this->printAddress();
     $this->printType();
     $text = <<<EOT
     <div class="form-group">
@@ -67,7 +67,7 @@ EOT;
     $this->printInput('text', 'phone_number', $val, $err, $valid);
   }
 
-  private function printAdress()
+  private function printAddress()
   {
     $val = $this->model->getAddress();
     $err = $this->model->getAddressErr();
