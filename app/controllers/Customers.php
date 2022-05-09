@@ -7,9 +7,8 @@ class Customers extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
             $registerModel->setName(trim($_POST['name']));
-            $registerModel->getPhone_number(trim($_POST['phone_number']));
+            $registerModel->setPhone_number(trim($_POST['phone_number']));
             $registerModel->setAddress(trim($_POST['address']));
-            $registerModel->setType(trim($_POST['type']));
 
             //validation
             if (empty($registerModel->getName())) {
@@ -17,24 +16,18 @@ class Customers extends Controller
             }
             if (empty($registerModel->getPhone_number())) {
                 $registerModel->setPhone_numberErr('Please enter a phone number');
-            } elseif ($registerModel->Phone_numberExist($_POST['username'])) {
+            } elseif ($registerModel->Phone_numberExist($_POST['phone_number'])) {
                 $registerModel->setPhone_numberErr('Phone Number is already registered');
             }
             
             if (empty($registerModel->getAddress())) {
                 $registerModel->setAddressErr('Please enter an address');
             }
-            if (empty($registerModel->getType())) {
-                $registerModel->setTypeErr('Please enter a Type');
-            } elseif (strlen($registerModel->getType()) !=1) {
-                $registerModel->setPasswordErr('Type is only one number');
-            }
 
             if (
                 empty($registerModel->getNameErr()) &&
                 empty($registerModel->getPhone_numberErr()) &&
-                empty($registerModel->getAddressErr()) &&
-                empty($registerModel->getTypeErr())
+                empty($registerModel->getAddressErr()) 
             ) {
                 //Hash Password
                // $registerModel->setPassword(password_hash($registerModel->getPassword(), PASSWORD_DEFAULT));
@@ -97,7 +90,6 @@ class Customers extends Controller
         $_SESSION['customer_id'] = $customer->id;
         $_SESSION['customer_name'] = $customer->name;
         $_SESSION['customer_address'] = $customer->address;
-        $_SESSION['customer_type'] = $customer->type;
         //header('location: ' . URLROOT . 'pages');
         redirect('pages');
     }
@@ -108,7 +100,6 @@ class Customers extends Controller
         unset($_SESSION['customer_id']);
         unset($_SESSION['customer_name']);
         unset($_SESSION['customer_address']);
-        unset($_SESSION['customer_type']);
         session_destroy();
         redirect('customers/OldCust');
     }
