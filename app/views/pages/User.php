@@ -13,8 +13,8 @@ class User extends View
     <form action="$action" method="post">
     EOT
     ?>
-    <a class="wrapper3" href="<?php echo URLROOT . 'customers/NewCust'; ?>">New Custromer</a>
-    <a class="wrapper2" href="<?php echo URLROOT . 'customers/OldCust'; ?>">Old Custromer</a>
+    <a class="wrapper3" href="<?php echo URLROOT . 'customers/NewCust'; ?>">New Customer</a>
+    <a class="wrapper2" href="<?php echo URLROOT . 'customers/OldCust'; ?>">Old Customer</a>
     <?php
     <<<EOT
     </form>

@@ -9,8 +9,6 @@ class NewCustModel extends CustomerModel
     protected $address;
     protected $addressErr;
 
-    protected $type;
-    protected $typeErr;
 
     public function __construct()
     {
@@ -20,9 +18,6 @@ class NewCustModel extends CustomerModel
 
         $this->address = "";
         $this->addressErr = "";
-
-        $this->type = "";
-        $this->typeErr = "";
     }
 
     public function getName()
@@ -64,32 +59,12 @@ class NewCustModel extends CustomerModel
         $this->addressErr = $addressErr;
     }
 
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    public function getTypeErr()
-    {
-        return $this->typeErr;
-    }
-
-    public function setTypeErr($typeErr)
-    {
-        $this->typeErr = $typeErr;
-    }
     public function signup()
     {
-        $this->dbh->query("INSERT INTO customer (`name`, `phone_number`, `address`, `type`) VALUES(:uname, :phone_number, :addr, :utype)");
+        $this->dbh->query("INSERT INTO customer (`name`, `phone_number`, `address`) VALUES(:uname, :phone_number, :addr)");
         $this->dbh->bind(':uname', $this->name);
         $this->dbh->bind(':phone_number', $this->phone_number);
         $this->dbh->bind(':addr', $this->address);
-        $this->dbh->bind(':utype', $this->type);
         return $this->dbh->execute();
     }
 }

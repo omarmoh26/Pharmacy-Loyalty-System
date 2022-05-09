@@ -33,7 +33,6 @@ EOT;
     $this->printName();
     $this->printPhone_number();
     $this->printAddress();
-    $this->printType();
     $text = <<<EOT
     <div class="form-group">
     <div class="cols-sm-10">
@@ -74,14 +73,6 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
     $this->printInput('textarea', 'address', $val, $err, $valid);
-  }
-  private function printType()
-  {
-    $val = $this->model->getType();
-    $err = $this->model->getTypeErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'type', $val, $err, $valid);
   }
 
   private function printInput($type, $fieldName, $val, $err, $valid)
