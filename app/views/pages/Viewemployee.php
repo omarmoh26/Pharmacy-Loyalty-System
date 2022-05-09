@@ -14,48 +14,53 @@ class Viewemployee extends View
       $action = URLROOT . 'pages/Admin';
       $text = <<<EOT
       <form action="$action" method="post">
-      
-      
+           
       EOT;
       ?>
-      <div class="containn">
+
+<div class="containn">
+    <form action="" method="post">
+    <button type='submit' name='viewemp' class='btn'>View Employees</button>
+    <button type='submit' name='viewcust' class='btn'>View Customers</button>
+    </form>
+
         <div class="container bootstrap snippets bootdey">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="main-box no-header clearfix">
                         <div class="main-box-body clearfix">
                             <div class="table-responsive">
-                                <table class="table user-list">
-                                    <thead>
-                                        <tr>
-                                        <th><span>User</span></th>
-                                        <th><span>Created</span></th>
-                                        <th class="text-center"><span>Status</span></th>
-                                        <th><span>Email</span></th>
-                                        <th>&nbsp;</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
-                                                <a href="#" class="user-link">Full name 1</a>
-                                                <span class="user-subhead">Member</span>
-                                            </td>
-                                            <td>2013/08/12</td>
-                                            <td class="text-center">
-                                                <span class="label label-default">pending</span>
-                                            </td>
-                                            <td>
-                                                <a href="#">marlon@brando.com</a>
+                                        <table class="table user-list">
+                                <?php
+                                $conn=new Database();
+                                if(isset($_POST['viewemp']))
+                                { 
+                                    $conn->query('select * from users where type=2');	
+                                    $userRecord = $conn->single();
+                                    while($row=$conn->rowCount()){
+                                        ?>
+                                        <thead>
+                                            <tr>
+                                                <th><span>Name</span></th>
+                                                <th><span>Username</span></th>
+                                                <th>&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <span class="user-head"><?php echo $row['name'] ?></span>
+                                                </td>
+                                                <td>
+                                                <span class="user-head"></span>
                                             </td>
                                             <td style="width: 20%;">
-                                                <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
-                                                    <span class="fa-stack">
-                                                        <i class="fa fa-square fa-stack-2x"></i>
-                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                                </a>
+                                                    <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
+                                                        <span class="fa-stack">
+                                                            <i class="fa fa-square fa-stack-2x"></i>
+                                                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                                        </span>
+                                                    </a>
                                                 <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
@@ -65,6 +70,55 @@ class Viewemployee extends View
                                             </td>
                                         </tr>
                                     </tbody>
+                                    <?php
+                                    }
+                                }
+                                if(isset($_POST['viewcust']))
+                                {
+                                    ?>
+                                        <thead>
+                                            <tr>
+                                                <th><span>ID</span></th>
+                                                <th><span>Name</span></th>
+                                                <th><span>Phone Number</span></th>
+                                                <th><span>Address</span></th>
+                                                <th>&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                   dqdqwdqw
+                                                </td>
+                                                <td>
+                                                    11111111111
+                                                </td>
+                                                <td>
+                                                    domqdoimwq kqwdnmoiwq dqwijdmowiqmd wiodjmwqiodjio
+                                                </td>
+                                                <td style="width: 20%;">
+                                                    <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
+                                                        <span class="fa-stack">
+                                                            <i class="fa fa-square fa-stack-2x"></i>
+                                                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                                        </span>
+                                                    </a>
+                                                <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>">
+                                                    <span class="fa-stack">
+                                                        <i class="fa fa-square fa-stack-2x"></i>
+                                                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                <?php
+                                }
+                                ?>
+                                    
                                 </table>
                             </div>
                         </div>
