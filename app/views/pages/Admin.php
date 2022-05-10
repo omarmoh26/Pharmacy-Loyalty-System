@@ -14,8 +14,9 @@ class Admin extends View
     ?>
     <a class="wrapper2" href="<?php echo URLROOT . 'pages/Viewemployee'; ?>">view users</a>
     <a class="wrapper3" href="<?php echo URLROOT . 'pages/Addemployee'; ?>">add employees</a>
-    <a class="wrapper4" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">edit Account</a>
-    <a class="wrapper5" href="<?php echo URLROOT . 'pages/Deleteaccount'; ?>"> delete Account</a>
+    <a class="wrapper4" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Account</a>
+    <a class="wrapper5" href="<?php echo URLROOT . 'pages/products'; ?>">products</a>
+
     <?php
     <<<EOT
     </form>

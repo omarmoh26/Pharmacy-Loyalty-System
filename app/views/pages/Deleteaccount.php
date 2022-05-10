@@ -1,5 +1,5 @@
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Deleteemployee.css"></head>
-<a class="back" href="<?php echo URLROOT . 'pages/Admin'; ?>">Back</a>
+<a class="back" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Back</a>
 
 <?php
 class Deleteaccount extends View
