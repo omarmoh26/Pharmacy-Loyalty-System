@@ -55,7 +55,7 @@ class Users extends Controller
         $view = new Register($this->getModel(), $this);
         $view->output();
     }
-    public function Addemployee()
+    public function addemployee()
     {
         $AddemployeeModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

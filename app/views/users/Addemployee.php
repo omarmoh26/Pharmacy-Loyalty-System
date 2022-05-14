@@ -15,7 +15,7 @@ class Addemployee extends view
 
   private function printForm()
   {
-    $action = URLROOT . 'users/Addemployee';
+    $action = URLROOT . 'users/addemployee';
     $text = <<<EOT
 
     <div class="container">
