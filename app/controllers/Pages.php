@@ -51,14 +51,6 @@ class Pages extends Controller
         $AdminView->output();
     }
 
-    public function Addemployee()
-    {
-        $viewPath = VIEWS_PATH . 'users/Addemployee.php';
-        require_once $viewPath;
-        $AdminView = new Addemployee($this->getModel(), $this);
-        $AdminView->output();
-    }
-
     public function Deleteemployee()
     {
         $viewPath = VIEWS_PATH . 'pages/Deleteemployee.php';
