@@ -181,4 +181,12 @@ class Users extends Controller
     {
         return isset($_SESSION['user_id']);
     }
+    
+    public function Viewemployee()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Viewemployee.php';
+        require_once $viewPath;
+        $View = new Viewemployee($this->getModel(), $this);
+        $View->output();
+    }
 }

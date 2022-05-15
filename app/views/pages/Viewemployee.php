@@ -11,7 +11,7 @@ class Viewemployee extends View
   
       require APPROOT . '/views/inc/header.php';
       
-      $action = URLROOT . 'pages/Admin';
+      $action = URLROOT . 'users/viewemployee';
       $text = <<<EOT
       <form action="$action" method="post">
            

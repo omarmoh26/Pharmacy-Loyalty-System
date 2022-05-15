@@ -59,13 +59,6 @@ class Pages extends Controller
         $AdminView->output();
     }
 
-    public function Viewemployee()
-    {
-        $viewPath = VIEWS_PATH . 'pages/Viewemployee.php';
-        require_once $viewPath;
-        $AdminView = new Viewemployee($this->getModel(), $this);
-        $AdminView->output();
-    }
 
     public function Deleteaccount()
     {

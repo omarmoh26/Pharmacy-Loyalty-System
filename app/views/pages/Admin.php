@@ -12,7 +12,7 @@ class Admin extends View
     <form action="$action" method="post">
     EOT
     ?>
-    <a class="wrapper2" href="<?php echo URLROOT . 'pages/Viewemployee'; ?>">view users</a>
+    <a class="wrapper2" href="<?php echo URLROOT . 'users/Viewemployee'; ?>">view users</a>
     <a class="wrapper3" href="<?php echo URLROOT . 'users/Addemployee'; ?>">add employees</a>
     <a class="wrapper4" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Account</a>
     <a class="wrapper5" href="<?php echo URLROOT . 'pages/products'; ?>">products</a>
