@@ -123,4 +123,11 @@ class Pages extends Controller
         $AdminView = new Deleteproduct($this->getModel(), $this);
         $AdminView->output();
     }
+    public function viewcustomers()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Viewcustomer.php';
+        require_once $viewPath;
+        $AdminView = new Viewcustomer($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
