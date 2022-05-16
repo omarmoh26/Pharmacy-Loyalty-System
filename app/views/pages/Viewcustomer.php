@@ -36,19 +36,17 @@ class Viewcustomer extends View
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    1
-                                                </td>
-                                                <td>
-                                                   dqdqwdqw
-                                                </td>
-                                                <td>
-                                                    11111111111
-                                                </td>
-                                                <td>
-                                                    domqdoimwq kqwdnmoiwq dqwijdmowiqmd wiodjmwqiodjio
-                                                </td>
+                                        <?php 
+                                        $result=$this->model->getAllCustomers();
+
+                                        while($row=mysqli_fetch_array($result)){
+                                            ?>
+                                                <tr>
+                                                <td><?php echo $row['id'] ?></td>
+                                                <td><?php echo $row['name'] ?></td>
+                                                <td><?php echo $row['phone_number'] ?></td>
+                                                <td><?php echo $row['address'] ?></td>
+                                                
                                                 <td style="width: 20%;">
                                                     <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>">
                                                         <span class="fa-stack">
@@ -64,6 +62,7 @@ class Viewcustomer extends View
                                                 </a>
                                             </td>
                                         </tr>
+                                        <?php } ?>
                                     </tbody>
                                
                                     
