@@ -52,32 +52,6 @@ class Customers extends Controller
     public function oldCust()
     {
         $userModel = $this->getModel();
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //process form
-            $userModel->setPhone_number(trim($_POST['phone_number']));
-
-            //validate login form
-            if (empty($userModel->getPhone_number())) {
-                $userModel->setPhone_numberErr('Please enter a Phone Number');
-            } elseif (!($userModel->Phone_numberExist($_POST['phone_number']))) {
-                $userModel->setPhone_numberErr('No phone number found');
-            }
-
-            // If no errors
-            if (
-                empty($userModel->getPhone_numberErr())
-            ) {
-                //Check login is correct
-                $loggedUser = $userModel->login();
-                if ($loggedUser) {
-                    //create related session variables
-                    $this->createCustSession($loggedUser);
-                    die('Success log in User');
-                } else {
-                    $userModel->setPasswordErr('Password is not correct');
-                }
-            }
-        }
         // Load form
         //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
         $viewPath = VIEWS_PATH . 'pages/Customers/OldCust.php';
