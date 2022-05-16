@@ -1,29 +1,174 @@
-<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Admin.css"></head>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Viewemployee.css"></head>
+<a class="back" href="<?php echo URLROOT . 'pages/Admin'; ?>">Back</a>
+<a class="leftbar" href="<?php echo URLROOT . 'pages/Addproducts'; ?>">add products</a>
+<a class="leftbar2" href="<?php echo URLROOT . 'pages/Addoptions'; ?>">add options</a>
+<a class="leftbar3" href="<?php echo URLROOT . 'pages/Addvalues'; ?>">add values</a>
+
 <?php
 class products extends View
 {
-  public function output()
-  {
-
-    require APPROOT . '/views/inc/header.php';
-    $action = URLROOT . 'pages/Admin';
-    
-    $text = <<<EOT
-    <form action="$action" method="post">
-    EOT
-    ?>
-    <a class="wrapper2" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Add products</a>
-    <a class="wrapper3" href="<?php echo URLROOT . 'pages/Addemployee'; ?>">Add options</a>
-    <a class="wrapper4" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Add values</a>
-    <a class="wrapper5" href="<?php echo URLROOT . 'pages/Viewemployee'; ?>">Delete products</a>
-
-    <?php
-    <<<EOT
-    </form>
   
-    EOT;
-    echo $text;
-    require APPROOT . '/views/inc/footer.php';
-  }
-}
+    public function output()
+    {
+  
+      require APPROOT . '/views/inc/header.php';
+      
+      $action = URLROOT . 'users/viewemployee';
+      $text = <<<EOT
+      <form action="$action" method="post">
+           
+      EOT;
 ?>
+
+<div class="containn">
+        <div class="container bootstrap snippets bootdey">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-box no-header clearfix">
+                        <div class="main-box-body clearfix">
+                            <div class="table-responsive">
+                                  <table class="table user-list">
+                                        <thead>
+                                          <tr>
+                                          <th><span>Product</span></th>
+                                          <th><span>Price</span></th>
+                                          <th><span>Quantity</span></th>
+                                          <th>&nbsp;</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td>
+                                                  <span class="user-head">Product1</span>
+                                                  <br>
+                                                  <span class="user-subhead">local</span>
+                                              </td>
+                                              <td>15.8</td>
+                                              <td>2</td>
+                                             
+                                              <td style="width: 30%;">
+                                                  
+                                                  <a href="#" class="table-link text-info">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-plus-square fa-stack-2x"style="color:#00ef54;"></i>
+                                                      </span>
+                                                  </a>
+                                                  <a href="#" class="table-link text-info">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
+                                                      </span>
+                                                  </a>
+                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteproduct'; ?>">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-square fa-stack-2x"></i>
+                                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                      </span>
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <span class="user-head">Product1</span>
+                                                  <br>
+                                                  <span class="user-subhead">local</span>
+                                              </td>
+                                              <td>15.8</td>
+                                              <td>2</td>
+                                             
+                                              <td style="width: 30%;">
+                                                  
+                                                  <a href="#" class="table-link text-info">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-plus-square fa-stack-2x"style="color:#00ef54;"></i>
+                                                      </span>
+                                                  </a>
+                                                  <a href="#" class="table-link text-info">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
+                                                      </span>
+                                                  </a>
+                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteproduct'; ?>">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-square fa-stack-2x"></i>
+                                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                      </span>
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <span class="user-head">Product1</span>
+                                                  <br>
+                                                  <span class="user-subhead">local</span>
+                                              </td>
+                                              <td>15.8</td>
+                                              <td>2</td>
+                                             
+                                              <td style="width: 30%;">
+                                                  
+                                                  <a href="#" class="table-link text-info">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-plus-square fa-stack-2x"style="color:#00ef54;"></i>
+                                                      </span>
+                                                  </a>
+                                                  <a href="#" class="table-link text-info">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
+                                                      </span>
+                                                  </a>
+                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteproduct'; ?>">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-square fa-stack-2x"></i>
+                                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                      </span>
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <span class="user-head">Product1</span>
+                                                  <br>
+                                                  <span class="user-subhead">local</span>
+                                              </td>
+                                              <td>15.8</td>
+                                              <td>2</td>
+                                             
+                                              <td style="width: 30%;">
+                                                  
+                                                  <a href="#" class="table-link text-info">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-plus-square fa-stack-2x"style="color:#00ef54;"></i>
+                                                      </span>
+                                                  </a>
+                                                  <a href="#" class="table-link text-info">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
+                                                      </span>
+                                                  </a>
+                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteproduct'; ?>">
+                                                      <span class="fa-stack">
+                                                          <i class="fa fa-square fa-stack-2x"></i>
+                                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                      </span>
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+      <?php
+      <<<EOT
+      </form>
+    
+      EOT;
+      echo $text;
+      require APPROOT . '/views/inc/footer.php';
+    }    
+  }

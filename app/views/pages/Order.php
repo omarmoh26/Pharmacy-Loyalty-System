@@ -83,7 +83,7 @@ class Order extends View
                                                           <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
                                                       </span>
                                                   </a>
-                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>">
+                                                  <a class="table-link danger" href="#">
                                                       <span class="fa-stack">
                                                           <i class="fa fa-square fa-stack-2x"></i>
                                                           <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -112,7 +112,7 @@ class Order extends View
                                                           <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
                                                       </span>
                                                   </a>
-                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>">
+                                                  <a class="table-link danger" href="#">
                                                       <span class="fa-stack">
                                                           <i class="fa fa-square fa-stack-2x"></i>
                                                           <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -141,7 +141,7 @@ class Order extends View
                                                           <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
                                                       </span>
                                                   </a>
-                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>">
+                                                  <a class="table-link danger" href="#">
                                                       <span class="fa-stack">
                                                           <i class="fa fa-square fa-stack-2x"></i>
                                                           <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -170,7 +170,7 @@ class Order extends View
                                                           <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
                                                       </span>
                                                   </a>
-                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>">
+                                                  <a class="table-link danger" href="#">
                                                       <span class="fa-stack">
                                                           <i class="fa fa-square fa-stack-2x"></i>
                                                           <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -199,7 +199,7 @@ class Order extends View
                                                           <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
                                                       </span>
                                                   </a>
-                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>">
+                                                  <a class="table-link danger" href="#">
                                                       <span class="fa-stack">
                                                           <i class="fa fa-square fa-stack-2x"></i>
                                                           <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -228,7 +228,7 @@ class Order extends View
                                                           <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
                                                       </span>
                                                   </a>
-                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>">
+                                                  <a class="table-link danger" href="#">
                                                       <span class="fa-stack">
                                                           <i class="fa fa-square fa-stack-2x"></i>
                                                           <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -257,7 +257,7 @@ class Order extends View
                                                           <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
                                                       </span>
                                                   </a>
-                                                  <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>">
+                                                  <a class="table-link danger" href="#">
                                                       <span class="fa-stack">
                                                           <i class="fa fa-square fa-stack-2x"></i>
                                                           <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
