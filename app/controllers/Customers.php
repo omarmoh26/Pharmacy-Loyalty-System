@@ -35,7 +35,7 @@ class Customers extends Controller
                 if ($registerModel->signup()) {
                     //header('location: ' . URLROOT . 'users/login');
                     flash('register_success', 'You have registered successfully');
-                    redirect('customers/OldCust');//change
+                    redirect('Customers/oldcust');//change
                 } else {
                     die('Error in sign up');
                 }
@@ -43,11 +43,12 @@ class Customers extends Controller
         }
         // Load form
         //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
-        $viewPath = VIEWS_PATH . 'customers/NewCust.php';
+        $viewPath = VIEWS_PATH . 'pages/Customers/NewCust.php';
         require_once $viewPath;
         $view = new NewCust($this->getModel(), $this);
         $view->output();
     }
+
     public function oldCust()
     {
         $userModel = $this->getModel();
@@ -79,7 +80,7 @@ class Customers extends Controller
         }
         // Load form
         //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
-        $viewPath = VIEWS_PATH . 'customers/OldCust.php';
+        $viewPath = VIEWS_PATH . 'pages/Customers/OldCust.php';
         require_once $viewPath;
         $view = new OldCust($userModel, $this);
         $view->output();
@@ -101,7 +102,7 @@ class Customers extends Controller
         unset($_SESSION['customer_name']);
         unset($_SESSION['customer_address']);
         session_destroy();
-        redirect('customers/OldCust');
+        redirect('pages/Customers/OldCust');
     }
 
     public function isLoggedIn()

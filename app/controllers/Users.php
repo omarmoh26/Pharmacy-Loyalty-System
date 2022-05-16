@@ -104,7 +104,7 @@ class Users extends Controller
         }
         // Load form
         //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
-        $viewPath = VIEWS_PATH . 'users/Addemployee.php';
+        $viewPath = VIEWS_PATH . 'pages/Employees/Addemployee.php';
         require_once $viewPath;
         $view = new Addemployee($this->getModel(), $this);
         $view->output();

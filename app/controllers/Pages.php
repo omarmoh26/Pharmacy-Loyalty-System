@@ -37,7 +37,7 @@ class Pages extends Controller
 
     public function Order()
     {
-        $viewPath = VIEWS_PATH . 'pages/Order.php';
+        $viewPath = VIEWS_PATH . 'pages/Orders/Order.php';
         require_once $viewPath;
         $AdminView = new Order($this->getModel(), $this);
         $AdminView->output();
@@ -45,7 +45,7 @@ class Pages extends Controller
 
     public function Checkout()
     {
-        $viewPath = VIEWS_PATH . 'pages/Checkout.php';
+        $viewPath = VIEWS_PATH . 'pages/Orders/Checkout.php';
         require_once $viewPath;
         $AdminView = new Checkout($this->getModel(), $this);
         $AdminView->output();
@@ -53,7 +53,7 @@ class Pages extends Controller
 
     public function Deleteemployee()
     {
-        $viewPath = VIEWS_PATH . 'pages/Deleteemployee.php';
+        $viewPath = VIEWS_PATH . 'pages/Employees/Deleteemployee.php';
         require_once $viewPath;
         $AdminView = new Deleteemployee($this->getModel(), $this);
         $AdminView->output();
@@ -62,7 +62,7 @@ class Pages extends Controller
 
     public function Deleteaccount()
     {
-        $viewPath = VIEWS_PATH . 'pages/Deleteaccount.php';
+        $viewPath = VIEWS_PATH . 'pages/Account/Deleteaccount.php';
         require_once $viewPath;
         $AdminView = new Deleteaccount($this->getModel(), $this);
         $AdminView->output();
@@ -94,7 +94,7 @@ class Pages extends Controller
 
     public function Editemployee()
     {
-        $viewPath = VIEWS_PATH . 'pages/Editemployee.php';
+        $viewPath = VIEWS_PATH . 'pages/Employees/Editemployee.php';
         require_once $viewPath;
         $AdminView = new Editemployee($this->getModel(), $this);
         $AdminView->output();

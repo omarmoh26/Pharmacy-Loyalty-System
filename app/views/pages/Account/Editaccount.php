@@ -16,7 +16,7 @@ class Editaccount extends View
     ?>
     <a class="wrapper2" href="<?php echo URLROOT . 'pages/Editname'; ?>">Edit name</a>
     <a class="wrapper3" href="<?php echo URLROOT . 'pages/Editpassword'; ?>">Edit password</a>
-    <a class="wrapper4" href="<?php echo URLROOT . 'pages/Deleteaccount'; ?>"> delete Account</a>
+    <a class="wrapper4" href="<?php echo URLROOT . 'pages/Account/Deleteaccount'; ?>"> delete Account</a>
 
 
     <?php
