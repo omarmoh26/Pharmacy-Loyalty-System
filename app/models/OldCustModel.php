@@ -4,17 +4,14 @@ class OldCustModel extends CustomerModel
 {
     public  $title = 'Old Customer Page';
 
-    public function login()
+    public function getAllCustomers()
     {
-        $this->dbh->query('select * from customer where phone_number= :phone');
-        $this->dbh->bind(':phone', $this->phone_number);
-
-        $record = $this->dbh->single();
-
-        if($record > 0) {
-            return $record;
-        } else {
-            return false; 
-        }
+        $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
+        $sql="SELECT * FROM customer";
+        $result = mysqli_query($conn,$sql);	
+        if (!$result)
+            trigger_error("<h1 style='color:red;'>fatal error in executing query</h1>",E_USER_WARNING);
+        else
+            return $result;
     }
 }
