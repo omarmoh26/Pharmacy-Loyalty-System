@@ -107,4 +107,20 @@ class Pages extends Controller
         $AdminView = new products($this->getModel(), $this);
         $AdminView->output();
     }
+
+    public function addproducts()
+    {
+        $viewPath = VIEWS_PATH . 'pages/products/Addproducts.php';
+        require_once $viewPath;
+        $AdminView = new Addproducts($this->getModel(), $this);
+        $AdminView->output();
+    }
+
+    public function deleteproduct()
+    {
+        $viewPath = VIEWS_PATH . 'pages/products/Deleteproduct.php';
+        require_once $viewPath;
+        $AdminView = new Deleteproduct($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
