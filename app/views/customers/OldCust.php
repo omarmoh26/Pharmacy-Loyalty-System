@@ -13,7 +13,7 @@ class OldCust extends view
 
   private function printForm()
   {
-    $action = URLROOT . 'customers/oldcust';
+    $action = URLROOT . 'pages/Order';
     ?>
     <a class="back" href="<?php echo URLROOT . 'pages/User'; ?>">Back</a>
     <?php
