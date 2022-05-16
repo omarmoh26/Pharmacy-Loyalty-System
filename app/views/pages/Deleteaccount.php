@@ -23,7 +23,7 @@ class Deleteaccount extends View
                 <p1>Are you sure you want to delete this Account?</p1>
             </div>
         </div>
-        <a class="cancel" href="<?php echo URLROOT . 'pages/Admin'; ?>">Cancel</a>
+        <a class="cancel" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Cancel</a>
       <?php
       <<<EOT
       </form>

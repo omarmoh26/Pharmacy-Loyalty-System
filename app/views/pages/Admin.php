@@ -13,9 +13,8 @@ class Admin extends View
     EOT
     ?>
     <a class="wrapper2" href="<?php echo URLROOT . 'users/Viewemployee'; ?>">view users</a>
-    <a class="wrapper3" href="<?php echo URLROOT . 'users/Addemployee'; ?>">add employees</a>
-    <a class="wrapper4" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Account</a>
-    <a class="wrapper5" href="<?php echo URLROOT . 'pages/products'; ?>">products</a>
+    <a class="wrapper3" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Account</a>
+    <a class="wrapper4" href="<?php echo URLROOT . 'pages/products'; ?>">products</a>
 
     <?php
     <<<EOT
