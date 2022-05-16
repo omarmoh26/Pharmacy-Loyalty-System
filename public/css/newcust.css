@@ -11,8 +11,8 @@ a{
     color:rgb(249, 249, 249);
     height: 80px;
     padding:10px 5px 20px 10px;
-    top:260px;
-    left:595px;
+    top:300px;
+    left:40%;
     font-size:40px;
     border-style: solid;
     border-radius: 20px;
@@ -20,6 +20,7 @@ a{
     border-style: none;
     text-transform: capitalize;
     animation: color-transition 5s infinite;
+    text-align: center;
 
   }
   .wrapper2 {
@@ -31,13 +32,14 @@ a{
     height: 80px;
     padding:10px 5px 20px 10px;
     top:400px;
-    left:600px;
+    left:40.5%;
     font-size:40px;
     border-style: solid;
     border-radius: 20px;
     font-weight: bold;
     border-style: none;
     text-transform: capitalize;
+    text-align: center;
 
     animation: color-transition 5s infinite;
 

@@ -11,7 +11,9 @@ p {
   margin: 0 !important;
 }
 .main{
-  margin-top: 25px;
+  position:fixed;
+  top: 170px;
+  left: 500px;
 }
 h1
 {
@@ -114,4 +116,35 @@ align-items: left;
   background-color:rgb(0, 45, 63);
   text-decoration: none;
 
+}
+.sitename
+{
+  position: fixed;
+  width:350;
+  color:rgb(0, 0, 0);
+  background:none;
+  height: 80px;
+  padding:10px 0px 0px 0px;
+  top:0px;
+  left:25px;
+  font-size:50px;
+  border-style: solid;
+  border-radius: 20px;
+  font-weight: bold;
+  border-style: none;
+  text-transform: capitalize;
+  text-align:center;
+  font-family: Arial, Helvetica, sans-serif;;
+
+}
+.containerlogin {
+position: fixed;
+left: 600px;
+top: 150px;
+}
+
+.namee{
+  position: fixed;
+  right: 25px;
+  top:25px;
 }

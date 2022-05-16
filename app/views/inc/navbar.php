@@ -1,32 +1,28 @@
-  <div class="container-fluid">
-    <a class="new" href="<?php echo URLROOT . 'public'; ?>"><?php echo SITENAME; ?></a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      
-		 <li class="nav-item dropdown">
-       <div class="new2">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <?php if (isset($_SESSION['user_id'])) {
-              echo $_SESSION['user_name'];
-            } else {
-              echo 'User';
-            }
-            ?>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <?php if (isset($_SESSION['user_id'])) : ?>
-              <li><a class="dropdown-item" href="../users/logout">Logout</a></li>
-            <?php else : ?>
-              <li><a class="dropdown-item" href="<?php echo URLROOT . 'users/login'; ?>">Login</a></li>
-              <li><a class="dropdown-item" href="<?php echo URLROOT . 'users/register'; ?>">Sign Up</a></li>
+<?php
+if (isset($_SESSION['user_id'])) {
+?>
 
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-            <?php endif; ?>
-          </ul>
-        </li>
-
-      </ul>
+  <div class="namee">
+    <div class="dropdown">
+      <a  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <?php echo $_SESSION['user_name']; ?>
+        <span class="fa-stack">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="../users/logout">Logout</a></li>
+      </div>
     </div>
   </div>
+  <h1 class="sitename"><?php echo SITENAME; ?></h1>
+
+<?php
+} else {
+?>
+  <h1 class="sitename"><?php echo SITENAME; ?></h1>
+
+<?php
+}
+?>

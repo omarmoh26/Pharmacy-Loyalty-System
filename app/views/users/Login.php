@@ -17,7 +17,7 @@ class Login extends view
     $registerUrl = URLROOT . 'users/register';
 
     $text = <<<EOT
-    <div class="container">
+    <div class="containerlogin">
 		<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
@@ -35,7 +35,12 @@ EOT;
     $text = <<<EOT
     <div class="form-group">
     <div class="cols-sm-10">
-          <input type="submit" value="Login" class="form-control btn btn-lg btn-primary btn-block" >
+    <div class="col">
+    <input type="submit" value="Login" class="form-control btn btn-lg btn-primary btn-block">
+  </div>
+  <div class="col">
+    <a href="$registerUrl" class="form-control btn btn-lg btn-block">New User, Sign up</a>
+  </div>
           </div>
           <div class="message" id="message_name">
           </div>
