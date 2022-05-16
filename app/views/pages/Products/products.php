@@ -1,9 +1,8 @@
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Viewemployee.css"></head>
+<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Viewusers.css"></head>
 <a class="back" href="<?php echo URLROOT . 'pages/Admin'; ?>">Back</a>
 <a class="leftbar" href="<?php echo URLROOT . 'pages/Addproducts'; ?>">add products</a>
-<a class="leftbar2" href="<?php echo URLROOT . 'pages/Addoptions'; ?>">add options</a>
-<a class="leftbar3" href="<?php echo URLROOT . 'pages/Addvalues'; ?>">add values</a>
+
 
 <?php
 class products extends View
@@ -14,7 +13,7 @@ class products extends View
   
       require APPROOT . '/views/inc/header.php';
       
-      $action = URLROOT . 'users/viewemployee';
+      $action = URLROOT . 'users/Viewusers';
       $text = <<<EOT
       <form action="$action" method="post">
            

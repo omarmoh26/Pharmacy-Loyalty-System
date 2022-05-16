@@ -10,7 +10,7 @@ class Deleteaccount extends View
   
       require APPROOT . '/views/inc/header.php';
       
-      $action = URLROOT . 'pages/Viewemployee';
+      $action = URLROOT . 'pages/Viewusers';
       $text = <<<EOT
       <form action="$action" method="post">
       

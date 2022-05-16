@@ -15,7 +15,7 @@ class Addproducts extends view
     
     private function printForm()
     {
-        $action = URLROOT . 'pages/Viewemployee';
+        $action = URLROOT . 'pages/Viewusers';
         $text = <<<EOT
 
     <div class="container">

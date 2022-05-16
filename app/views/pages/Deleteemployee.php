@@ -1,5 +1,5 @@
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Deleteemployee.css"></head>
-<a class="back" href="<?php echo URLROOT . 'users/Viewemployee'; ?>">Back</a>
+<a class="back" href="<?php echo URLROOT . 'users/Viewusers'; ?>">Back</a>
 
 <?php
 class Deleteemployee extends View
@@ -10,7 +10,7 @@ class Deleteemployee extends View
   
       require APPROOT . '/views/inc/header.php';
       
-      $action = URLROOT . 'pages/Viewemployee';
+      $action = URLROOT . 'pages/Viewusers';
       $text = <<<EOT
       <form action="$action" method="post">
       
@@ -22,7 +22,7 @@ class Deleteemployee extends View
           <div class="midtext">
           <p1>Are you sure you want to delete this user?</p1>
           </div>
-          <a class="cancel" href="<?php echo URLROOT . 'pages/Viewemployee'; ?>">Cancel</a>
+          <a class="cancel" href="<?php echo URLROOT . 'pages/Viewusers'; ?>">Cancel</a>
 
         </div>
       <?php

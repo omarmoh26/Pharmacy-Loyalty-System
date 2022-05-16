@@ -1,5 +1,5 @@
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css"></head>
-<a class="back" href="<?php echo URLROOT . 'users/Viewemployee'; ?>">Back</a>
+<a class="back" href="<?php echo URLROOT . 'users/Viewusers'; ?>">Back</a>
 
 <?php
 class Addemployee extends view
