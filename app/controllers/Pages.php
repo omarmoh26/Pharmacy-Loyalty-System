@@ -130,4 +130,11 @@ class Pages extends Controller
         $AdminView = new Viewcustomer($this->getModel(), $this);
         $AdminView->output();
     }
+    public function viewemployees()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Viewemployees.php';
+        require_once $viewPath;
+        $AdminView = new Viewemployees($this->getModel(), $this);
+        $AdminView->output();
+    }
 }

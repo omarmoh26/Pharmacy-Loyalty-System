@@ -20,8 +20,8 @@ class Viewusers extends View
 
 <div class="containn">
     <form action="" method="post">
-    <button type='submit' name='viewemp' class='btn'>View Employees</button>
-    <button type='submit' name='viewcust' class='btn'>View Customers</button>
+    <button type='button' name='viewemp' class='btn' onclick="window.location.href='http://localhost/mvc/public/user/Viewemployees' ">View Employees</button>
+    <button type='button' name='viewcust' class='btn' onclick="window.location.href='http://localhost/mvc/public/user/Viewcustomers' ">View Customers</button>
     </form>
 
         <div class="container bootstrap snippets bootdey">
