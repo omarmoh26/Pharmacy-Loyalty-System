@@ -7,7 +7,7 @@ class ViewemployeesModel extends UserModel
     public function getAllEmployees()
     {
         $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
-        $sql="SELECT * FROM users";
+        $sql="SELECT * FROM users where type != '1'";
         $result = mysqli_query($conn,$sql);	
         if (!$result)
             trigger_error("<h1 style='color:red;'>fatal error in executing query</h1>",E_USER_WARNING);
