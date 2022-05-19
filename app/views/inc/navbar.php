@@ -21,7 +21,6 @@ if (isset($_SESSION['user_id'])) {
 <?php
 } else {
 ?>
-  <h1 class="sitename"><?php echo SITENAME; ?></h1>
 
 <?php
 }
