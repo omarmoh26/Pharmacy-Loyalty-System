@@ -94,9 +94,7 @@ class Users extends Controller
                // $AddemployeeModel->setPassword(password_hash($AddemployeeModel->getPassword(), PASSWORD_DEFAULT));
 
                 if ($AddemployeeModel->signup()) {
-                    //header('location: ' . URLROOT . 'users/login');
-                    flash('Adding employee', 'You have Added an employee successfully');
-                    redirect('pages/Admin');
+                    redirect('pages/Viewemployees');
                 } else {
                     die('Error in sign up');
                 }
