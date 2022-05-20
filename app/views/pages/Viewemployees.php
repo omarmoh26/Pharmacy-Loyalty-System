@@ -28,7 +28,8 @@ class Viewemployees extends View
                                             <tr>
                                                 <th><span>ID</span></th>
                                                 <th><span>Name</span></th>
-                                                <th><span>Username</span></th>                                                <th>&nbsp;</th>
+                                                <th><span>Username</span></th>
+                                                <th><span>Type</span></th>                                                <th>&nbsp;</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -41,8 +42,10 @@ class Viewemployees extends View
                                                 <td><?php echo $row['id'] ?></td>
                                                 <td><?php echo $row['name'] ?></td>
                                                 <td><?php echo $row['username'] ?></td>
+                                                <td><?php echo $row['type'] ?></td>
+
                                                 <td style="width: 20%;">
-                                                    <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>?id=<?php echo $row['id'] ?>">
+                                                    <a class="table-link text-info" href="<?php echo URLROOT . 'users/Editemployee'; ?>?id=<?php echo $row['id'] ?>">
                                                         <span class="fa-stack">
                                                             <i class="fa fa-square fa-stack-2x"></i>
                                                             <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>

@@ -14,6 +14,7 @@ class Login extends view
   private function printForm()
   {
     $action = URLROOT . 'users/login';
+    
     $registerUrl = URLROOT . 'users/register';
 
     $text = <<<EOT

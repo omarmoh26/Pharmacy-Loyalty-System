@@ -1,5 +1,4 @@
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css"></head>
-<a class="back" href="<?php echo URLROOT . 'users/Viewusers'; ?>">Back</a>
 
 <?php
 class Editemployee extends view
@@ -15,7 +14,7 @@ class Editemployee extends view
     
     private function printForm()
     {
-        $action = URLROOT . 'pages/Viewusers';
+        $action = URLROOT . 'users/Editemployee';
         $text = <<<EOT
 
     <div class="container">
@@ -31,12 +30,13 @@ EOT;
     echo $text;
     $this->printName();
     $this->printUsername();
-    $this->printPassword();
-    $this->printConfirmPassword();
+    $this->printID();
+    // $this->printPassword();
+    // $this->printConfirmPassword();
     $text = <<<EOT
     <div class="form-group">
     <div class="cols-sm-10">
-          <input type="submit" value="Register" class="form-control btn btn-lg btn-primary btn-block">
+          <input type="submit" value="Apply Changes" class="form-control btn btn-lg btn-primary btn-block" >
           </div>
           <div class="message" id="message_name">
           </div>
@@ -49,7 +49,8 @@ EOT;
 
   private function printName()
   {
-    $val = $this->model->getName();
+    $id = $_GET['id'];
+    $val = $this->model->getEmployeeName($id);
     $err = $this->model->getNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -57,48 +58,60 @@ EOT;
   }
   private function printUsername()
   {
-    $val = $this->model->getUsername();
+    $id = $_GET['id'];
+    $val = $this->model->getEmployeeUserName($id);
     $err = $this->model->getUsernameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
     $this->printInput('text', 'username', $val, $err, $valid);
   }
-
-  private function printPassword()
+  private function printID()
   {
-    $val = $this->model->getPassword();
-    $err = $this->model->getPasswordErr();
+    $val = $id = $_GET['id'];
+    $err = $this->model->getUsernameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('password', 'password', $val, $err, $valid);
+    $this->printInput('hidden', 'id', $val, $err, $valid);
   }
-  private function printConfirmPassword()
-  {
-    $val = $this->model->getConfirmPassword();
-    $err = $this->model->getConfirmPasswordErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('password', 'confirm_password', $val, $err, $valid);
-  }
 
   private function printInput($type, $fieldName, $val, $err, $valid)
   {
     $label = str_replace("_", " ", $fieldName);
     $label = ucwords($label);
-    $text = <<<EOT
-    <div class="form-group">
-						<div class="cols-sm-10">
-							<div class="input-group">
-							
-      <label for="$fieldName"> $label:</label>
-      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
-      <span class="invalid-feedback">$err</span>
-      </div>
-      <div class="message" id="message_mail">
-      </div>
-    </div>
-  </div>
-EOT;
-    echo $text;
+    if($fieldName!="id"){
+      $text = <<<EOT
+          <div class="form-group">
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                  
+            <label for="$fieldName"> $label:</label>
+            <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="">
+            <span class="invalid-feedback">$err</span>
+            </div>
+            <div class="message" id="message_mail">
+            </div>
+          </div>
+        </div>
+      EOT;
+          echo $text;
+    }
+    else{
+      $text = <<<EOT
+          <div class="form-group">
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                  
+            <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="">
+            <span class="invalid-feedback">$err</span>
+            </div>
+            <div class="message" id="message_mail">
+            </div>
+          </div>
+        </div>
+      EOT;
+          echo $text;
+    }
+    
   }
 }
