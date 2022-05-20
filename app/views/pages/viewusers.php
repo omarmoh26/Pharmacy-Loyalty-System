@@ -1,7 +1,6 @@
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Viewusers.css"></head>
-<a class="back" href="<?php echo URLROOT . 'pages/Admin'; ?>">Back</a>
-<a class="leftbar" href="<?php echo URLROOT . 'users/Addemployee'; ?>">add employees</a>
+
 <?php
 class Viewusers extends View
 {

@@ -38,8 +38,12 @@ if (isset($_SESSION['user_id'])) {
 
         <li>
 
-          <a href="#productsMangementSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Uroducts Mangement</a>
+          <a href="#productsMangementSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Products Mangement</a>
           <ul class="collapse list-unstyled" id="productsMangementSubmenu">
+
+            <li>
+              <a href="<?php echo URLROOT . 'pages/products'; ?>">View Products</a>
+            </li>
 
             <li>
               <a href="<?php echo URLROOT . 'pages/Addproducts'; ?>">Add Products</a>
