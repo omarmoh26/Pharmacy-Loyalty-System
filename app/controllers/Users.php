@@ -72,7 +72,7 @@ class Users extends Controller
             if (empty($AddemployeeModel->getUsername())) {
                 $AddemployeeModel->setUsernameerr('Please enter an a username');
             } elseif ($AddemployeeModel->usernameExist($_POST['username'])) {
-                $AddemployeeModel->setUsernameerr('username is already Addemployeeed');
+                $AddemployeeModel->setUsernameerr('username is already taken');
             }
             if (empty($AddemployeeModel->getPassword())) {
                 $AddemployeeModel->setPasswordErr('Please enter a password');
