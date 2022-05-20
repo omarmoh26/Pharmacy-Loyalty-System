@@ -1,5 +1,4 @@
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css"></head>
-<a class="back" href="<?php echo URLROOT . 'users/Viewusers'; ?>">Back</a>
 
 <?php
 class Addemployee extends view
@@ -36,7 +35,7 @@ EOT;
     $text = <<<EOT
     <div class="form-group">
     <div class="cols-sm-10">
-          <input type="submit" value="Register" class="form-control btn btn-lg btn-primary btn-block">
+          <input type="submit" value="Add" class="form-control btn btn-lg btn-primary btn-block">
           </div>
           <div class="message" id="message_name">
           </div>

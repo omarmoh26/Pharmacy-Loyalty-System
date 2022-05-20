@@ -72,7 +72,7 @@ class Users extends Controller
             if (empty($AddemployeeModel->getUsername())) {
                 $AddemployeeModel->setUsernameerr('Please enter an a username');
             } elseif ($AddemployeeModel->usernameExist($_POST['username'])) {
-                $AddemployeeModel->setUsernameerr('username is already Addemployeeed');
+                $AddemployeeModel->setUsernameerr('username is already taken');
             }
             if (empty($AddemployeeModel->getPassword())) {
                 $AddemployeeModel->setPasswordErr('Please enter a password');
@@ -94,9 +94,7 @@ class Users extends Controller
                // $AddemployeeModel->setPassword(password_hash($AddemployeeModel->getPassword(), PASSWORD_DEFAULT));
 
                 if ($AddemployeeModel->signup()) {
-                    //header('location: ' . URLROOT . 'users/login');
-                    flash('Adding employee', 'You have Added an employee successfully');
-                    redirect('pages/Admin');
+                    redirect('pages/Viewemployees');
                 } else {
                     die('Error in sign up');
                 }
