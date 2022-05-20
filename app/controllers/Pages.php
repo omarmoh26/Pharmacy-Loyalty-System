@@ -92,13 +92,7 @@ class Pages extends Controller
         $AdminView->output();
     }
 
-    public function Editemployee()
-    {
-        $viewPath = VIEWS_PATH . 'pages/Employees/Editemployee.php';
-        require_once $viewPath;
-        $AdminView = new Editemployee($this->getModel(), $this);
-        $AdminView->output();
-    }
+   
 
     public function products()
     {

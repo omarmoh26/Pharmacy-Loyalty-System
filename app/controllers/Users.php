@@ -187,4 +187,41 @@ class Users extends Controller
         $View = new Viewusers($this->getModel(), $this);
         $View->output();
     }
+     public function Editemployee()
+    {
+        $EditemployeeModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //process form
+            $EditemployeeModel->setId(trim($_POST['id']));
+            $EditemployeeModel->setName(trim($_POST['name']));
+            $EditemployeeModel->setUsername(trim($_POST['username']));
+
+            if (empty($EditemployeeModel->getName())) {
+                $EditemployeeModel->setNameErr('Please enter a name');
+            }
+            //validate login form
+            if (empty($EditemployeeModel->getUsername())) {
+                $EditemployeeModel->setUsernameerr('Please enter a Username');
+            } elseif (!($EditemployeeModel->usernameExist($_POST['username']))) {
+                $EditemployeeModel->setUsernameerr('No user found');
+            }
+
+            // If no errors
+            if (
+                empty($EditemployeeModel->getUsernameerr()) &&
+                empty($EditemployeeModel->getnameerr())
+            ) {
+                //Check login is correct
+                if ($EditemployeeModel->ApplyEdit()) {
+                    redirect('pages/Viewemployees');
+                } else {
+                    die('Error in sign up');
+                }
+            }
+        }
+        $viewPath = VIEWS_PATH . 'pages/Employees/Editemployee.php';
+        require_once $viewPath;
+        $AdminView = new Editemployee($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
