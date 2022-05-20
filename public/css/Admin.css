@@ -1,6 +1,124 @@
-.containz
-{
+.containz {
     position: fixed;
-    right:200px;
-    top:300px;
-}
+    right: 295px;
+    top: 320px;
+  }
+  .cardd {
+    display: inline-block;
+    position: fixed;
+    left: 300px;
+    top: 25px;
+    width: 220px;
+    min-width: 220px;
+    height: 250px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    margin: 30px;
+  }
+  .cardd2 {
+    display: inline-block;
+    position: fixed;
+    left: 530px;
+    top: 25px;
+    width: 220px;
+    min-width: 220px;
+    height: 250px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    margin: 30px;
+  }
+  .cardd3 {
+    display: inline-block;
+    position: fixed;
+    left: 760px;
+    top: 25px;
+    width: 220px;
+    min-width: 220px;
+    height: 250px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    margin: 30px;
+  }
+  .cardd4 {
+    display: inline-block;
+    position: fixed;
+    left: 990px;
+    top: 25px;
+    width: 220px;
+    min-width: 220px;
+    height: 250px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    margin: 30px;
+  }
+  
+  .cardd-profile-img {
+    height: 70%;
+    width: 100%;
+  }
+  
+  .cardd-description-bk {
+    background-image: linear-gradient(0deg, #2B2E4A, #0C7B93);
+    border-radius: 30px;
+    position: absolute;
+    top: 55%;
+    left: -5px;
+    height: 65%;
+    width: 108%;
+    transform: skew(19deg, -9deg);
+
+  }
+  
+  .cardd-description {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    font-size: 40px;
+    left: 20px;
+    bottom: 18%;
+  }
+  
+  .cardd-btn {
+    position: absolute;
+    color: #fff;
+    width: 50%;
+    right: 50px;
+    bottom: 10px;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    border-radius:25px;
+    text-align: center;
+  }
+  
+  .cardd-btn a {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+  }
+  .fonn{
+      color: #fff;
+      text-align: center;
+  }
+  
+  @keyframes color-transition {
+    0% {
+      background-image-color: #2671fd;
+      border-color: #2671fd;
+    }
+    33% {
+      background-image-color: rgb(31, 144, 189);
+      border-color: rgb(31, 144, 189);
+    }
+    66% {
+      background-image-color: #6a64c0;
+      border-color: #6a64c0;
+    }
+    100% {
+      background-image-color: #2671fd;
+      border-color: #2671fd;
+    }
+  }

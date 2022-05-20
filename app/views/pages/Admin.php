@@ -1,5 +1,7 @@
 <head>
   <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Admin.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 </head>
 <?php
 class Admin extends View
@@ -44,17 +46,17 @@ class Admin extends View
           var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             title: {
-              text: "Company Revenue by Year"
+              text: "Revenue by month"
             },
             axisY: {
-              title: "Revenue in USD",
+              title: "Revenue in Egyptian pound",
               valueFormatString: "#0,,.",
               suffix: "mn",
               prefix: "$"
             },
             data: [{
               type: "spline",
-              markerSize: 5,
+              markerSize: 10,
               xValueFormatString: "YYYY",
               yValueFormatString: "$#,##0.##",
               xValueType: "dateTime",
@@ -67,9 +69,62 @@ class Admin extends View
         }
       </script>
 
-      <div id="chartContainer" style="height: 470px; width: 1000px;"></div>
+      <div id="chartContainer" style="height: 450px; width: 910px;"></div>
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </div>
+
+    <div class="first cardd">
+      <img class="cardd-profile-img" src="http://localhost/mvc/public/Order.jpg" alt="">
+      <div class="cardd-description-bk"></div>
+
+      <div class="cardd-description">
+        <div class="fonn">3213213</div>
+      </div>
+      <div class="cardd-btn">
+        <a href="#">Orders</a>
+      </div>
+    </div>
+    
+    <div class="sec cardd2">
+      <img class="cardd-profile-img" src="http://localhost/mvc/public/emp.jpg" alt="">
+      <div class="cardd-description-bk"></div>
+
+      <div class="cardd-description">
+        <div class="fonn">231</div>
+      </div>
+
+      <div class="cardd-btn">
+        <a href="<?php echo URLROOT; ?>pages/Viewemployees">Employees</a>
+      </div>
+    </div>
+
+    <div class="thrd cardd3">
+      <img class="cardd-profile-img" src="http://localhost/mvc/public/prod.jpg" alt="">
+      <div class="cardd-description-bk"></div>
+
+      <div class="cardd-description">
+        <div class="fonn">323</div>
+      </div>
+
+      <div class="cardd-btn">
+        <a href="<?php echo URLROOT; ?>pages/products">Products</a>
+      </div>
+    </div>
+
+    <div class="frth cardd4">
+      <img class="cardd-profile-img" src="http://localhost/mvc/public/stat.jpg" alt="">
+      <div class="cardd-description-bk"></div>
+
+      <div class="cardd-description">
+        <div class="fonn">3213</div>
+      </div>
+
+      <div class="cardd-btn">
+        <a href="#">Revenue</a>
+      </div>
+    </div>
+
+
 <?php
     <<<EOT
     </form>
