@@ -32,15 +32,12 @@ EOT;
     echo $text;
     $this->printUsername();
     $this->printPassword();
-
+    
     $text = <<<EOT
     <div class="form-group">
     <div class="cols-sm-10">
     <div class="col">
     <input type="submit" value="Login" class="form-control btn btn-lg btn-primary btn-block">
-  </div>
-  <div class="col">
-    <a href="$registerUrl" class="form-control btn btn-lg btn-block">New User, Sign up</a>
   </div>
           </div>
           <div class="message" id="message_name">
