@@ -19,6 +19,9 @@ body{
 .table a.table-link.danger {
     color: #e74c3c;
 }
+.table a.table-link.order {
+    color: #e7b73c;
+}
 .label {
     border-radius: 3px;
     font-size: 0.875em;

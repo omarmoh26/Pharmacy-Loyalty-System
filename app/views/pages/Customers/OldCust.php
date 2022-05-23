@@ -1,7 +1,6 @@
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Viewusers.css"></head>
-<a class="back" href="<?php echo URLROOT . 'pages/User'; ?>">Back</a>
-<a class="leftbar" href="<?php echo URLROOT . 'users/Addemployee'; ?>">add employees</a>
+
 <?php
 class OldCust extends view
 {
@@ -58,6 +57,12 @@ class OldCust extends view
                                                         <span class="fa-stack">
                                                             <i class="fa fa-square fa-stack-2x"></i>
                                                             <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="table-link order" href="<?php echo URLROOT . 'pages/Order'; ?>?id=<?php echo $row['id'] ?>">
+                                                        <span class="fa-stack">
+                                                            <i class="fa fa-square fa-stack-2x"></i>
+                                                            <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
                                                         </span>
                                                     </a>
                                                 </td>
