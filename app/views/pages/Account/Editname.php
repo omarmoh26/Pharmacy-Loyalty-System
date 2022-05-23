@@ -1,5 +1,4 @@
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css"></head>
-<a class="back" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Back</a>
 
 <?php
 class Editname extends view

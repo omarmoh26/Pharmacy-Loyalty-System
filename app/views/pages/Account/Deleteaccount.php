@@ -1,5 +1,4 @@
 <head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Deleteemployee.css"></head>
-<a class="back" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Back</a>
 
 <?php
 class Deleteaccount extends View
@@ -10,7 +9,7 @@ class Deleteaccount extends View
   
       require APPROOT . '/views/inc/header.php';
       
-      $action = URLROOT . 'pages/Viewusers';
+      $action = URLROOT . 'users/logout';
       $text = <<<EOT
       <form action="$action" method="post">
       
@@ -18,12 +17,12 @@ class Deleteaccount extends View
       
       EOT;
       ?>
-        <div class="wrapper">
+        <div class="w">
             <div class="midtext2">
                 <p1>Are you sure you want to delete this Account?</p1>
             </div>
         </div>
-        <a class="cancel" href="<?php echo URLROOT . 'pages/Editaccount'; ?>">Cancel</a>
+        <a class="cancel" href="<?php echo URLROOT . 'pages/Admin'; ?>">Cancel</a>
       <?php
       <<<EOT
       </form>

@@ -159,7 +159,7 @@ class Users extends Controller
         $_SESSION['type'] = $user->type;
         //header('location: ' . URLROOT . 'pages');
         if($user->type==2)
-            redirect('pages/User');
+            redirect('customers/oldcust');
         else if($user->type==1)
             redirect('pages/Admin');
         else

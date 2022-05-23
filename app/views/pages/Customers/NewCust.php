@@ -13,9 +13,6 @@ class NewCust extends view
   private function printForm()
   {
     $action = URLROOT . 'customers/newcust';
-    ?>
-    <a class="back" href="<?php echo URLROOT . 'pages/User'; ?>">Back</a>
-    <?php
     $text = <<<EOT
 
     <div class="container">
