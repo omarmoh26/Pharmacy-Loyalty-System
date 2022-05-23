@@ -53,19 +53,19 @@ class EditcustomerModel extends CustomerModel
 
     public function getaddress()
     {
-        return $this->name;
+        return $this->address;
     }
-    public function setaddress($name)
+    public function setaddress($address)
     {
-        $this->name = $name;
+        $this->address = $address;
     }
     public function getaddressErr()
     {
-        return $this->nameErr;
+        return $this->addressErr;
     }
-    public function setaddressErr($nameErr)
+    public function setaddressErr($addressErr)
     {
-        $this->nameErr = $nameErr;
+        $this->addressErr = $addressErr;
     }
 
     public function getcustomerName($id)

@@ -103,9 +103,9 @@ class Customers extends Controller
                 $EditcustomerModel->setPhone_numbererr('Please enter a Phone number');
 
             } 
-            elseif (!($EditcustomerModel->Phone_numberExist($_POST['phone_number']))) {
-                $EditcustomerModel->setPhone_numbererr('No Phone number found');
-            }
+            // elseif (!($EditcustomerModel->Phone_numberExist($_POST['phone_number']))) {
+            //     $EditcustomerModel->setPhone_numbererr('No Phone number found');
+            // }
 
             // If no errors
             if (
@@ -114,7 +114,7 @@ class Customers extends Controller
             ) {
                 //Check login is correct
                 if ($EditcustomerModel->ApplyCustEdit()) {
-                    redirect('pages/Customers/OldCust');
+                    redirect('customers/oldcust');
                 } else {
                     die('Error in sign up');
                 }

@@ -32,8 +32,6 @@ EOT;
   $this->printphone_number();
   $this->printaddress();
   $this->printID();
-  // $this->printPassword();
-  // $this->printConfirmPassword();
   $text = <<<EOT
   <div class="form-group">
   <div class="cols-sm-10">
