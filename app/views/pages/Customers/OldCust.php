@@ -47,7 +47,7 @@ class OldCust extends view
                                                 <td><?php echo $row['address'] ?></td>
                                                 
                                                 <td style="width: 20%;">
-                                                    <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Editemployee'; ?>?id=<?php echo $row['id'] ?>">
+                                                    <a class="table-link text-info" href="<?php echo URLROOT . 'customers/Editcustomer'; ?>?id=<?php echo $row['id'] ?>">
                                                         <span class="fa-stack">
                                                             <i class="fa fa-square fa-stack-2x"></i>
                                                             <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>

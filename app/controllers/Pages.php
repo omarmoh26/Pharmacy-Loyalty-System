@@ -131,4 +131,5 @@ class Pages extends Controller
         $AdminView = new Viewemployees($this->getModel(), $this);
         $AdminView->output();
     }
+    
 }

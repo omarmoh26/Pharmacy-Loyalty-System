@@ -223,5 +223,5 @@ class Users extends Controller
         require_once $viewPath;
         $AdminView = new Editemployee($this->getModel(), $this);
         $AdminView->output();
-    }
+    }  
 }

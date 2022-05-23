@@ -83,4 +83,46 @@ class Customers extends Controller
     {
         return isset($_SESSION['customer_id']);
     }
+    public function Editcustomer()
+    {
+        $EditcustomerModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //process form
+            $EditcustomerModel->setId(trim($_POST['id']));
+            $EditcustomerModel->setName(trim($_POST['name']));
+            $EditcustomerModel->setaddress(trim($_POST['address']));
+            $EditcustomerModel->setPhone_number(trim($_POST['phone_number']));
+
+
+            if (empty($EditcustomerModel->getName())) {
+                $EditcustomerModel->setNameErr('Please enter a name');
+            }
+            
+            //validate login form
+            if (empty($EditcustomerModel->getPhone_number())) {
+                $EditcustomerModel->setPhone_numbererr('Please enter a Phone number');
+
+            } 
+            elseif (!($EditcustomerModel->Phone_numberExist($_POST['phone_number']))) {
+                $EditcustomerModel->setPhone_numbererr('No Phone number found');
+            }
+
+            // If no errors
+            if (
+                empty($EditcustomerModel->getPhone_numbererr()) &&
+                empty($EditcustomerModel->getnameerr())
+            ) {
+                //Check login is correct
+                if ($EditcustomerModel->ApplyCustEdit()) {
+                    redirect('pages/Customers/OldCust');
+                } else {
+                    die('Error in sign up');
+                }
+            }
+        }
+        $viewPath = VIEWS_PATH . 'pages/Customers/Editcustomer.php';
+        require_once $viewPath;
+        $AdminView = new Editcustomer($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
