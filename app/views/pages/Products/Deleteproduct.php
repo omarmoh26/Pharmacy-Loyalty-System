@@ -17,7 +17,7 @@ class Deleteproduct extends View
       
       EOT;
       ?>
-        <div class="wrapper">
+        <div class="w">
             <div class="midtext2">
                 <p1>Are you sure you want to delete this product?</p1>
             </div>

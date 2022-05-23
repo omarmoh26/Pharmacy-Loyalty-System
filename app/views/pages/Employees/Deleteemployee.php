@@ -18,7 +18,7 @@ class Deleteemployee extends View
       
       EOT;
       ?>
-        <div class="wrapper">
+        <div class="w">
           <div class="midtext">
           <p1>Are you sure you want to delete this user?</p1>
           </div>

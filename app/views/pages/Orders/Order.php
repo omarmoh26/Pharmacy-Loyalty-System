@@ -16,14 +16,14 @@ class Order extends View
     <form action="$action" method="post">
     EOT
     ?>
-      <a class="wrapper2" href="<?php echo URLROOT . 'customers/OldCust'; ?>">Back</a>
-      <div class="wrapper">
+      <div class="w">
         
         <div class="left">
           <a class="checkout" href="<?php echo URLROOT . 'pages/Checkout'; ?>">Checkout</a>
           <input type="text" name="course" class="input-search" placeholder="Search For Products...">
+
           <div class="radio">
-        
+            
             <label class="rad-label">
               <input type="radio" class="rad-input" name="rad">
               <div class="rad-design"></div>
@@ -273,7 +273,7 @@ class Order extends View
                   </div>
                 </div>
 
-          <div class="Bask"><h1>BASKET</h1></div>
+          <div class="Bask"><h1>Ahmed's BASKET</h1></div>
           
           
           <div class="btext">

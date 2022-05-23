@@ -2,13 +2,13 @@ a{
   font-size:20px;
 }
 
-.wrapper{
+.w{
   position: fixed;
   height: 625px;
-  width:1490;
+  width:900;
   background-color:none;
   top:120px;
-  left:20px;
+  left:420px;
   border-radius: 20px;
 }
 .midtext{
@@ -19,7 +19,7 @@ top:250px;
 font-size: 60px;
 font-family:'Times New Roman', Times, serif;
 font-weight: bolder;
-color: black;
+color: rgb(0, 0, 0);
 background-color:rgba(255, 255, 255, 0.219);
 border-radius: 20px;
 padding: 10px;
@@ -29,12 +29,12 @@ text-transform: capitalize;
 .midtext2{
 
 position: fixed;
-left:150px;
+left:450px;
 top:250px;
-font-size: 60px;
+font-size: 40px;
 font-family:'Times New Roman', Times, serif;
 font-weight: bolder;
-color: black;
+color: rgb(0, 0, 0);
 background-color:rgba(255, 255, 255, 0.219);
 border-radius: 20px;
 padding: 10px;
@@ -44,7 +44,7 @@ text-transform: capitalize;
 .cancel {
     
   top:420px;
-  left:800px;
+  left:900px;
   position: fixed;
   width:200;
   background-color:rgb(0, 128, 255);
@@ -75,7 +75,7 @@ input[type=submit]{
   width:200;
   height: 80px;
   top:420px;
-  left:500px;
+  left:600px;
   background-color: rgb(0, 128, 255);
   border: none;
   color: white;

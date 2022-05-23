@@ -1,4 +1,4 @@
-.wrapper{
+.w{
     position: fixed;
     height: 625px;
     width:1490;
@@ -95,6 +95,7 @@
     font-size: 25px;
     text-decoration: none;
     font-weight: bold;
+    text-align: left;
 
 }
 .left
@@ -111,10 +112,11 @@
     position: fixed;
     color:rgb(0, 0, 0);
     top:140px;
-    left:1080px;
+    left:980px;
     font-size: 35px;
     text-decoration: none;
     font-weight: bold;
+    text-align: center;
 }
 
 .wrapper2 {
