@@ -1,7 +1,7 @@
 <head>
   <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Admin.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 </head>
 <?php
 class Admin extends View
@@ -46,20 +46,23 @@ class Admin extends View
           var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             title: {
-              text: "Revenue by month"
+              text: "Revenue by Year"
+            },
+            axisX: {
+              valueFormatString: "DD MMM",
+              interval: 1
             },
             axisY: {
               title: "Revenue in Egyptian pound",
               valueFormatString: "#0,,.",
-              suffix: "mn",
-              prefix: "$"
+              suffix: "k EGP",
             },
             data: [{
               type: "spline",
               markerSize: 10,
-              xValueFormatString: "YYYY",
-              yValueFormatString: "$#,##0.##",
               xValueType: "dateTime",
+              xValueFormatString: "MMMM",
+              yValueFormatString: "$#,##0.00",
               dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
             }]
           });
@@ -84,7 +87,7 @@ class Admin extends View
         <a href="#">Orders</a>
       </div>
     </div>
-    
+
     <div class="sec cardd2">
       <img class="cardd-profile-img" src="http://localhost/mvc/public/emp.jpg" alt="">
       <div class="cardd-description-bk"></div>
