@@ -195,6 +195,7 @@ class Users extends Controller
             $EditemployeeModel->setId(trim($_POST['id']));
             $EditemployeeModel->setName(trim($_POST['name']));
             $EditemployeeModel->setUsername(trim($_POST['username']));
+            
 
             if (empty($EditemployeeModel->getName())) {
                 $EditemployeeModel->setNameErr('Please enter a name');
@@ -202,9 +203,12 @@ class Users extends Controller
             //validate login form
             if (empty($EditemployeeModel->getUsername())) {
                 $EditemployeeModel->setUsernameerr('Please enter a Username');
-            } elseif (!($EditemployeeModel->usernameExist($_POST['username']))) {
-                $EditemployeeModel->setUsernameerr('No user found');
             }
+            // else if($EditemployeeModel->getUsername() != trim($_POST['username'])) {
+            //     if(!($EditemployeeModel->usernameExist($_POST['username']))){
+                    
+            //     }
+            // } 
 
             // If no errors
             if (

@@ -6,8 +6,6 @@ class EditemployeeModel extends UserModel
     protected $id;
     protected $name;
     protected $nameErr;
-    // protected $confirmPassword;
-    // protected $confirmPasswordErr;
     protected $type;
 
 
@@ -72,8 +70,12 @@ class EditemployeeModel extends UserModel
         $username = mysqli_fetch_assoc($result);	
         if (!$result)
             trigger_error("<h1 style='color:red;'>fatal error in executing query</h1>",E_USER_WARNING);
-        else
+        else{
+            $this->username=$username['username'];
             return $username['username'];
+        }
+
+            
     }
 
     public function ApplyEdit()

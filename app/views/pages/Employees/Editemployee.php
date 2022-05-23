@@ -67,7 +67,7 @@ EOT;
   }
   private function printID()
   {
-    $val = $id = $_GET['id'];
+    $val = $_GET['id'];
     $err = $this->model->getUsernameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
