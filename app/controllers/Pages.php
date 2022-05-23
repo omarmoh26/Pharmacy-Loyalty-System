@@ -119,7 +119,7 @@ class Pages extends Controller
     }
     public function viewcustomers()
     {
-        $viewPath = VIEWS_PATH . 'pages/Viewcustomer.php';
+        $viewPath = VIEWS_PATH . 'pages/Viewcustomers.php';
         require_once $viewPath;
         $AdminView = new Viewcustomer($this->getModel(), $this);
         $AdminView->output();
