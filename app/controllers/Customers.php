@@ -167,4 +167,12 @@ class Customers extends Controller
         $AdminView = new Editcustomer($this->getModel(), $this);
         $AdminView->output();
     }
+    public function Deletecustomer()
+    {   
+        redirect('customers/oldCust');
+        $viewPath = VIEWS_PATH . 'pages/Customers/Deletecustomer.php';
+        require_once $viewPath;
+        $AdminView = new Deletecustomer($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
