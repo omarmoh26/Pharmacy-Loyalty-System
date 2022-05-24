@@ -68,21 +68,15 @@ class Pages extends Controller
             if (empty($EditnameModel->getUsername())) {
                 $EditnameModel->setUsernameerr('Please enter a Username');
             }
-            // else if($EditnameModel->getUsername() != trim($_POST['username'])) {
-            //     if(!($EditnameModel->usernameExist($_POST['username']))){
-                    
-            //     }
-            // } 
 
-            // If no errors
             if (
                 empty($EditnameModel->getUsernameerr()) &&
                 empty($EditnameModel->getnameerr())
             ) {
                 
                 if ($EditnameModel->ApplyEdit()) {
-                    $_SESSION['user_id'] = $EditnameModel->getName();
-                    $_SESSION['user_name'] = $EditnameModel->getUsername();
+                    $_SESSION['user_name'] = $EditnameModel->getName();
+                    $_SESSION['user_username'] = $EditnameModel->getUsername();
                     redirect('pages/Admin');
                 } else {
                     die('Error in sign up');
