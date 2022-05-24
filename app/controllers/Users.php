@@ -215,11 +215,10 @@ class Users extends Controller
                 empty($EditemployeeModel->getUsernameerr()) &&
                 empty($EditemployeeModel->getnameerr())
             ) {
-                //Check login is correct
                 if ($EditemployeeModel->ApplyEdit()) {
                     redirect('pages/Viewemployees');
                 } else {
-                    die('Error in sign up');
+                    die('Error in Edit');
                 }
             }
         }
@@ -229,7 +228,8 @@ class Users extends Controller
         $AdminView->output();
     }  
     public function Deleteemployee()
-    {
+    {   
+        redirect('pages/Viewemployees');
         $viewPath = VIEWS_PATH . 'pages/Employees/Deleteemployee.php';
         require_once $viewPath;
         $AdminView = new Deleteemployee($this->getModel(), $this);
