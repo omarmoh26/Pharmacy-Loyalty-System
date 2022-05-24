@@ -51,7 +51,49 @@ class Pages extends Controller
         $AdminView->output();
     }
 
-    
+    public function Editname()
+    {
+        $EditnameModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //process form
+            $EditnameModel->setId(trim($_POST['id']));
+            $EditnameModel->setName(trim($_POST['name']));
+            $EditnameModel->setUsername(trim($_POST['username']));
+            
+
+            if (empty($EditnameModel->getName())) {
+                $EditnameModel->setNameErr('Please enter a name');
+            }
+            //validate login form
+            if (empty($EditnameModel->getUsername())) {
+                $EditnameModel->setUsernameerr('Please enter a Username');
+            }
+            // else if($EditnameModel->getUsername() != trim($_POST['username'])) {
+            //     if(!($EditnameModel->usernameExist($_POST['username']))){
+                    
+            //     }
+            // } 
+
+            // If no errors
+            if (
+                empty($EditnameModel->getUsernameerr()) &&
+                empty($EditnameModel->getnameerr())
+            ) {
+                
+                if ($EditnameModel->ApplyEdit()) {
+                    $_SESSION['user_id'] = $EditnameModel->getName();
+                    $_SESSION['user_name'] = $EditnameModel->getUsername();
+                    redirect('pages/Admin');
+                } else {
+                    die('Error in sign up');
+                }
+            }
+        }
+        $viewPath = VIEWS_PATH . 'pages/Account/Editname.php';
+        require_once $viewPath;
+        $AdminView = new Editname($this->getModel(), $this);
+        $AdminView->output();
+    }
 
 
     public function Deleteaccount()

@@ -56,7 +56,7 @@ if (isset($_SESSION['user_id'])) {
             <ul class="collapse list-unstyled" id="AccountSubmenu">
 
               <li>
-                <a href="<?php echo URLROOT . 'pages/Editname'; ?>">Edit Name</a>
+              <a href="<?php echo URLROOT . 'pages/Editname'; ?>?id=<?php echo $_SESSION['user_id'] ?>">Edit Name</a>
               </li>
 
               <li>
