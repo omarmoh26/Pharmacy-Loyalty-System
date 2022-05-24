@@ -112,13 +112,7 @@ class Pages extends Controller
         $AdminView->output();
     }
 
-    public function Editname()
-    {
-        $viewPath = VIEWS_PATH . 'pages/Account/Editname.php';
-        require_once $viewPath;
-        $AdminView = new Editname($this->getModel(), $this);
-        $AdminView->output();
-    }
+
 
     public function Editpassword()
     {
