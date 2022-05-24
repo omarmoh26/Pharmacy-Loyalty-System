@@ -87,15 +87,6 @@ class Pages extends Controller
     }
 
    
-
-    public function products()
-    {
-        $viewPath = VIEWS_PATH . 'pages/products/products.php';
-        require_once $viewPath;
-        $AdminView = new products($this->getModel(), $this);
-        $AdminView->output();
-    }
-
     public function addproducts()
     {
         $viewPath = VIEWS_PATH . 'pages/products/Addproducts.php';

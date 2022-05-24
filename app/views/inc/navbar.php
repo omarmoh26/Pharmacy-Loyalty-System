@@ -40,7 +40,7 @@ if (isset($_SESSION['user_id'])) {
             <ul class="collapse list-unstyled" id="productsMangementSubmenu">
 
               <li>
-                <a href="<?php echo URLROOT . 'pages/products'; ?>">View Products</a>
+                <a href="<?php echo URLROOT . 'products/viewproducts'; ?>">View Products</a>
               </li>
 
               <li>
