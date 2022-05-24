@@ -51,13 +51,13 @@ class Viewproducts extends View
 
 
                                                     <td style="width: 20%;">
-                                                        <a class="table-link text-info" href="<?php echo URLROOT . 'users/Editemployee'; ?>?id=<?php echo $row['id'] ?>">
+                                                        <a class="table-link text-info" href="#">
                                                             <span class="fa-stack">
                                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                                 <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                                                             </span>
                                                         </a>
-                                                        <a class="table-link danger" href="<?php echo URLROOT . 'products/Deleteproducts'; ?>?id=<?php echo $row['id'] ?>">
+                                                        <a class="table-link danger" href="<?php echo URLROOT . 'Products/deleteproduct'; ?>?id=<?php echo $row['id'] ?>">
                                                             <span class="fa-stack">
                                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                                 <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
