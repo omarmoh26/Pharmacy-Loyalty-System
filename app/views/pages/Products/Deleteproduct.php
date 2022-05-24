@@ -24,6 +24,7 @@ class Deleteproduct extends View
         </div>
         <a class="cancel" href="<?php echo URLROOT . 'pages/products'; ?>">Cancel</a>
       <?php
+      $this->model->DeleteProduct($_GET['id']);
       <<<EOT
       </form>
     
