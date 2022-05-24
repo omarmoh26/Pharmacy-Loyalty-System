@@ -228,4 +228,11 @@ class Users extends Controller
         $AdminView = new Editemployee($this->getModel(), $this);
         $AdminView->output();
     }  
+    public function Deleteemployee()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Employees/Deleteemployee.php';
+        require_once $viewPath;
+        $AdminView = new Deleteemployee($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
