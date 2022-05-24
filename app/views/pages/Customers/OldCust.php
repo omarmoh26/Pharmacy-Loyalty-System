@@ -53,7 +53,7 @@ class OldCust extends view
                                                             <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                                                         </span>
                                                     </a>
-                                                    <a class="table-link danger" href="<?php echo URLROOT . 'pages/Deleteemployee'; ?>?id=<?php echo $row['id'] ?>">
+                                                    <a class="table-link danger" href="<?php echo URLROOT . 'customers/Deletecustomer'; ?>?id=<?php echo $row['id'] ?>">
                                                         <span class="fa-stack">
                                                             <i class="fa fa-square fa-stack-2x"></i>
                                                             <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
