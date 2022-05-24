@@ -3,10 +3,9 @@ require_once 'UserModel.php';
 class EditnameModel extends UserModel
 {
     public  $title = 'User Registration Page';
+    protected $id;
     protected $name;
     protected $nameErr;
-    protected $confirmPassword;
-    protected $confirmPasswordErr;
     protected $type;
 
 
@@ -15,10 +14,16 @@ class EditnameModel extends UserModel
         parent::__construct();
         $this->name     = "";
         $this->nameErr = "";
-        $this->type=2;
+        $this->type=1;
+    }
 
-        $this->confirmPassword = "";
-        $this->confirmPasswordErr = "";
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     public function getName()
@@ -40,24 +45,6 @@ class EditnameModel extends UserModel
     {
         $this->nameErr = $nameErr;
     }
-
-    public function getConfirmPassword()
-    {
-        return $this->confirmPassword;
-    }
-    public function setConfirmPassword($confirmPassword)
-    {
-        $this->confirmPassword = $confirmPassword;
-    }
-
-    public function getConfirmPasswordErr()
-    {
-        return $this->confirmPasswordErr;
-    }
-    public function setConfirmPasswordErr($confirmPasswordErr)
-    {
-        $this->confirmPasswordErr = $confirmPasswordErr;
-    }
     public function getType()
     {
         return $this->type;
@@ -67,14 +54,38 @@ class EditnameModel extends UserModel
     {
         $this->type = $type;
     }
-
-    public function signup()
+    public function getAdminName($id)
     {
-        $this->dbh->query("INSERT INTO users (`name`, `username`, `password`, `type`) VALUES(:uname, :username, :pass, :utype)");
-        $this->dbh->bind(':uname', $this->name);
-        $this->dbh->bind(':username', $this->username);
-        $this->dbh->bind(':pass', $this->password);
-        $this->dbh->bind(':utype', $this->type);
-        return $this->dbh->execute();
+        $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
+        $sql="SELECT name FROM users where id='$id' limit 1";
+        $result=mysqli_query($conn,$sql);
+        $name = mysqli_fetch_assoc($result);
+        return $name['name'] ;
+    }
+    public function getAdminUserName($id)
+    {
+        $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
+        $sql="SELECT username FROM users where id='$id' limit 1";
+        $result=mysqli_query($conn,$sql);
+        $username = mysqli_fetch_assoc($result);	
+        if (!$result)
+            trigger_error("<h1 style='color:red;'>fatal error in executing query</h1>",E_USER_WARNING);
+        else{
+            $this->username=$username['username'];
+            return $username['username'];
+        }
+
+            
+    }
+
+    public function ApplyEdit()
+    {
+        $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
+        $sql="UPDATE users SET name='$this->name' , username='$this->username' WHERE id='$this->id' ";
+        $result=mysqli_query($conn,$sql);	
+        if (!$result)
+            trigger_error("<h1 style='color:red;'>fatal error in executing query</h1>",E_USER_WARNING);
+        else
+            return $result;
     }
 }
