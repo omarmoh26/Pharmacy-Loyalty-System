@@ -14,7 +14,7 @@ class Editpassword extends view
     
     private function printForm()
     {
-        $action = URLROOT . 'pages/Addemployee';
+        $action = URLROOT . 'pages/Editpassword';
         $text = <<<EOT
 
     <div class="container">
@@ -28,8 +28,10 @@ class Editpassword extends view
     <form action="$action"class="form-horizontal" method="post">
 EOT;
     echo $text;
-    $this->printPassword();
+    $this->printoldPassword();
+    $this->printnewPassword();
     $this->printConfirmPassword();
+    $this->printID();
     $text = <<<EOT
     <div class="form-group">
     <div class="cols-sm-10">
@@ -44,13 +46,22 @@ EOT;
     echo $text;
   }
 
-  private function printPassword()
+  private function printoldPassword()
   {
-    $val = $this->model->getPassword();
-    $err = $this->model->getPasswordErr();
+    $val = $this->model->getoldPassword();
+    $err = $this->model->getoldPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('password', 'password', $val, $err, $valid);
+    $this->printInput('password', 'oldpassword', $val, $err, $valid);
+  }
+
+  private function printnewPassword()
+  {
+    $val = $this->model->getnewPassword();
+    $err = $this->model->getnewPasswordErr();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('password', 'newpassword', $val, $err, $valid);
   }
   private function printConfirmPassword()
   {
@@ -60,25 +71,51 @@ EOT;
 
     $this->printInput('password', 'confirm_password', $val, $err, $valid);
   }
+  private function printID()
+  {
+    $val =  $_SESSION['user_id'];
+    $err = $this->model->getUsernameErr();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('hidden', 'id', $val, $err, $valid);
+  }
 
   private function printInput($type, $fieldName, $val, $err, $valid)
   {
     $label = str_replace("_", " ", $fieldName);
     $label = ucwords($label);
-    $text = <<<EOT
-    <div class="form-group">
-						<div class="cols-sm-10">
-							<div class="input-group">
-							
-      <label for="$fieldName"> $label:</label>
-      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
-      <span class="invalid-feedback">$err</span>
-      </div>
-      <div class="message" id="message_mail">
-      </div>
-    </div>
-  </div>
-EOT;
-    echo $text;
+    if($fieldName!="id"){
+      $text = <<<EOT
+          <div class="form-group">
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                  
+            <label for="$fieldName"> $label:</label>
+            <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="">
+            <span class="invalid-feedback">$err</span>
+            </div>
+            <div class="message" id="message_mail">
+            </div>
+          </div>
+        </div>
+      EOT;
+          echo $text;
+    }
+    else{
+      $text = <<<EOT
+          <div class="form-group">
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                  
+            <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="">
+            <span class="invalid-feedback">$err</span>
+            </div>
+            <div class="message" id="message_mail">
+            </div>
+          </div>
+        </div>
+      EOT;
+          echo $text;
+    }
   }
 }

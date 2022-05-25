@@ -4,42 +4,71 @@ require_once 'UserModel.php';
 class EditpasswordModel extends UserModel
 {
     public  $title = 'User Registration Page';
-    protected $name;
-    protected $nameErr;
+
+    protected $oldPassword;
+    protected $oldPasswordErr;
+
+    protected $newPassword;
+    protected $newPasswordErr;
+
     protected $confirmPassword;
     protected $confirmPasswordErr;
-    protected $type;
 
+    protected $id;
 
     public function __construct()
     {
         parent::__construct();
-        $this->name     = "";
-        $this->nameErr = "";
-        $this->type=2;
+        $this->oldPassword     = "";
+        $this->oldPasswordErr = "";
 
         $this->confirmPassword = "";
         $this->confirmPasswordErr = "";
     }
 
-    public function getName()
+    public function getId()
     {
-        return $this->name;
+        return $this->id;
+    }
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    
+    public function getoldPassword()
+    {
+        return $this->oldPassword;
+    }
+    public function setoldPassword($oldPassword)
+    {
+        $this->oldPassword = $oldPassword;
     }
 
-    public function setName($name)
+    public function getoldPasswordErr()
     {
-        $this->name = $name;
+        return $this->oldPasswordErr;
+    }
+    public function setoldPasswordErr($oldPasswordErr)
+    {
+        $this->oldPasswordErr = $oldPasswordErr;
     }
 
-    public function getNameErr()
+    public function getnewPassword()
     {
-        return $this->nameErr;
+        return $this->newPassword;
+    }
+    public function setnewPassword($newPassword)
+    {
+        $this->newPassword = $newPassword;
     }
 
-    public function setNameErr($nameErr)
+    public function getnewPasswordErr()
     {
-        $this->nameErr = $nameErr;
+        return $this->newPasswordErr;
+    }
+    public function setnewPasswordErr($newPasswordErr)
+    {
+        $this->newPasswordErr = $newPasswordErr;
     }
 
     public function getConfirmPassword()
@@ -59,23 +88,15 @@ class EditpasswordModel extends UserModel
     {
         $this->confirmPasswordErr = $confirmPasswordErr;
     }
-    public function getType()
+    public function newpass()
     {
-        return $this->type;
-    }
-
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    public function signup()
-    {
-        $this->dbh->query("INSERT INTO users (`name`, `username`, `password`, `type`) VALUES(:uname, :username, :pass, :utype)");
-        $this->dbh->bind(':uname', $this->name);
-        $this->dbh->bind(':username', $this->username);
-        $this->dbh->bind(':pass', $this->password);
-        $this->dbh->bind(':utype', $this->type);
-        return $this->dbh->execute();
+        // $id=$_SESSION['user_id'];
+        $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
+        $sql="UPDATE users SET password='$this->newPassword' WHERE id='$this->id' ";
+        $result=mysqli_query($conn,$sql);	
+        if (!$result)
+            trigger_error("<h1 style='color:red;'>fatal error in executing query</h1>",E_USER_WARNING);
+        else
+            return $result;
     }
 }
