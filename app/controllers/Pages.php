@@ -89,6 +89,62 @@ class Pages extends Controller
         $AdminView->output();
     }
 
+    public function Editpassword()
+    {
+        $EditpasswordModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $EditpasswordModel->setId(trim($_POST['id']));
+            $EditpasswordModel->setoldPassword($_SESSION['user_password']);
+            $EditpasswordModel->setnewPassword(trim($_POST['newpassword']));
+            $EditpasswordModel->setConfirmPassword(trim($_POST['confirm_password']));
+
+        if ($EditpasswordModel->getoldPassword() != $_POST['oldpassword']) {
+            $EditpasswordModel->setoldPasswordErr('Old password is wrong');
+        }
+        else{
+            $EditpasswordModel->setoldPassword(trim($_POST['oldpassword']));
+        }
+
+        if (empty($EditpasswordModel->getoldPassword())) {
+            $EditpasswordModel->setoldPasswordErr('Please enter an old password');
+        }
+
+        if (empty($EditpasswordModel->getnewPassword())) {
+            $EditpasswordModel->setnewPasswordErr('Please enter a new password');
+        } elseif (strlen($EditpasswordModel->getPassword()) < 4) {
+            $EditpasswordModel->setPasswordErr('Password must contain at least 4 characters');
+        }
+
+        if ($EditpasswordModel->getnewPassword() != $EditpasswordModel->getConfirmPassword()) {
+            $EditpasswordModel->setConfirmPasswordErr('Passwords do not match');
+        }
+
+        if (
+            empty($EditpasswordModel->getoldPasswordErr()) &&
+            empty($EditpasswordModel->getnewPasswordErr()) &&
+            empty($EditpasswordModel->getConfirmPasswordErr())
+        ) {
+            //Hash Password
+            // $registerModel->setPassword(password_hash($registerModel->getPassword(), PASSWORD_DEFAULT));
+
+            if ($EditpasswordModel->newpass()) {
+                $_SESSION['user_password'] = $EditpasswordModel->getnewPassword();
+                redirect('pages/Admin');
+            } else {
+                die('Error in sign up');
+            }
+        }
+    }
+
+        // Load form
+        //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
+        $viewPath = VIEWS_PATH . 'pages/Account/Editpassword.php';
+        require_once $viewPath;
+        $view = new Editpassword($EditpasswordModel, $this);
+        $view->output();
+    }
+
     
     public function Deleteaccount()
     {
