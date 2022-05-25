@@ -50,7 +50,7 @@ class Pages extends Controller
         $AdminView = new Checkout($this->getModel(), $this);
         $AdminView->output();
     }
-
+    
     public function Editname()
     {
         $EditnameModel = $this->getModel();
@@ -72,8 +72,8 @@ class Pages extends Controller
             if (
                 empty($EditnameModel->getUsernameerr()) &&
                 empty($EditnameModel->getnameerr())
-            ) {
-                
+                ) {
+                    
                 if ($EditnameModel->ApplyEdit()) {
                     $_SESSION['user_name'] = $EditnameModel->getName();
                     $_SESSION['user_username'] = $EditnameModel->getUsername();
@@ -89,7 +89,7 @@ class Pages extends Controller
         $AdminView->output();
     }
 
-
+    
     public function Deleteaccount()
     {
         $viewPath = VIEWS_PATH . 'pages/Account/Deleteaccount.php';
@@ -97,7 +97,7 @@ class Pages extends Controller
         $AdminView = new Deleteaccount($this->getModel(), $this);
         $AdminView->output();
     }
-
+    
     public function Editaccount()
     {
         $viewPath = VIEWS_PATH . 'pages/Account/Editaccount.php';
@@ -105,9 +105,9 @@ class Pages extends Controller
         $AdminView = new Editaccount($this->getModel(), $this);
         $AdminView->output();
     }
+    
 
-
-
+    
     public function Editpassword()
     {
         $viewPath = VIEWS_PATH . 'pages/Account/Editpassword.php';
@@ -116,7 +116,7 @@ class Pages extends Controller
         $AdminView->output();
     }
 
-   
+    
     public function addproducts()
     {
         $viewPath = VIEWS_PATH . 'pages/products/Addproducts.php';
@@ -140,5 +140,18 @@ class Pages extends Controller
         $AdminView = new Viewemployees($this->getModel(), $this);
         $AdminView->output();
     }
-    
+    public function searchform()
+    {
+        // $searchModel = $this->getModel();
+        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //     $searchModel->setInput(trim($_POST['input']));
+        // }
+
+        $viewPath = VIEWS_PATH . 'pages/Orders/searchform.php';
+        require_once $viewPath;
+        $AdminView = new searchform($this->getModel(), $this);
+        $AdminView->output();
+    }
+
 }
+
