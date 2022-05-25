@@ -157,6 +157,7 @@ class Users extends Controller
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_name'] = $user->name;
         $_SESSION['user_username'] = $user->username;
+        $_SESSION['user_password'] = $user->password;
         $_SESSION['type'] = $user->type;
         //header('location: ' . URLROOT . 'pages');
         if($user->type==2)
