@@ -18,27 +18,35 @@ class Admin extends View
 ?>
     <div class="containz">
       <?php
+      
+        // array("x" => 946665000000, "y" => 25, "label" => "Jan"),
+        // array("x" => 978287400000, "y" => 15, "label" => "Feb"),
+        // array("x" => 1009823400000, "y" => 25, "label" => "Mar"),
+        // array("x" => 1041359400000, "y" => 5, "label" => "Apr"),
+        // array("x" => 1072895400000, "y" => 10, "label" => "May"),
+        // array("x" => 1104517800000, "y" => 54, "label" => "Jun"),
+        // array("x" => 1136053800000, "y" => 20, "label" => "Jul"),
+        // array("x" => 1167589800000, "y" => 20, "label" => "Aug"),
+        // array("x" => 1199125800000, "y" => 20, "label" => "Sept"),
+        // array("x" => 1230748200000, "y" => 20, "label" => "Oct"),
+        // array("x" => 1262284200000, "y" => 20, "label" => "Nov"),
+        // array("x" => 1293820200000, "y" => 20, "label" => "Dec")
+      
 
       $dataPoints = array(
-        array("x" => 946665000000, "y" => 3289000),
-        array("x" => 978287400000, "y" => 3830000),
-        array("x" => 1009823400000, "y" => 2009000),
-        array("x" => 1041359400000, "y" => 2840000),
-        array("x" => 1072895400000, "y" => 2396000),
-        array("x" => 1104517800000, "y" => 1613000),
-        array("x" => 1136053800000, "y" => 1821000),
-        array("x" => 1167589800000, "y" => 2000000),
-        array("x" => 1199125800000, "y" => 1397000),
-        array("x" => 1230748200000, "y" => 2506000),
-        array("x" => 1262284200000, "y" => 6704000),
-        array("x" => 1293820200000, "y" => 5704000),
-        array("x" => 1325356200000, "y" => 4009000),
-        array("x" => 1356978600000, "y" => 3026000),
-        array("x" => 1388514600000, "y" => 2394000),
-        array("x" => 1420050600000, "y" => 1872000),
-        array("x" => 1451586600000, "y" => 2140000)
-      );
-
+        array("y" => 25, "label" => "Jan"),
+      array("y" => 15, "label" => "Feb"),
+      array("y" => 25, "label" => "Mar"),
+      array("y" => 5, "label" => "Apr"),
+      array("y" => 10, "label" => "May"),
+      array("y" => 54, "label" => "Jun"),
+      array("y" => 20, "label" => "Jul"),
+      array("y" => 20, "label" => "Aug"),
+      array("y" => 20, "label" => "Sept"),
+      array("y" => 20, "label" => "Oct"),
+      array("y" => 20, "label" => "Nov"),
+      array("y" => 20, "label" => "Dec")
+      )
       ?>
       <script>
         window.onload = function() {
@@ -49,7 +57,7 @@ class Admin extends View
               text: "Revenue by Year"
             },
             axisX: {
-              valueFormatString: "DD MMM",
+              valueFormatString: "DD-MMM-YYYY",
               interval: 1
             },
             axisY: {
@@ -57,7 +65,8 @@ class Admin extends View
               valueFormatString: "#0,,.",
               suffix: "k EGP",
             },
-            data: [{
+            data: [
+              {
               type: "spline",
               markerSize: 10,
               xValueType: "dateTime",
