@@ -49,7 +49,7 @@ EOT;
   
   private function printAdminName()
   {
-    $id =$_GET['id'];
+    $id =$_SESSION['user_id'];
     $val = $this->model->getAdminName($id);
     $err = $this->model->getNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
@@ -59,7 +59,7 @@ EOT;
   }
   private function printAdminUsername()
   {
-    $id =  $_GET['id'];
+    $id =  $_SESSION['user_id'];
     $val = $this->model->getAdminUserName($id);
     $err = $this->model->getUsernameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
@@ -68,7 +68,7 @@ EOT;
   }
   private function printID()
   {
-    $val =  $_GET['id'];
+    $val =  $_SESSION['user_id'];
     $err = $this->model->getUsernameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
