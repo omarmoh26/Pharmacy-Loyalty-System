@@ -96,14 +96,14 @@ class Pages extends Controller
 
             $EditpasswordModel->setId(trim($_POST['id']));
             $EditpasswordModel->setoldPassword($_SESSION['user_password']);
-            $EditpasswordModel->setnewPassword(trim($_POST['newpassword']));
+            $EditpasswordModel->setnewPassword(trim($_POST['new_password']));
             $EditpasswordModel->setConfirmPassword(trim($_POST['confirm_password']));
 
-        if ($EditpasswordModel->getoldPassword() != $_POST['oldpassword']) {
+        if ($EditpasswordModel->getoldPassword() != $_POST['old_password']) {
             $EditpasswordModel->setoldPasswordErr('Old password is wrong');
         }
         else{
-            $EditpasswordModel->setoldPassword(trim($_POST['oldpassword']));
+            $EditpasswordModel->setoldPassword(trim($_POST['old_password']));
         }
 
         if (empty($EditpasswordModel->getoldPassword())) {
@@ -162,15 +162,6 @@ class Pages extends Controller
         $AdminView->output();
     }
     
-
-    
-    public function Editpassword()
-    {
-        $viewPath = VIEWS_PATH . 'pages/Account/Editpassword.php';
-        require_once $viewPath;
-        $AdminView = new Editpassword($this->getModel(), $this);
-        $AdminView->output();
-    }
 
     
     public function addproducts()

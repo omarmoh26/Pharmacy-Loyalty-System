@@ -52,7 +52,7 @@ EOT;
     $err = $this->model->getoldPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('password', 'oldpassword', $val, $err, $valid);
+    $this->printInput('password', 'old_password', $val, $err, $valid);
   }
 
   private function printnewPassword()
@@ -61,7 +61,7 @@ EOT;
     $err = $this->model->getnewPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('password', 'newpassword', $val, $err, $valid);
+    $this->printInput('password', 'new_password', $val, $err, $valid);
   }
   private function printConfirmPassword()
   {
