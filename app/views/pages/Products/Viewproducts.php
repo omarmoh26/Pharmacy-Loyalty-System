@@ -46,7 +46,7 @@ class Viewproducts extends View
                                                     <td><?php echo $row['id']; ?></td>
                                                     <td><?php echo $row['name']; ?></td>
                                                     <td><?php echo $row['Price']; ?></td>
-                                                    <td><?php echo $row['Product_Type']; ?></td>
+                                                    <td><?php echo $row['Type']; ?></td>
 
 
 
