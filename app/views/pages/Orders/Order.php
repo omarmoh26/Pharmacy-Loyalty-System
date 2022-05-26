@@ -20,7 +20,13 @@ class Order extends View
         
         <div class="left">
           <a class="checkout" href="<?php echo URLROOT . 'pages/Checkout'; ?>">Checkout</a>
-          <input type="text" name="course" class="input-search" placeholder="Search For Products...">
+          <div class="container" style="max-width:50%;">
+        <div class="text-center mt-5mb-4">
+            <h2>PHP MySQL Live Search</h2>
+        </div>
+        <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Search ...">
+    </div>
+    <div id="searchresult"></div>
 
           <div class="radio">
             
@@ -296,3 +302,28 @@ class Order extends View
   }
 }
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#live_search").keyup(function() {
+
+                var input = $(this).val();
+                //alert(input);
+                
+                if (input != "") {
+                    $.ajax({
+
+                        url: "livesearch",
+                        method: "POST",
+                        data: {input: input},
+
+                        success: function(data) {
+                            $("#searchresult").html(data);
+                        }
+                    });
+                } 
+           
+            });
+        });
+    </script>

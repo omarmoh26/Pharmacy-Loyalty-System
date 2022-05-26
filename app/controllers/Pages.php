@@ -162,7 +162,13 @@ class Pages extends Controller
         $AdminView->output();
     }
     
-
+    public function livesearch()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Orders/livesearch.php';
+        require_once $viewPath;
+        $AdminView = new livesearch($this->getModel(), $this);
+        $AdminView->output();
+    }
     
     public function addproducts()
     {
