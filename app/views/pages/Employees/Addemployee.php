@@ -20,6 +20,8 @@ class Addemployee extends view
     $text = <<<EOT
 
     <div class="container">
+    <span id="demo"></span>
+              <br>
 		<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
@@ -27,7 +29,7 @@ class Addemployee extends view
 				</div>
 			</div> 
 			<div class="main-login main-center">
-    <form action="$action" name="myForm" class="form-horizontal" method="post" onsubmit="return(validate());">
+    <form action="$action" name="myForm" class="form-horizontal" method="post" >
 EOT;
     echo $text;
     $this->printName();
@@ -38,6 +40,7 @@ EOT;
     <div class="form-group">
     <div class="cols-sm-10">
           <input type="submit" value="Add" class="form-control btn btn-lg btn-primary btn-block">
+          
           </div>
           <div class="message" id="message_name">
           </div>
@@ -92,18 +95,20 @@ EOT;
 							<div class="input-group">
 							
       <label for="$fieldName"> $label:</label>
-      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
+      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" onkeyup="return(validate());">
       <span class="invalid-feedback">$err</span>
       </div>
       <div class="message" id="message_mail">
       </div>
     </div>
+
   </div>
 EOT;
     echo $text;
   }
 }
 ?>
+
 <script type="text/javascript">
   // Form validation code will come here.
   var pattern = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*.,?]).+$");
@@ -120,64 +125,57 @@ EOT;
 
     //////NAME
     if (document.myForm.name.value == "") {
-      alert("Please provide your name");
-      document.myForm.name.focus();
+      document.getElementById("demo").innerHTML ="Please provide your name" 
       return false;
     } 
     else if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
-      alert("name must contain letters only ");
-      document.myForm.name.focus();
+      document.getElementById("demo").innerHTML ="name must contain letters only"  
       return false;
     }
     //////USERNAME
 
 
     if (document.myForm.username.value == "") {
-      alert("Please provide your username");
-      document.myForm.username.focus();
+      document.getElementById("demo").innerHTML ="Please provide your username" 
       return false;
     } 
     else if (document.myForm.username.value.toUpperCase() == "ADMIN") {
-      alert("Username canot be admin");
-      document.myForm.username.focus();
+      document.getElementById("demo").innerHTML ="Username canot be admin "
       return false;
     }
     //////PASSWORD
     if (document.myForm.password.value == "") {
 
-      alert("Please enter a password");
-      document.myForm.password.focus();
+      document.getElementById("demo").innerHTML ="Please enter a password "
       return false;
     } 
     else if (document.myForm.password.value.length < 8) {
 
-      alert("Please enter an 8 characters password");
-      document.myForm.password.focus();
+      document.getElementById("demo").innerHTML ="Please enter an 8 characters password "
       return false;
     } 
     //////digit,uppercase,lowercase
     else if (!(upp.test(document.myForm.password.value))) {
-      alert("password must contain an uppercase letter");
-      document.myForm.password.focus();
+      document.getElementById("demo").innerHTML ="password must contain an uppercase letter "
       return false;
     }
     else if (!(loww.test(document.myForm.password.value))) {
-      alert("password must contain a lowercase letter");
-      document.myForm.password.focus();
+      document.getElementById("demo").innerHTML ="password must contain a lowercase letter "
       return false;
     }
     else if (!(digitt.test(document.myForm.password.value))) {
-      alert("password must contain an digit");
-      document.myForm.password.focus();
+      document.getElementById("demo").innerHTML ="password must contain a digit "
       return false;
     }
     //////
     else if (document.myForm.password.value != document.myForm.confirm_password.value) {
-      alert("Password doesnt match");
-      document.myForm.password.focus();
+      document.getElementById("demo").innerHTML ="Password don't match "
       return false;
     }
+    else{
+    document.getElementById("demo").innerHTML = "";
     return (true);
+    }
   }
   //-->
 </script>

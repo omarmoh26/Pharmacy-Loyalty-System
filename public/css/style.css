@@ -4,7 +4,7 @@ p {
 }
 .main{
   position:fixed;
-  top: 170px;
+  top: 70px;
   left: 500px;
 }
 h1
@@ -335,4 +335,40 @@ a.article:hover {
 {
     background-color: #001e6c;
     color: #001e6c;
+}
+#demo 
+{
+position:fixed;
+top:20;
+left:550;
+width:550px;
+height: 25px;
+color: rgb(255, 255, 255);
+font-size:20px;
+font-weight: bolder;
+border-radius: 20px;
+animation: color-transition2 5s infinite;
+text-align: center;
+text-transform: uppercase;
+margin-left: auto;
+margin-right: auto;
+text-indent: center;
+}
+@keyframes color-transition2 {
+  0% {
+    background-color: #2671fd;
+    border-color: #2671fd;
+  }
+  33% {
+    background-color: #bd2727;
+    border-color: #bd2727;
+  }
+  66% {
+    background-color: #791a1a;
+    border-color: #791a1a;
+  }
+  100% {
+    background-color: #2671fd;
+    border-color: #2671fd;
+  }
 }
