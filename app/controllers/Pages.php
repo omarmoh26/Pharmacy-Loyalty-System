@@ -193,18 +193,6 @@ class Pages extends Controller
         $AdminView = new Viewemployees($this->getModel(), $this);
         $AdminView->output();
     }
-    public function searchform()
-    {
-        // $searchModel = $this->getModel();
-        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //     $searchModel->setInput(trim($_POST['input']));
-        // }
-
-        $viewPath = VIEWS_PATH . 'pages/Orders/searchform.php';
-        require_once $viewPath;
-        $AdminView = new searchform($this->getModel(), $this);
-        $AdminView->output();
-    }
 
 }
 
