@@ -1,90 +1,86 @@
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Viewusers.css"></head>
+
+<head>
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Viewusers.css">
+</head>
 
 <?php
 class OldCust extends view
 {
-  
-  public function output()
-  {
 
-    require APPROOT . '/views/inc/header.php';
-    
-    $action = URLROOT . 'pages/Order';
-    $text = <<<EOT
+    public function output()
+    {
+
+        require APPROOT . '/views/inc/header.php';
+
+        $action = URLROOT . 'pages/Order';
+        $text = <<<EOT
     <form action="$action" method="post">
          
     EOT;
-    ?>
-
-<div class="containn">
-        <div class="container bootstrap snippets bootdey">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="main-box no-header clearfix">
-                        <div class="main-box-body clearfix">
-                            <div class="table-responsive">
-                                        <table class="table user-list">
-                                        <thead>
-                                            <tr>
-                                                <th><span>ID</span></th>
-                                                <th><span>Name</span></th>
-                                                <th><span>Phone Number</span></th>
-                                                <th><span>Address</span></th>
-                                                <th>&nbsp;</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php 
-                                        $result=$this->model->getAllCustomers();
-
-                                        while($row=mysqli_fetch_array($result)){
-                                            ?>
-                                                <tr>
-                                                <td><?php echo $row['id'] ?></td>
-                                                <td><?php echo $row['name'] ?></td>
-                                                <td><?php echo $row['phone_number'] ?></td>
-                                                <td><?php echo $row['address'] ?></td>
-                                                
-                                                <td style="width: 20%;">
-                                                    <a class="table-link text-info" href="<?php echo URLROOT . 'customers/Editcustomer'; ?>?id=<?php echo $row['id'] ?>">
-                                                        <span class="fa-stack">
-                                                            <i class="fa fa-square fa-stack-2x"></i>
-                                                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                                        </span>
-                                                    </a>
-                                                    <a class="table-link danger" href="<?php echo URLROOT . 'customers/Deletecustomer'; ?>?id=<?php echo $row['id'] ?>">
-                                                        <span class="fa-stack">
-                                                            <i class="fa fa-square fa-stack-2x"></i>
-                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                        </span>
-                                                    </a>
-                                                    <a class="table-link order" href="<?php echo URLROOT . 'pages/Order'; ?>?id=<?php echo $row['id'] ?>">
-                                                        <span class="fa-stack">
-                                                            <i class="fa fa-square fa-stack-2x"></i>
-                                                            <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                                                        </span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                        
-                                        
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+?>
+        <div class="container" style="max-width:50%;">
+            <input type="text" class="input-search" id="live_search" autocomplete="off" placeholder="Search For a Customer ">
         </div>
-    </div>    
-      <?php
-      <<<EOT
+        <div class="result">
+            <div id="searchresult"></div>
+        </div>
+
+<?php
+        <<<EOT
       </form>
     
       EOT;
-      echo $text;
-      require APPROOT . '/views/inc/footer.php';
+        echo $text;
+        require APPROOT . '/views/inc/footer.php';
     }
 }
+?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $("#live_search").keyup(function() {
+
+            var input = $(this).val();
+            //alert(input);
+
+
+            $.ajax({
+
+                url: "livesearchcust",
+                method: "POST",
+                data: {
+                    input: input
+                },
+
+                success: function(data) {
+                    $("#searchresult").html(data);
+                }
+            });
+
+
+        });
+        $("#live_search").ready(function() {
+
+            var input = $(this).val();
+            //alert(input);
+
+
+            $.ajax({
+
+                url: "livesearchcust",
+                method: "POST",
+                data: {
+                    input: input
+                },
+
+                success: function(data) {
+                    $("#searchresult").html(data);
+                }
+            });
+
+
+        });
+    });
+</script>
