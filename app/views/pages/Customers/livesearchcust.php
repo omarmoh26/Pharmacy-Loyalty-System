@@ -17,10 +17,9 @@ class livesearch extends view
 
             $input = $_POST['input'];
 
-            if(trim($input)==""){
-            $query = "SELECT * FROM `customer`";
-            }
-            else{
+            if (trim($input) == "") {
+                $query = "SELECT * FROM `customer`";
+            } else {
                 $query = "SELECT * FROM `customer` WHERE id LIKE'{$input}%'  OR phone_number LIKE'{$input}%'";
             }
             $result = mysqli_query($con, $query);
@@ -43,17 +42,12 @@ class livesearch extends view
                                                         <th>&nbsp;</th>
                                                     </tr>
                                                 </thead>
-
                                                 <tbody>
                                                     <?php
                                                     while ($row = mysqli_fetch_assoc($result)) {
-                                                        $id = $row['id'];
-                                                        $name = $row['name'];
-                                                        $phonenum = $row['phone_number'];
-                                                        $address = $row['address'];
-
                                                     ?>
-                                                        <tr>
+                                                        <tr id="<?php echo $row['id'] ?>">
+
                                                             <td><?php echo $row['id'] ?></td>
                                                             <td><?php echo $row['name'] ?></td>
                                                             <td><?php echo $row['phone_number'] ?></td>
@@ -66,12 +60,14 @@ class livesearch extends view
                                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                                                                     </span>
                                                                 </a>
-                                                                <a class="table-link danger" href="<?php echo URLROOT . 'customers/Deletecustomer'; ?>?id=<?php echo $row['id'] ?>">
+
+                                                                <button class="table-link danger">
                                                                     <span class="fa-stack">
                                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                                         <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                                                                     </span>
-                                                                </a>
+                                                                </button>
+
                                                                 <a class="table-link order" href="<?php echo URLROOT . 'pages/Order'; ?>?id=<?php echo $row['id'] ?>">
                                                                     <span class="fa-stack">
                                                                         <i class="fa fa-square fa-stack-2x"></i>
@@ -93,7 +89,7 @@ class livesearch extends view
                     </div>
                 </div>
 
-<?php
+            <?php
             } else { ?>
                 <div class="containn">
                     <div class="container bootstrap snippets bootdey">
@@ -105,7 +101,7 @@ class livesearch extends view
                                             <table class="table user-list">
                                                 <thead>
                                                     <tr>
-                                                        <th style="color:red" >No Customer Found</th>
+                                                        <th style="color:red">No Customer Found</th>
                                                     </tr>
 
 
@@ -118,8 +114,31 @@ class livesearch extends view
                         </div>
                     </div>
                 </div>
-            <?php }
+<?php }
         }
     }
 }
 ?>
+<script type="text/javascript">
+    $(".danger").click(function() {
+        var id = $(this).parents("tr").attr("id");
+
+
+        if (confirm('Are you sure to remove this record ?')) {
+            $.ajax({
+                url: 'Deletecustomer',
+                type: 'GET',
+                data: {
+                    id: id
+                },
+                error: function() {
+                    alert('Something is wrong');
+                },
+                success: function(data) {
+                    $("#" + id).remove();
+                    alert("Record removed successfully");
+                }
+            });
+        }
+    });
+</script>
