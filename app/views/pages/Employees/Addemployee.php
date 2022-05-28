@@ -1,4 +1,6 @@
-<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css"></head>
+<head>
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css">
+</head>
 
 <?php
 class Addemployee extends view
@@ -25,7 +27,7 @@ class Addemployee extends view
 				</div>
 			</div> 
 			<div class="main-login main-center">
-    <form action="$action"class="form-horizontal" method="post">
+    <form action="$action" name="myForm" class="form-horizontal" method="post" onsubmit="return(validate());">
 EOT;
     echo $text;
     $this->printName();
@@ -101,3 +103,81 @@ EOT;
     echo $text;
   }
 }
+?>
+<script type="text/javascript">
+  // Form validation code will come here.
+  var pattern = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*.,?]).+$");
+  var upp = new RegExp(
+    "^(?=.*[A-Z]).+$"
+  );
+  var loww = new RegExp(
+    "^(?=.*[a-z]).+$"
+  );
+  var digitt = new RegExp(
+    "^(?=.*\\d).+$"
+  );
+  function validate() {
+
+    //////NAME
+    if (document.myForm.name.value == "") {
+      alert("Please provide your name");
+      document.myForm.name.focus();
+      return false;
+    } 
+    else if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
+      alert("name must contain letters only ");
+      document.myForm.name.focus();
+      return false;
+    }
+    //////USERNAME
+
+
+    if (document.myForm.username.value == "") {
+      alert("Please provide your username");
+      document.myForm.username.focus();
+      return false;
+    } 
+    else if (document.myForm.username.value.toUpperCase() == "ADMIN") {
+      alert("Username canot be admin");
+      document.myForm.username.focus();
+      return false;
+    }
+    //////PASSWORD
+    if (document.myForm.password.value == "") {
+
+      alert("Please enter a password");
+      document.myForm.password.focus();
+      return false;
+    } 
+    else if (document.myForm.password.value.length < 8) {
+
+      alert("Please enter an 8 characters password");
+      document.myForm.password.focus();
+      return false;
+    } 
+    //////digit,uppercase,lowercase
+    else if (!(upp.test(document.myForm.password.value))) {
+      alert("password must contain an uppercase letter");
+      document.myForm.password.focus();
+      return false;
+    }
+    else if (!(loww.test(document.myForm.password.value))) {
+      alert("password must contain a lowercase letter");
+      document.myForm.password.focus();
+      return false;
+    }
+    else if (!(digitt.test(document.myForm.password.value))) {
+      alert("password must contain an digit");
+      document.myForm.password.focus();
+      return false;
+    }
+    //////
+    else if (document.myForm.password.value != document.myForm.confirm_password.value) {
+      alert("Password doesnt match");
+      document.myForm.password.focus();
+      return false;
+    }
+    return (true);
+  }
+  //-->
+</script>
