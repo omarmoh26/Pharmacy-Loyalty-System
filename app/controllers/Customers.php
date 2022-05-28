@@ -175,4 +175,11 @@ class Customers extends Controller
         $AdminView = new Deletecustomer($this->getModel(), $this);
         $AdminView->output();
     }
+    public function livesearchcust()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Customers/livesearchcust.php';
+        require_once $viewPath;
+        $AdminView = new livesearch($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
