@@ -20,6 +20,8 @@ class Order extends View
 ?>
         <div class="w">
 
+         <!-- -------------------------------------LEFT SIDE--------------------------------------- -->
+
             <div class="left">
                 <div class="checkout">
                     <a href="<?php echo URLROOT . 'pages/Checkout'; ?>">Checkout</a>
@@ -35,6 +37,7 @@ class Order extends View
                 <input type="text" class="cash" placeholder="cash" name="cash">
             </div>
 
+            <!-- -------------------------------------RIGHT SIDE--------------------------------------- -->
 
             <div class="right">
                 <div class="top">
@@ -91,7 +94,7 @@ class Order extends View
                     </div>
 
                     <div class="Bask">
-                        <h1>Ahmed's Cart</h1>
+                        <h1><?php echo $this->model->getCustomerName($_SESSION['userID'])?>'s Cart</h1>
                     </div>
 
 

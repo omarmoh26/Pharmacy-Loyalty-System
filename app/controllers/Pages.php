@@ -193,4 +193,11 @@ class Pages extends Controller
         $viewemployeesView = new Viewemployees($this->getModel(), $this);
         $viewemployeesView->output();
     }
+    public function indexCart()
+    {
+        $viewPath = VIEWS_PATH . 'pages/customers/indexCart.php';
+        require_once $viewPath;
+        $indexCartView = new indexCart($this->getModel(), $this);
+        $indexCartView->output();
+    }
 }
