@@ -20,16 +20,18 @@ class Addemployee extends view
     $text = <<<EOT
 
     <div class="container">
-    <span id="demo"></span>
-              <br>
+   
 		<div class="row main">
 			<div class="panel-heading">
-				<div class="panel-title text-center">
+				<div class="texttt">
     <h1>Add Employee</h1>
+    
 				</div>
 			</div> 
 			<div class="main-login main-center">
-    <form action="$action" name="myForm" class="form-horizontal" method="post" >
+    <form action="$action" name="myForm" class="form-horizontal" method="post" onsubmit="return(validate());" >
+    <span id="demo"></span>
+    <br>
 EOT;
     echo $text;
     $this->printName();
@@ -122,9 +124,9 @@ EOT;
     "^(?=.*\\d).+$"
   );
   function validate() {
-
+    
     //////NAME
-    if (document.myForm.name.value == "") {
+    if (document.myForm.name.value.length == "") {
       document.getElementById("demo").innerHTML ="Please provide your name" 
       return false;
     } 
@@ -175,7 +177,9 @@ EOT;
     else{
     document.getElementById("demo").innerHTML = "";
     return (true);
+    
     }
   }
+  
   //-->
 </script>
