@@ -1,31 +1,35 @@
-<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css"></head>
+<head>
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css">
+</head>
 
 <?php
 class Editpassword extends view
 {
-    public function output()
-    {
-        $title = $this->model->title;
-        
-        require APPROOT . '/views/inc/header.php';
-        $this->printForm();
-        require APPROOT . '/views/inc/footer.php';
-    }
-    
-    private function printForm()
-    {
-        $action = URLROOT . 'pages/Editpassword';
-        $text = <<<EOT
+  public function output()
+  {
+    $title = $this->model->title;
+
+    require APPROOT . '/views/inc/header.php';
+    $this->printForm();
+    require APPROOT . '/views/inc/footer.php';
+  }
+
+  private function printForm()
+  {
+    $action = URLROOT . 'pages/Editpassword';
+    $text = <<<EOT
 
     <div class="container">
 		<div class="row main">
 			<div class="panel-heading">
-				<div class="panel-title text-center">
+				<div class="texttt">
     <h1>Edit Password</h1>
 				</div>
 			</div> 
 			<div class="main-login main-center">
-    <form action="$action"class="form-horizontal" method="post">
+    <form action="$action" name="myForm" class="form-horizontal" method="post" onsubmit="return(validate());">
+    <span id="demo"></span>
+        <br>
 EOT;
     echo $text;
     $this->printoldPassword();
@@ -84,14 +88,14 @@ EOT;
   {
     $label = str_replace("_", " ", $fieldName);
     $label = ucwords($label);
-    if($fieldName!="id"){
+    if ($fieldName != "id") {
       $text = <<<EOT
           <div class="form-group">
                   <div class="cols-sm-10">
                     <div class="input-group">
                   
             <label for="$fieldName"> $label:</label>
-            <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="">
+            <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="" onkeyup="return(validate());">
             <span class="invalid-feedback">$err</span>
             </div>
             <div class="message" id="message_mail">
@@ -99,9 +103,8 @@ EOT;
           </div>
         </div>
       EOT;
-          echo $text;
-    }
-    else{
+      echo $text;
+    } else {
       $text = <<<EOT
           <div class="form-group">
                   <div class="cols-sm-10">
@@ -115,7 +118,66 @@ EOT;
           </div>
         </div>
       EOT;
-          echo $text;
+      echo $text;
     }
   }
 }
+?>
+<script type="text/javascript">
+  // Form validation code will come here.
+  var pattern = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*.,?]).+$");
+  var upp = new RegExp(
+    "^(?=.*[A-Z]).+$"
+  );
+  var loww = new RegExp(
+    "^(?=.*[a-z]).+$"
+  );
+  var digitt = new RegExp(
+    "^(?=.*\\d).+$"
+  );
+
+  function validate() {
+
+    ////// oldpassword 
+    if (document.myForm.old_password.value.length < 8 ||
+      !(upp.test(document.myForm.old_password.value)) ||
+      !(loww.test(document.myForm.old_password.value)) ||
+      !(digitt.test(document.myForm.old_password.value))) {
+
+      document.getElementById("demo").innerHTML = "Wrong old password "
+      return false;
+    }
+    //////new PASSWORD
+    if (document.myForm.new_password.value == "") {
+
+      document.getElementById("demo").innerHTML = "Please enter a new password "
+      return false;
+    } else if (document.myForm.new_password.value.length < 8) {
+
+      document.getElementById("demo").innerHTML = "Please enter an 8 characters password "
+      return false;
+    }
+    //////digit,uppercase,lowercase
+    else if (!(upp.test(document.myForm.new_password.value))) {
+      document.getElementById("demo").innerHTML = "password must contain an uppercase letter "
+      return false;
+    } else if (!(loww.test(document.myForm.new_password.value))) {
+      document.getElementById("demo").innerHTML = "password must contain a lowercase letter "
+      return false;
+    } else if (!(digitt.test(document.myForm.new_password.value))) {
+      document.getElementById("demo").innerHTML = "password must contain a digit "
+      return false;
+    }
+    //////
+    else if (document.myForm.new_password.value != document.myForm.confirm_password.value) {
+      document.getElementById("demo").innerHTML = "Password don't match "
+      return false;
+    } else {
+      document.getElementById("demo").innerHTML = "";
+      return (true);
+
+    }
+  }
+
+  //-->
+</script>
