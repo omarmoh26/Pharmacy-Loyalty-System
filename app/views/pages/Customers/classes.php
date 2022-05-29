@@ -3,7 +3,7 @@ class DB {
 	private $host = "localhost";
 	private $user = "root";
 	private $password = "";
-	private $database = "shopping_cart_eav";
+	private $database = "pharmacy_loyalty_system";
 	public $conn;
 
 	function __construct() {
