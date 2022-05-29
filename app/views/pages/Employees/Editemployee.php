@@ -25,7 +25,9 @@ class Editemployee extends view
 				</div>
 			</div> 
 			<div class="main-login main-center">
-    <form action="$action"class="form-horizontal" method="post">
+    <form action="$action" name="myForm" class="form-horizontal" method="post" onsubmit="return(validate());">
+    <span id="demo"></span>
+        <br>
 EOT;
     echo $text;
     $this->printName();
@@ -86,7 +88,7 @@ EOT;
                     <div class="input-group">
                   
             <label for="$fieldName"> $label:</label>
-            <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="">
+            <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="" onkeyup="return(validate());">
             <span class="invalid-feedback">$err</span>
             </div>
             <div class="message" id="message_mail">
@@ -115,3 +117,41 @@ EOT;
     
   }
 }
+?>
+<script type="text/javascript">
+  // Form validation code will come here.
+  var pattern = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*.,?]).+$");
+  var upp = new RegExp(
+    "^(?=.*[A-Z]).+$"
+  );
+  var loww = new RegExp(
+    "^(?=.*[a-z]).+$"
+  );
+  var digitt = new RegExp(
+    "^(?=.*\\d).+$"
+  );
+  function validate() {
+    
+    //////NAME
+    if (document.myForm.name.value.length == "") {
+      document.getElementById("demo").innerHTML ="Please provide a name" 
+      return false;
+    } 
+    else if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
+      document.getElementById("demo").innerHTML ="name must contain letters only"  
+      return false;
+    }
+    //////USERNAME
+    if (document.myForm.username.value == "") {
+      document.getElementById("demo").innerHTML ="Please provide your username" 
+      return false;
+    } 
+    else{
+    document.getElementById("demo").innerHTML = "";
+    return (true);
+    
+    }
+  }
+  
+  //-->
+</script>
