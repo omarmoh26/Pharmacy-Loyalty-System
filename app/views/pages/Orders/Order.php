@@ -94,7 +94,7 @@ class Order extends View
                     </div>
 
                     <div class="Bask">
-                        <h1><?php echo $this->model->getCustomerName($_SESSION['userID'])?>'s Cart</h1>
+                        <h1><?php echo $this->model->getCustomerName($_GET['id'])?>'s Cart</h1>
                     </div>
 
 
