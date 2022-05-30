@@ -2,8 +2,9 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Order2.css">
 
 
-
 <?php
+require_once("classes.php");
+$_SESSION['newcart'] = clone $_SESSION['cart'];
 class livesearch extends view
 {
     public function output()
@@ -53,11 +54,15 @@ class livesearch extends view
                                                         <td style="width: 30%;"><?php echo $Price; ?></td>
                                                         <td style="width: 30%;"><?php echo $Product_Type; ?></td>
                                                         <td style="width: 30%;">
-                                                            <a class="add" href="<?php echo URLROOT . 'pages/Order'; ?>?cid=<?php echo $_POST['cid']?>&pid=<?php echo $row['id']?>">
-                                                                <span class="fa-stack">
-                                                                    <i class="fa fa-check-circle fa-stack-2x" style="color:hsl(45, 100%, 39%);"></i>
-                                                                </span>
-                                                            </a>
+                                                            <div class="product-item" width="200px">
+                                                                <form method="post" action="Order?cid=<?php echo $_POST['cid'] ?>&action=add&id=<?php echo $row['id'] ?>">
+                                                                    <div>
+                                                                        <input type="text" name="quantity" value="1" size="2" />
+                                                                        <input type="submit" value="Add to cart" class="btnAddAction" />
+                                                                    </div>
+                                                                    <input type='hidden' name='cart' value='<?php echo (json_encode($_SESSION['newcart']->productsQuantity)); ?>' />
+                                                                </form>
+                                                            </div>
                                                         </td>
 
                                                     </tr>
