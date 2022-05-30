@@ -94,7 +94,7 @@ class Order extends View
                     </div>
 
                     <div class="Bask">
-                        <h1><?php echo $this->model->getCustomerName($_GET['id'])?>'s Cart</h1>
+                        <h1><?php echo $this->model->getCustomerName($_GET['cid'])?>'s Cart</h1>
                     </div>
 
 
@@ -154,7 +154,7 @@ class Order extends View
                         method: "POST",
                         data: {
                             input: input,
-                            cid :<?php echo $_GET['id'] ?>
+                            cid :<?php echo $_GET['cid'] ?>
                         },
 
                         success: function(data) {

@@ -68,7 +68,7 @@ class livesearch extends view
                                                                     </span>
                                                                 </button>
 
-                                                                <a class="table-link order" href="<?php echo URLROOT . 'pages/Order'; ?>?id=<?php echo $row['id'] ?>">
+                                                                <a class="table-link order" href="<?php echo URLROOT . 'pages/Order'; ?>?cid=<?php echo $row['id'] ?>">
                                                                     <span class="fa-stack">
                                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                                         <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
