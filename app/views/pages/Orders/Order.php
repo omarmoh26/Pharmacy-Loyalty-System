@@ -6,10 +6,31 @@
 
 
 <?php
+require_once("classes.php");
+$_SESSION['cart'] = "";
 class Order extends View
 {
     public function output()
     {
+        $_SESSION['cart'] = new Cart();
+        if (!empty($_POST['cart'])) {
+            $_SESSION['cart']->productsQuantity = json_decode($_POST['cart'], true);
+        }
+        if (!empty($_GET["action"])) {
+            switch ($_GET["action"]) {
+                case "add":
+                    if (!empty($_POST["quantity"])) {
+                        $_SESSION['cart']->addProduct($_GET["id"], $_POST["quantity"]);
+                    }
+                    break;
+                case "remove":
+                    $_SESSION['cart']->removeProduct($_GET["id"]);
+                    break;
+                case "empty":
+                    $_SESSION['cart']->emptyCart();
+                    break;
+            }
+        }
 
         require APPROOT . '/views/inc/header.php';
 
@@ -20,7 +41,7 @@ class Order extends View
 ?>
         <div class="w">
 
-         <!-- -------------------------------------LEFT SIDE--------------------------------------- -->
+            <!-- -------------------------------------LEFT SIDE--------------------------------------- -->
 
             <div class="left">
                 <div class="checkout">
@@ -46,47 +67,51 @@ class Order extends View
                             <div class="main-box no-header clearfix">
                                 <div class="main-box-body clearfix">
                                     <div class="table-responsive">
-                                        <table class="table user-list">
-                                            <thead>
-                                                <tr>
-                                                    <th><span>Product</span></th>
-                                                    <th><span>Price</span></th>
-                                                    <th><span>Quantity</span></th>
-                                                    <th>&nbsp;</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <span class="user-head">Product1</span>
-                                                        <br>
-                                                        <span class="user-subhead">local</span>
-                                                    </td>
-                                                    <td>15.8</td>
-                                                    <td>2</td>
+                                        <div id="shopping-cart">
+                                            <div class="txt-heading">
+                                                Shopping Cart <button><a style="color:black" id="btnEmpty" href="Order?cid=<?php echo $_GET['cid'] ?>&action=empty">Empty Cart</a></button>
+                                            </div>
+                                            <?php
 
-                                                    <td style="width: 30%;">
+                                            if (count($_SESSION['cart']->productsQuantity) > 0) {
+                                                $item_total = 0;
+                                            ?>
+                                                <table cellpadding="10" cellspacing="1">
+                                                    <tr>
+                                                        <th><strong>Name</strong></th>
+                                                        <th><strong>Quantity</strong></th>
+                                                        <th><strong>Price</strong></th>
+                                                        <th><strong>Action</strong></th>
+                                                    </tr>
+                                                    <?php
+                                                    foreach ($_SESSION['cart']->productsQuantity as $productID => $quantity) {
+                                                        $product = new Product($productID);
+                                                    ?>
+                                                        <tr>
+                                                            <td><strong><?php echo $product->name; ?></strong></td>
+                                                            <td><?php echo $quantity; ?></td>
+                                                            <td><?php echo "$" . $product->price; ?></td>
+                                                            <td>
+                                                                <form method="post" action="Order?cid=<?php echo $_GET['cid'] ?>&action=remove&id=<?php echo $product->id; ?>">
+                                                                    <input type="submit" value="Remove Item" class="btnAddAction" />
+                                                                    <input type='hidden' name='cart' value='<?php echo (json_encode($_SESSION['cart']->productsQuantity)); ?>' />
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                    <?php
+                                                        $item_total += ($product->price * $quantity);
+                                                    }
+                                                    ?>
+                                                    <tr>
+                                                        <td colspan="4"><strong>Total:</strong>
+                                                            <?php
+                                                            echo "$" . $item_total; ?></td>
+                                                    </tr>
+                                                </table>
 
-                                                        <a href="#" class="table-link text-info">
-                                                            <span class="fa-stack">
-                                                                <i class="fa fa-plus-square fa-stack-2x" style="color:#00ef54;"></i>
-                                                            </span>
-                                                        </a>
-                                                        <a href="#" class="table-link text-info">
-                                                            <span class="fa-stack">
-                                                                <i class="fa fa-minus-square fa-stack-2x" style="color:#0099ff;"></i>
-                                                            </span>
-                                                        </a>
-                                                        <a class="table-link danger" href="#">
-                                                            <span class="fa-stack">
-                                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                            </span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                            <?php
+                                            } ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +119,7 @@ class Order extends View
                     </div>
 
                     <div class="Bask">
-                        <h1><?php echo $this->model->getCustomerName($_GET['cid'])?>'s Cart</h1>
+                        <h1><?php echo $this->model->getCustomerName($_GET['cid']) ?>'s Cart</h1>
                     </div>
 
 
@@ -154,7 +179,7 @@ class Order extends View
                         method: "POST",
                         data: {
                             input: input,
-                            cid :<?php echo $_GET['cid'] ?>
+                            cid: <?php echo $_GET['cid'] ?>
                         },
 
                         success: function(data) {
