@@ -53,7 +53,7 @@ class livesearch extends view
                                                         <td style="width: 30%;"><?php echo $Price; ?></td>
                                                         <td style="width: 30%;"><?php echo $Product_Type; ?></td>
                                                         <td style="width: 30%;">
-                                                            <a class="add" href="<?php echo URLROOT . 'pages/Order'; ?>?id=<?php echo $row['id'] ?>">
+                                                            <a class="add" href="<?php echo URLROOT . 'pages/Order'; ?>?id=<?php echo $_POST['cid']?>&pid=<?php echo $row['id']?>">
                                                                 <span class="fa-stack">
                                                                     <i class="fa fa-check-circle fa-stack-2x" style="color:hsl(45, 100%, 39%);"></i>
                                                                 </span>

@@ -153,7 +153,8 @@ class Order extends View
                         url: "livesearch",
                         method: "POST",
                         data: {
-                            input: input
+                            input: input,
+                            cid :<?php echo $_GET['id'] ?>
                         },
 
                         success: function(data) {
