@@ -20,7 +20,11 @@ class OldCust extends view
     EOT;
 ?>
         <div class="container" style="max-width:50%;">
-            <input type="text" class="input-search" id="live_search" autocomplete="off" placeholder="Search For a Customer ">
+            <div class="wrap">
+                <div class="search">
+                    <input type="text" class="searchTerm" id="live_search" placeholder="Search For a Customer">
+                </div>
+            </div>
         </div>
         <div class="result">
             <div id="searchresult"></div>

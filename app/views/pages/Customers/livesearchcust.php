@@ -53,27 +53,34 @@ class livesearch extends view
                                                             <td><?php echo $row['phone_number'] ?></td>
                                                             <td><?php echo $row['address'] ?></td>
 
-                                                            <td style="width: 20%;">
-                                                                <a class="table-link text-info" href="<?php echo URLROOT . 'customers/Editcustomer'; ?>?id=<?php echo $row['id'] ?>">
-                                                                    <span class="fa-stack">
-                                                                        <i class="fa fa-square fa-stack-2x"></i>
-                                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                                                    </span>
-                                                                </a>
-
-                                                                <button class="table-link danger">
-                                                                    <span class="fa-stack">
-                                                                        <i class="fa fa-square fa-stack-2x"></i>
-                                                                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                                    </span>
+                                                            <td  style="width: 25%;" >
+                                                                <button id="boxx">
+                                                                    <a class="table-link text-info" href="<?php echo URLROOT . 'customers/Editcustomer'; ?>?id=<?php echo $row['id'] ?>">
+                                                                        <span class="fa-stack">
+                                                                            <i class="fa fa-square fa-stack-2x"></i>
+                                                                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </a>
                                                                 </button>
 
-                                                                <a class="table-link order" href="<?php echo URLROOT . 'pages/Order'; ?>?cid=<?php echo $row['id'] ?>">
-                                                                    <span class="fa-stack">
-                                                                        <i class="fa fa-square fa-stack-2x"></i>
-                                                                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                                                                    </span>
-                                                                </a>
+                                                                <button onclick="return(validate())" id="boxx">
+                                                                    <a class="table-link danger" href="<?php echo URLROOT . 'customers/Deletecustomer'; ?>?id=<?php echo $row['id'] ?>">
+                                                                        <span class="fa-stack">
+                                                                            <i class="fa fa-square fa-stack-2x"></i>
+                                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </button>
+
+                                                                <button id="boxx">
+                                                                    <a class="table-link order" href="<?php echo URLROOT . 'pages/Order'; ?>?cid=<?php echo $row['id'] ?>">
+                                                                        <span class="fa-stack">
+                                                                            <i class="fa fa-square fa-stack-2x"></i>
+                                                                            <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </button>
+
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -119,26 +126,15 @@ class livesearch extends view
     }
 }
 ?>
-<script type="text/javascript">
-    $(".danger").click(function() {
-        var id = $(this).parents("tr").attr("id");
+<script>
+    function validate() {
+        let text = "To confirm press [ok]";
+        if (confirm(text) == true) {
+            text = "Customer Deleted";
 
-
-        if (confirm('Are you sure to remove this record ?')) {
-            $.ajax({
-                url: 'Deletecustomer',
-                type: 'GET',
-                data: {
-                    id: id
-                },
-                error: function() {
-                    alert('Something is wrong');
-                },
-                success: function(data) {
-                    $("#" + id).remove();
-                    alert("Record removed successfully");
-                }
-            });
+        } else {
+            return false;
         }
-    });
+        document.getElementById("demo").innerHTML = text;
+    }
 </script>
