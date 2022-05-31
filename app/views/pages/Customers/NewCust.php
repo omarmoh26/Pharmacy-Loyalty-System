@@ -24,7 +24,9 @@ class NewCust extends view
 			</div> 
 			<div class="main-login main-center">
 
-    <form action="$action"class="form-horizontal" method="post">
+      <form action="$action"class="form-horizontal" method="post" name="myForm" onsubmit="return(validate());">
+      <span id="demo"></span>
+            <br>
 EOT;
     echo $text;
     $this->printName();
@@ -34,7 +36,7 @@ EOT;
     <div class="form-group">
     <div class="cols-sm-10">
       <div class="input-group">
-          <input type="submit" value="Register" class="form-control btn btn-lg btn-primary btn-block">
+          <input type="submit" value="Add" class="form-control btn btn-lg btn-primary btn-block">
           </div>
           <div class="message" id="message_name">
           </div>
@@ -82,7 +84,7 @@ EOT;
 							<div class="input-group">
 							
       <label for="$fieldName"> $label: </label>
-      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
+      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val"  onkeyup="return(validate());">
       <span class="invalid-feedback">$err</span>
       </div>
       <div class="message" id="message_mail">
@@ -94,3 +96,56 @@ EOT;
     echo $text;
   }
 }
+?>
+<script type="text/javascript">
+  // Form validation code will come here.
+  var pattern = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*.,?]).+$");
+  var upp = new RegExp(
+    "^(?=.*[A-Z]).+$"
+  );
+  var loww = new RegExp(
+    "^(?=.*[a-z]).+$"
+  );
+  var digitt = new RegExp(
+    "^(?=.*\\d).+$"
+  );
+  var special = new RegExp(
+    "^(?=.*[-+_!@#$%^&*.,?]).+$"
+  );
+
+  function validate() {
+
+    //////NAME
+    if (document.myForm.name.value.length == "") {
+      document.getElementById("demo").innerHTML = "Please provide a name"
+      return false;
+    } else if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
+      document.getElementById("demo").innerHTML = "name must contain letters only"
+      return false;
+    }
+
+    //////phone number
+    if (document.myForm.phone_number.value == "") {
+      document.getElementById("demo").innerHTML = "Please provide Phone number"
+      return false;
+    } else if (document.myForm.phone_number.value.length > 11) {
+      document.getElementById("demo").innerHTML = "phone number is not valid"
+      return false;
+    }else if (document.myForm.phone_number.value[0] != "0") {
+      document.getElementById("demo").innerHTML = "phone number is not valid"
+      return false;
+    }
+    // || document.myForm.phone_number.value[0] != "0"
+    /////address
+    if ((special.test(document.myForm.address.value))) {
+      document.getElementById("demo").innerHTML = "address is not valid"
+      return false;
+    } else {
+      document.getElementById("demo").innerHTML = "";
+      return (true);
+
+    }
+  }
+
+  //-->
+</script>
