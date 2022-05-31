@@ -6,7 +6,7 @@ if (isset($_SESSION['user_id'])) {
       <!-- Sidebar  -->
       <nav id="sidebar">
         <div class="sidebar-header">
-          <h3>Saraya Care</h3>
+          <h3">Saraya Care</h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -132,15 +132,7 @@ if (isset($_SESSION['user_id'])) {
                 <li>
                   <a href="<?php echo URLROOT . 'customers/Newcust'; ?>">Add Customer</a>
                 </li>
-
-                <li>
-                  <a href="<?php echo URLROOT . 'pages/Order'; ?>">Place an order</a>
-
-                </li>
-
-                <li>
-                  <a href="<?php echo URLROOT . 'users/Addemployee'; ?>">Edit Customer</a>
-                </li>
+                
               </ul>
 
             </li>

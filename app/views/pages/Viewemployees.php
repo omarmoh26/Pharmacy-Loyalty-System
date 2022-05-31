@@ -50,13 +50,15 @@ class Viewemployees extends View
                                                     <td><?php echo $row['type'] ?></td>
 
                                                     <td style="width: 20%;">
-                                                        <a class="table-link text-info" href="<?php echo URLROOT . 'users/Editemployee'; ?>?id=<?php echo $row['id'] ?>">
-                                                            <span class="fa-stack">
-                                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                                            </span>
-                                                        </a>
-                                                        <button onclick="return(validate())">
+                                                        <button id="boxx">
+                                                            <a class="table-link text-info" href="<?php echo URLROOT . 'users/Editemployee'; ?>?id=<?php echo $row['id'] ?>">
+                                                                <span class="fa-stack">
+                                                                    <i class="fa fa-square fa-stack-2x"></i>
+                                                                    <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </a>
+                                                        </button>
+                                                        <button onclick="return(validate())" id="boxx">
                                                             <a class="table-link danger" href="<?php echo URLROOT . 'users/Deleteemployee'; ?>?id=<?php echo $row['id'] ?>">
                                                                 <span class="fa-stack">
                                                                     <i class="fa fa-square fa-stack-2x"></i>

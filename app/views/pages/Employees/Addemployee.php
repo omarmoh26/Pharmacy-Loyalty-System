@@ -42,6 +42,7 @@ EOT;
     <div class="form-group">
     <div class="cols-sm-10">
           <input type="submit" value="Add" class="form-control btn btn-lg btn-primary btn-block">
+    <span id="demo"></span>
           
           </div>
           <div class="message" id="message_name">
@@ -123,63 +124,58 @@ EOT;
   var digitt = new RegExp(
     "^(?=.*\\d).+$"
   );
+
   function validate() {
-    
+
     //////NAME
     if (document.myForm.name.value.length == "") {
-      document.getElementById("demo").innerHTML ="Please provide your name" 
+      document.getElementById("demo").innerHTML = "Please provide your name"
       return false;
-    } 
-    else if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
-      document.getElementById("demo").innerHTML ="name must contain letters only"  
+    } else if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
+      document.getElementById("demo").innerHTML = "name must contain letters only"
       return false;
     }
     //////USERNAME
 
 
     if (document.myForm.username.value == "") {
-      document.getElementById("demo").innerHTML ="Please provide your username" 
+      document.getElementById("demo").innerHTML = "Please provide your username"
       return false;
-    } 
-    else if (document.myForm.username.value.toUpperCase() == "ADMIN") {
-      document.getElementById("demo").innerHTML ="Username canot be admin "
+    } else if (document.myForm.username.value.toUpperCase() == "ADMIN") {
+      document.getElementById("demo").innerHTML = "Username canot be admin "
       return false;
     }
     //////PASSWORD
     if (document.myForm.password.value == "") {
 
-      document.getElementById("demo").innerHTML ="Please enter a password "
+      document.getElementById("demo").innerHTML = "Please enter a password "
       return false;
-    } 
-    else if (document.myForm.password.value.length < 8) {
+    } else if (document.myForm.password.value.length < 8) {
 
-      document.getElementById("demo").innerHTML ="Please enter an 8 characters password "
+      document.getElementById("demo").innerHTML = "Please enter an 8 characters password "
       return false;
-    } 
+    }
     //////digit,uppercase,lowercase
     else if (!(upp.test(document.myForm.password.value))) {
-      document.getElementById("demo").innerHTML ="password must contain an uppercase letter "
+      document.getElementById("demo").innerHTML = "password must contain an uppercase letter "
       return false;
-    }
-    else if (!(loww.test(document.myForm.password.value))) {
-      document.getElementById("demo").innerHTML ="password must contain a lowercase letter "
+    } else if (!(loww.test(document.myForm.password.value))) {
+      document.getElementById("demo").innerHTML = "password must contain a lowercase letter "
       return false;
-    }
-    else if (!(digitt.test(document.myForm.password.value))) {
-      document.getElementById("demo").innerHTML ="password must contain a digit "
+    } else if (!(digitt.test(document.myForm.password.value))) {
+      document.getElementById("demo").innerHTML = "password must contain a digit "
       return false;
     }
     //////
     else if (document.myForm.password.value != document.myForm.confirm_password.value) {
-      document.getElementById("demo").innerHTML ="Password don't match "
+      document.getElementById("demo").innerHTML = "Password don't match "
       return false;
-    }
-    else{
-    document.getElementById("demo").innerHTML = "";
-    return (true);
-    
+    } else {
+      document.getElementById("demo").innerHTML = "";
+      return (true);
+
     }
   }
-  
+
   //-->
 </script>

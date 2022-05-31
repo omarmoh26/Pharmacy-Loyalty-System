@@ -24,7 +24,7 @@ class livesearch extends view
             }
             $result = mysqli_query($con, $query);
             if (mysqli_num_rows($result) > 0) { ?>
-
+            <span id="demo"></span>
                 <div class="containn">
                     <div class="container bootstrap snippets bootdey">
                         <div class="row">

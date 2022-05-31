@@ -21,6 +21,7 @@ class Viewproducts extends View
            
       EOT;
 ?>
+    <span id="demo"></span>
         <div class="containn">
             <div class="container bootstrap snippets bootdey">
                 <div class="row">
@@ -51,18 +52,24 @@ class Viewproducts extends View
 
 
                                                     <td style="width: 20%;">
-                                                        <a class="table-link text-info" href="#">
-                                                            <span class="fa-stack">
-                                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                                            </span>
-                                                        </a>
-                                                        <a class="table-link danger" href="<?php echo URLROOT . 'Products/deleteproduct'; ?>?id=<?php echo $row['id'] ?>">
-                                                            <span class="fa-stack">
-                                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                            </span>
-                                                        </a>
+                                                        <button id="boxx">
+                                                            <a class="table-link text-info" href="#">
+                                                                <span class="fa-stack">
+                                                                    <i class="fa fa-square fa-stack-2x"></i>
+                                                                    <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </a>
+                                                        </button>
+                                                        
+                                                        <button onclick="return(validate())" id="boxx">
+                                                            <a class="table-link danger" href="<?php echo URLROOT . 'Products/deleteproduct'; ?>?id=<?php echo $row['id'] ?>">
+                                                                <span class="fa-stack">
+                                                                    <i class="fa fa-square fa-stack-2x"></i>
+                                                                    <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </a>
+                                                        </button>
+
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -86,3 +93,17 @@ class Viewproducts extends View
         require APPROOT . '/views/inc/footer.php';
     }
 }
+?>
+
+<script>
+    function validate() {
+        let text = "To confirm press [ok]";
+        if (confirm(text) == true) {
+            text = "product Deleted";
+
+        } else {
+            return false;
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+</script>

@@ -80,7 +80,7 @@ EOT;
       <div class="input-group">
 
       <label for="$fieldName"> $label:</label>
-      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="" onkeyup="return(validate());">
+      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="" >
       <span class="invalid-feedback">$err</span>
     </div>
       <div class="message" id="message_mail">
@@ -108,34 +108,16 @@ EOT;
     //////USERNAME
 
 
-    if (document.myForm.username.value == "") {
-      document.getElementById("demo").innerHTML ="Please provide your username" 
+    if (document.myForm.username.value == "" 
+    || document.myForm.password.value == "" 
+    || document.myForm.password.value.length < 8 
+    || !(upp.test(document.myForm.password.value))
+    || !(loww.test(document.myForm.password.value))
+    || !(digitt.test(document.myForm.password.value))) 
+    {
+      document.getElementById("demo").innerHTML ="Incorrect Username or Password" 
       return false;
     } 
-    //////PASSWORD
-    if (document.myForm.password.value == "") {
-
-      document.getElementById("demo").innerHTML ="Please enter a password "
-      return false;
-    } 
-    else if (document.myForm.password.value.length < 8) {
-
-      document.getElementById("demo").innerHTML ="Please enter an 8 characters password "
-      return false;
-    } 
-    //////digit,uppercase,lowercase
-    else if (!(upp.test(document.myForm.password.value))) {
-      document.getElementById("demo").innerHTML ="password must contain an uppercase letter "
-      return false;
-    }
-    else if (!(loww.test(document.myForm.password.value))) {
-      document.getElementById("demo").innerHTML ="password must contain a lowercase letter "
-      return false;
-    }
-    else if (!(digitt.test(document.myForm.password.value))) {
-      document.getElementById("demo").innerHTML ="password must contain a digit "
-      return false;
-    }
     else{
     document.getElementById("demo").innerHTML = "";
     return (true);
