@@ -34,8 +34,8 @@ class livesearch extends view
                                                     <th>id</th>
                                                     <th>Name</th>
                                                     <th>Price</th>
-                                                    <th>Product_Type</th>
-                                                    <th>select</th>
+                                                    <th>Type</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
 
@@ -54,11 +54,11 @@ class livesearch extends view
                                                         <td style="width: 30%;"><?php echo $Price; ?></td>
                                                         <td style="width: 30%;"><?php echo $Product_Type; ?></td>
                                                         <td style="width: 30%;">
-                                                            <div class="product-item" width="200px">
+                                                            <div class="product-item" width="100px">
                                                                 <form method="post" action="Order?cid=<?php echo $_POST['cid'] ?>&action=add&id=<?php echo $row['id'] ?>">
                                                                     <div>
-                                                                        <input type="text" name="quantity" value="1" size="2" />
-                                                                        <input type="submit" value="Add to cart" class="btnAddAction" />
+                                                                        <input type="text" id="quantity" name="quantity" value="1" size="2" />
+                                                                        <input type="submit" id="addtocart" value="Add to cart" class="btnAddAction" />
                                                                     </div>
                                                                     <input type='hidden' name='cart' value='<?php echo (json_encode($_SESSION['newcart']->productsQuantity)); ?>' />
                                                                 </form>

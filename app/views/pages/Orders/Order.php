@@ -67,51 +67,59 @@ class Order extends View
                             <div class="main-box no-header clearfix">
                                 <div class="main-box-body clearfix">
                                     <div class="table-responsive">
-                                        <div id="shopping-cart">
-                                            <div class="txt-heading">
-                                                Shopping Cart <button><a style="color:black" id="btnEmpty" href="Order?cid=<?php echo $_GET['cid'] ?>&action=empty">Empty Cart</a></button>
-                                            </div>
-                                            <?php
+                                        <div class="txt-heading">
 
-                                            if (count($_SESSION['cart']->productsQuantity) > 0) {
-                                                $item_total = 0;
-                                            ?>
-                                                <table cellpadding="10" cellspacing="1">
+                                        </div>
+                                        <?php
+
+                                        if (count($_SESSION['cart']->productsQuantity) > 0) {
+                                            $item_total = 0;
+                                        ?>
+                                            <table class="table user-list">
+                                                <thead>
                                                     <tr>
                                                         <th><strong>Name</strong></th>
                                                         <th><strong>Quantity</strong></th>
                                                         <th><strong>Price</strong></th>
-                                                        <th><strong>Action</strong></th>
+                                                        <th>
+                                                            <button id="empty1">
+                                                                <a id="empty2" href="Order?cid=<?php echo $_GET['cid'] ?>&action=empty">Empty Cart</a>
+                                                            </button>
+                                                        </th>
                                                     </tr>
-                                                    <?php
-                                                    foreach ($_SESSION['cart']->productsQuantity as $productID => $quantity) {
-                                                        $product = new Product($productID);
-                                                    ?>
-                                                        <tr>
-                                                            <td><strong><?php echo $product->name; ?></strong></td>
-                                                            <td><?php echo $quantity; ?></td>
-                                                            <td><?php echo "$" . $product->price; ?></td>
-                                                            <td>
-                                                                <form method="post" action="Order?cid=<?php echo $_GET['cid'] ?>&action=remove&id=<?php echo $product->id; ?>">
-                                                                    <input type="submit" value="Remove Item" class="btnAddAction" />
-                                                                    <input type='hidden' name='cart' value='<?php echo (json_encode($_SESSION['cart']->productsQuantity)); ?>' />
-                                                                </form>
-                                                            </td>
-                                                        </tr>
-                                                    <?php
-                                                        $item_total += ($product->price * $quantity);
-                                                    }
-                                                    ?>
+                                                </thead>
+                                                <?php
+                                                foreach ($_SESSION['cart']->productsQuantity as $productID => $quantity) {
+                                                    $product = new Product($productID);
+                                                ?>
                                                     <tr>
-                                                        <td colspan="4"><strong>Total:</strong>
-                                                            <?php
-                                                            echo "$" . $item_total; ?></td>
-                                                    </tr>
-                                                </table>
+                                                        <td><strong><?php echo $product->name; ?></strong></td>
+                                                        <td><?php echo $quantity; ?></td>
+                                                        <td><?php echo "$" . $product->price; ?></td>
+                                                        <td>
+                                                            <form method="post" action="Order?cid=<?php echo $_GET['cid'] ?>&action=remove&id=<?php echo $product->id; ?>">
+                                                                <input type="submit" value="Remove Item" class="btnAddAction" id="remove" />
+                                                                <input type='hidden' name='cart' value='<?php echo (json_encode($_SESSION['cart']->productsQuantity)); ?>' />
+                                                            </form>
 
-                                            <?php
-                                            } ?>
-                                        </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php
+                                                    $item_total += ($product->price * $quantity);
+                                                }
+                                                ?>
+                                                <tr>
+                                                    <td colspan="4"><strong >Total:
+                                                        <?php
+                                                        echo  $item_total."  EGP"; ?>
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        <?php
+                                        } ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -126,9 +134,8 @@ class Order extends View
                     <div class="btext">
                         <p4>Points: 412412414</p4>
                         <br>
-                        <hr style="width:600px">
-                        <p3>Total:</p3>
-                        <hr>
+                        <hr style="width:300px">
+
                     </div>
 
                 </div>
