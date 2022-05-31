@@ -163,7 +163,10 @@ EOT;
     else if (document.myForm.phone_number.value.length > 11 ) {
       document.getElementById("demo").innerHTML ="phone number is not valid" 
       return false;
-    } 
+    } else if (document.myForm.phone_number.value[0] != "0") {
+      document.getElementById("demo").innerHTML = "phone number is not valid"
+      return false;
+    }
     // || document.myForm.phone_number.value[0] != "0"
     /////address
     if ((special.test(document.myForm.address.value))) {
