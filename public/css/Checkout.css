@@ -1,4 +1,4 @@
-.w{
+/* .w{
     position: fixed;
     height: 625px;
     width:736px;
@@ -6,7 +6,7 @@
     top:120px;
     left:400px;
     border-radius: 20px;
-}
+} */
 .check
 {
     position: fixed;
@@ -29,11 +29,15 @@
 .text2{
     position: relative;
     color:rgb(55, 55, 55);
-    top:10px;
-    left:10px;
+    height:200px;
+    top:100px;
+    
+    left:20px;
     font-size:15px;
     text-decoration: none;
     font-weight: bold;
+    overflow-y: scroll;
+    overflow-x: scroll;
 }
 .boldd
 {

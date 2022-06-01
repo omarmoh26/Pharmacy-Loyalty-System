@@ -1,8 +1,9 @@
 <?php
 class DeleteemployeeModel extends model
-{    protected $id;
+{
+    protected $id;
 
-     public function getId()
+    public function getId()
     {
         return $this->id;
     }
@@ -11,17 +12,14 @@ class DeleteemployeeModel extends model
         $this->id = $id;
     }
 
-     public function DeleteEmployee($id)
+    public function DeleteEmployee($id)
     {
-        $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
-        $sql="DELETE FROM users WHERE id=$id ";
-        $results= $conn->query($sql);
-
-        if (!$results){
-            trigger_error("<h1 style='color:red;'>fatal error in executing query</h1>",E_USER_WARNING);
-        }
-        else
+            $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
+            $sql = "DELETE FROM users WHERE id=$id ";
+            $results = $conn->query($sql);
+        if (!$results) {
+            trigger_error("<h1 style='color:red;'>fatal error in executing query</h1>", E_USER_WARNING);
+        } else
             return true;
     }
-     
 }
