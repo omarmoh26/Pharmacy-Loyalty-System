@@ -8,7 +8,6 @@ class Admin extends View
 {
   public function output()
   {
-
     require APPROOT . '/views/inc/header.php';
     $action = URLROOT . 'pages/Admin';
 
@@ -90,7 +89,7 @@ class Admin extends View
       <div class="cardd-description-bk"></div>
 
       <div class="cardd-description">
-        <div class="fonn">3213213</div>
+        <div class="fonn"><?php echo $this->model->getOrderCount() ?></div>
       </div>
       <div class="cardd-btn">
         <a href="#">Orders</a>
@@ -102,7 +101,7 @@ class Admin extends View
       <div class="cardd-description-bk"></div>
 
       <div class="cardd-description">
-        <div class="fonn">231</div>
+        <div class="fonn"><?php echo $this->model->getEmpCount() ?></div>
       </div>
 
       <div class="cardd-btn">
@@ -115,15 +114,27 @@ class Admin extends View
       <div class="cardd-description-bk"></div>
 
       <div class="cardd-description">
-        <div class="fonn">323</div>
+        <div class="fonn"><?php echo $this->model->getProductsCount() ?></div>
       </div>
 
       <div class="cardd-btn">
-        <a href="<?php echo URLROOT; ?>pages/products">Products</a>
+        <a href="<?php echo URLROOT; ?>pages/viewproducts">Products</a>
+      </div>
+    </div>
+    <div class="thrd cardd4">
+      <img class="cardd-profile-img" src="http://localhost/mvc/public/cust.jpg" alt="">
+      <div class="cardd-description-bk"></div>
+
+      <div class="cardd-description">
+        <div class="fonn"><?php echo $this->model->getCustCount() ?></div>
+      </div>
+
+      <div class="cardd-btn">
+        <a href="<?php echo URLROOT; ?>pages/Viewcustomers">Customers</a>
       </div>
     </div>
 
-    <div class="frth cardd4">
+    <!-- <div class="frth cardd5">
       <img class="cardd-profile-img" src="http://localhost/mvc/public/stat.jpg" alt="">
       <div class="cardd-description-bk"></div>
 
@@ -134,7 +145,7 @@ class Admin extends View
       <div class="cardd-btn">
         <a href="#">Revenue</a>
       </div>
-    </div>
+    </div> -->
 
 
 <?php

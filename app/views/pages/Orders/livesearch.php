@@ -51,7 +51,7 @@ class livesearch extends view
                                                     <tr>
                                                         <td style="width: 30%;"><?php echo $id; ?></td>
                                                         <td style="width: 30%;"><?php echo $name; ?></td>
-                                                        <td style="width: 30%;"><?php echo $Price; ?></td>
+                                                        <td style="width: 30%;"><?php echo $Price.' EGP'; ?></td>
                                                         <td style="width: 30%;"><?php echo $Product_Type; ?></td>
                                                         <td style="width: 30%;">
                                                             <div class="product-item" width="100px">

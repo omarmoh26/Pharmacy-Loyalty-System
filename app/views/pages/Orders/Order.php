@@ -7,11 +7,18 @@
 
 <?php
 require_once("classes.php");
-$_SESSION['cart'] = "";
+
 class Order extends View
 {
     public function output()
     {
+        $customerID = $_GET['cid'];
+        $customerPoints = $this->model->getCustomerPoints($customerID);
+        $custoemrName = $this->model->getCustomerName($customerID);
+
+        $_SESSION['cart'] = "";
+        $_SESSION['item_total'];
+
         $_SESSION['cart'] = new Cart();
         if (!empty($_POST['cart'])) {
             $_SESSION['cart']->productsQuantity = json_decode($_POST['cart'], true);
@@ -35,29 +42,26 @@ class Order extends View
         require APPROOT . '/views/inc/header.php';
 
         $action = URLROOT . 'pages/Order';
-        $text = <<<EOT
-    <form action="$action" method="post">
-    EOT
+                $text = <<<EOT
+                <form action="$action" method="post">
+                EOT
 ?>
         <div class="w">
 
             <!-- -------------------------------------LEFT SIDE--------------------------------------- -->
 
             <div class="left">
-                <div class="checkout">
-                    <a href="<?php echo URLROOT . 'pages/Checkout'; ?>">Checkout</a>
+            <div class="checkout">
+                    <a href="<?php echo URLROOT . 'pages/Checkout'; ?>?cid=<?php echo $customerID ?>">Checkout</a>
                 </div>
                 <div class="container" style="max-width:50%;">
                     <input type="text" class="input-search" id="live_search" autocomplete="off" placeholder="Search for products...">
                 </div>
                 <div class="result">
                     <div id="searchresult"></div>
+
                 </div>
-
-
-                <input type="text" class="cash" placeholder="cash" name="cash">
             </div>
-
             <!-- -------------------------------------RIGHT SIDE--------------------------------------- -->
 
             <div class="right">
@@ -73,7 +77,7 @@ class Order extends View
                                         <?php
 
                                         if (count($_SESSION['cart']->productsQuantity) > 0) {
-                                            $item_total = 0;
+                                            $_SESSION['item_total'] = 0;
                                         ?>
                                             <table class="table user-list">
                                                 <thead>
@@ -95,7 +99,7 @@ class Order extends View
                                                     <tr>
                                                         <td><strong><?php echo $product->name; ?></strong></td>
                                                         <td><?php echo $quantity; ?></td>
-                                                        <td><?php echo "$" . $product->price; ?></td>
+                                                        <td><?php echo  $product->price . ' EGP'; ?></td>
                                                         <td>
                                                             <form method="post" action="Order?cid=<?php echo $_GET['cid'] ?>&action=remove&id=<?php echo $product->id; ?>">
                                                                 <input type="submit" value="Remove Item" class="btnAddAction" id="remove" />
@@ -105,13 +109,13 @@ class Order extends View
                                                         </td>
                                                     </tr>
                                                 <?php
-                                                    $item_total += ($product->price * $quantity);
+                                                    $_SESSION['item_total'] += ($product->price * $quantity);
                                                 }
                                                 ?>
                                                 <tr>
-                                                    <td colspan="4"><strong >Total:
-                                                        <?php
-                                                        echo  $item_total."  EGP"; ?>
+                                                    <td colspan="4"><strong>Total:
+                                                            <?php
+                                                            echo  $_SESSION['item_total'] . "  EGP"; ?>
                                                         </strong>
                                                     </td>
                                                 </tr>
@@ -127,12 +131,12 @@ class Order extends View
                     </div>
 
                     <div class="Bask">
-                        <h1><?php echo $this->model->getCustomerName($_GET['cid']) ?>'s Cart</h1>
+                        <h1><?php echo $custoemrName; ?>'s cart</h1>
                     </div>
 
 
                     <div class="btext">
-                        <p4>Points: 412412414</p4>
+                        <p4><?php echo $custoemrName; ?>'s points: <?php echo $customerPoints ?></p4>
                         <br>
                         <hr style="width:300px">
 
@@ -140,26 +144,9 @@ class Order extends View
 
                 </div>
             </div>
-            <div class="radio">
+            
+            
 
-                <label class="rad-label">
-                    <input type="radio" class="rad-input" name="rad">
-                    <div class="rad-design"></div>
-                    <div class="rad-text">Cash</div>
-                </label>
-
-                <label class="rad-label">
-                    <input type="radio" class="rad-input" name="rad">
-                    <div class="rad-design"></div>
-                    <div class="rad-text">Cash&Points</div>
-                </label>
-
-                <label class="rad-label">
-                    <input type="radio" class="rad-input" name="rad">
-                    <div class="rad-design"></div>
-                    <div class="rad-text">Points</div>
-                </label>
-            </div>
     <?php
         <<<EOT
     </form>
@@ -172,6 +159,7 @@ class Order extends View
     ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
+        
         $(document).ready(function() {
 
             $("#live_search").keyup(function() {
@@ -197,4 +185,5 @@ class Order extends View
 
             });
         });
+        /* time in milliseconds (ie 2 seconds)*/
     </script>

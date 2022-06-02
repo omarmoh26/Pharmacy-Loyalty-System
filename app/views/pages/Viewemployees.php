@@ -47,7 +47,14 @@ class Viewemployees extends View
                                                     <td><?php echo $row['id'] ?></td>
                                                     <td><?php echo $row['name'] ?></td>
                                                     <td><?php echo $row['username'] ?></td>
-                                                    <td><?php echo $row['type'] ?></td>
+                                                    <td><?php 
+                                                    if($row['type'] ==1){
+                                                        echo "admin";
+                                                    }
+                                                    else {
+                                                        echo "employee";
+                                                    }
+                                                    ?></td>
 
                                                     <td style="width: 20%;">
                                                         <button id="boxx">
