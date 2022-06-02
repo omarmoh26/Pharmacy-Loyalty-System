@@ -17,7 +17,7 @@ class Order extends View
         $custoemrName = $this->model->getCustomerName($customerID);
 
         $_SESSION['cart'] = "";
-        $_SESSION['item_total'];
+        $_SESSION['item_total']="";
 
         $_SESSION['cart'] = new Cart();
         if (!empty($_POST['cart'])) {
