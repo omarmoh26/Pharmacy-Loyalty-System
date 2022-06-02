@@ -27,9 +27,9 @@ class Product {
 		/////
 		$result = mysqli_query($db_handle->conn,$sql);
 		if($row=mysqli_fetch_array($result)) {
-			$this->id=$row[0];
-			$this->name=$row[1];
-			$this->price=$row[3];
+			$this->id=$row['id'];
+			$this->name=$row['name'];
+			$this->price=$row['Price'];
 			$this->options=array();
 		}
 		$sql="SELECT options.Name,product_s_o_v.Value 
