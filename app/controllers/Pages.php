@@ -35,22 +35,8 @@ class Pages extends Controller
         $AdminView->output();
     }
 
-    public function Order()
-    {
-        // $OrderModel = $this->getModel();
-        $viewPath = VIEWS_PATH . 'pages/Orders/Order.php';
-        require_once $viewPath;
-        $OrderView = new Order($this->getModel(), $this);
-        $OrderView->output();
-    }
 
-    public function Checkout()
-    {
-        $viewPath = VIEWS_PATH . 'pages/Orders/Checkout.php';
-        require_once $viewPath;
-        $CheckoutView = new Checkout($this->getModel(), $this);
-        $CheckoutView->output();
-    }
+
 
     public function Editname()
     {
@@ -199,5 +185,80 @@ class Pages extends Controller
         require_once $viewPath;
         $indexCartView = new indexCart($this->getModel(), $this);
         $indexCartView->output();
+    }
+    public function Order()
+    {
+        // $OrderModel = $this->getModel();
+
+
+        $viewPath = VIEWS_PATH . 'pages/Orders/Order.php';
+        require_once $viewPath;
+        $OrderView = new Order($this->getModel(), $this);
+        $OrderView->output();
+    }
+    public function Checkout()
+    {
+        $checkoutModel = $this->getModel();
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $checkoutModel->setcustomerID(trim($_POST['customerID']));
+            $checkoutModel->setcashierID(trim($_SESSION['user_id']));
+            $checkoutModel->setdate(date("Y-m-d h:i:sa"));
+
+            $checkoutModel->setcurrentpoints(trim($_POST['customerPoints']));
+            $custpoints = $checkoutModel->getcurrentpoints();
+            $checkoutModel->settotal(trim($_POST['total']));
+            $total = $checkoutModel->gettotal();
+
+            if (!empty($_POST['cashonly']) && empty($_POST['cashNpoints'])) {
+                $checkoutModel->setpaid(trim($_POST['cashonly']));
+
+                $checkoutModel->setaddedpoints($total);
+                $checkoutModel->setusedpoints(0);
+
+                $change = $checkoutModel->getpaid() - $total;
+                $checkoutModel->settchange($change);
+                $checkoutModel->setdiscount(0);
+            }
+            if (!empty($_POST['cashNpoints']) && empty($_POST['cashonly'])) {
+                $checkoutModel->setpaid(trim($_POST['cashNpoints']));
+
+                $checkoutModel->setaddedpoints(0);
+                
+                // change = (paid)-(total)-(customerpoints*0.1)
+                $change = $checkoutModel->getpaid() - ($total - ($custpoints * 0.1));
+                $checkoutModel->setusedpoints(($checkoutModel->getpaid()-$total-$change)*10);
+                $checkoutModel->settchange($change);
+                $checkoutModel->setdiscount($custpoints * 0.1);
+            }
+            if (empty($_POST['cashNpoints']) && empty($_POST['cashonly'])) {
+                $checkoutModel->setpaid(0);
+                $checkoutModel->setaddedpoints(0);
+                $checkoutModel->setusedpoints($total * 10);
+                $checkoutModel->settchange(0);
+                $checkoutModel->setdiscount($total);
+            }
+
+            if ($checkoutModel->newOrder()) {
+                $checkoutModel->updatePointsValue();
+                if ($checkoutModel->getorderID()) {
+                    if ($checkoutModel->addOrderDetails()) {
+
+                        redirect('customers/OldCust');
+                    } else {
+                        die('Error in adding order details');
+                    }
+                } else {
+                    die('Error in getting order id');
+                }
+            } else {
+                die('Error in confirming order');
+            }
+        }
+
+        $viewPath = VIEWS_PATH . 'pages/Orders/Checkout.php';
+        require_once $viewPath;
+        $CheckoutView = new Checkout($this->getModel(), $this);
+        $CheckoutView->output();
     }
 }
