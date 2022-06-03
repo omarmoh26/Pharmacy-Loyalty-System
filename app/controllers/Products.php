@@ -16,4 +16,11 @@ class Products extends Controller
         $AdminView = new Deleteproduct($this->getModel(), $this);
         $AdminView->output();
     }
+    public function receipt() 
+    {
+        $viewPath = VIEWS_PATH . 'pages/Orders/receipt.php';
+        require_once $viewPath;
+        $AdminView = new receipt($this->getModel(), $this);
+        $AdminView->output();
+    }
 }
