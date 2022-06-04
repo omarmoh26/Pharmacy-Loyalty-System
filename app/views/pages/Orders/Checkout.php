@@ -68,9 +68,9 @@ class Checkout extends View
                                                 </tr>
                                                 <tr>
                                                     <td colspan="4"><strong><i>
-                                                            <?php echo "Current Points: " . $customerPoints . "</br> Gives: " . $customerPoints * 0.1 . " EGP Discount";
+                                                                <?php echo "Current Points: " . $customerPoints . "</br> Gives: " . $customerPoints * 0.1 . " EGP Discount";
 
-                                                            ?></i>
+                                                                ?></i>
                                                         </strong>
                                                     </td>
                                                 </tr>
@@ -106,8 +106,9 @@ class Checkout extends View
                             <div class="rad-text">Points with Cash</div>
                             <div id="ifPC" style="visibility:hidden; display:inline;">
                                 <!-- CASHH AND POINTS -->
-                                <input type='text' id='cashNpoints' name='cashNpoints' placeholder=' Cash amount....' onkeyup="javascript:cashinput(<?php echo  ($_SESSION['item_total']-($customerPoints * 0.1)); ?>,<?php echo $customerPoints; ?> )">
-                                <div id='cperorr' style='visibility:hidden;  display:inline; color:red; font-family: monospace;'><?php   if(($_SESSION['item_total']-($customerPoints * 0.1))<0) echo ""; else echo "Enter minimum of ".($_SESSION['item_total']-($customerPoints * 0.1))."EGP"; ?> </div>
+                                <input type='text' id='cashNpoints' name='cashNpoints' placeholder=' Cash amount....' onkeyup="javascript:cashinput(<?php echo ($_SESSION['item_total'] - ($customerPoints * 0.1)); ?>,<?php echo $customerPoints; ?> )">
+                                <div id='cperorr' style='visibility:hidden;  display:inline; color:red; font-family: monospace;'><?php if (($_SESSION['item_total'] - ($customerPoints * 0.1)) < 0) echo "";
+                                                                                                                                    else echo "Enter minimum of " . ($_SESSION['item_total'] - ($customerPoints * 0.1)) . "EGP"; ?> </div>
                             </div>
                         </label>
 
@@ -127,7 +128,9 @@ class Checkout extends View
                         <input type="hidden" name="customerID" value="<?php echo $_GET['cid']; ?>">
                         <input type="hidden" name="customerPoints" value="<?php echo $customerPoints; ?>">
                         <input type="hidden" name="total" value="<?php echo $_SESSION['item_total']; ?>">
-                        <input type="submit" value="Confirm Payment" class="form-control btn btn-lg btn-primary btn-block">
+                        <div id="bb">
+                            <input type="submit" value="Confirm Payment" class="btn btn-primary">
+                        </div>
                     </div>
                 </div>
             </form>
@@ -187,41 +190,38 @@ class Checkout extends View
 
     }
 
-    function cashinput(total,points) {
-        if (document.getElementById('cashonly').value != "" ) {
+    function cashinput(total, points) {
+        if (document.getElementById('cashonly').value != "") {
             if (document.getElementById('cashonly').value < total) {
                 document.getElementById('cashonlyerorr').style.visibility = 'visible';
                 return false;
             } else {
                 document.getElementById('cashonlyerorr').style.visibility = 'hidden';
             }
+        } else {
+            document.getElementById('cashonlyerorr').style.visibility = 'hidden';
         }
-        else {
-                document.getElementById('cashonlyerorr').style.visibility = 'hidden';
-            }
 
         if (document.getElementById('cashNpoints').value != "") {
-            if (document.getElementById('cashNpoints').value < (total-(points*0.1))) {
+            if (document.getElementById('cashNpoints').value < (total - (points * 0.1))) {
                 document.getElementById('cperorr').style.visibility = 'visible';
                 return false;
             } else {
                 document.getElementById('cperorr').style.visibility = 'hidden';
             }
+        } else {
+            document.getElementById('cperorr').style.visibility = 'hidden';
         }
-        else {
-                document.getElementById('cperorr').style.visibility = 'hidden';
-            }
         if (document.getElementById('cashNpoints').value == "" && document.getElementById('cashonly').value == "" && !(document.getElementById('p').checked)) {
             document.getElementById('cperorr').style.visibility = 'visible';
             document.getElementById('cashonlyerorr').style.visibility = 'visible';
             return false;
-        }
-        else{
+        } else {
             document.getElementById('cperorr').style.visibility = 'hidden';
             document.getElementById('cashonlyerorr').style.visibility = 'hidden';
 
         }
-        
+
         return true;
 
     }
