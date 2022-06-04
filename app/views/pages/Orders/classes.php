@@ -32,15 +32,6 @@ class Product {
 			$this->price=$row['Price'];
 			$this->options=array();
 		}
-		$sql="SELECT options.Name,product_s_o_v.Value 
-		from options 
-		INNER JOIN product_type_s_o on options.ID=product_type_s_o.Options
-        INNER Join product_s_o_v on product_type_s_o.ID=product_s_o_v.Product_Type_S_O
-		where product_s_o_v.Product_ID=".$id;
-		$result = mysqli_query($db_handle->conn,$sql);
-		while($row=mysqli_fetch_array($result)) {
-			$this->options[$row['Name']]=$row[1];//x['drug strength']=500mg
-		}	
 	}
 
 	static function getAllProducts()	{

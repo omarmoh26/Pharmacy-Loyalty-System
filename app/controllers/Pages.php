@@ -237,6 +237,7 @@ class Pages extends Controller
                 $checkoutModel->updatePointsValue();
                 if ($checkoutModel->getorderID()) {
                     if ($checkoutModel->addOrderDetails()) {
+                        $checkoutModel->updateProdQuant();
 
                         redirect('customers/OldCust');
                     } else {
@@ -262,5 +263,12 @@ class Pages extends Controller
         require_once $viewPath;
         $ViewordersView = new Vieworders($this->getModel(), $this);
         $ViewordersView->output();
+    }
+    public function Viewodetails()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Viewodetails.php';
+        require_once $viewPath;
+        $ViewodetailsView = new Viewodetails($this->getModel(), $this);
+        $ViewodetailsView->output();
     }
 }

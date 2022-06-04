@@ -24,7 +24,7 @@ class livesearch extends view
             }
             $result = mysqli_query($con, $query);
             if (mysqli_num_rows($result) > 0) { ?>
-            <span id="demo"></span>
+                <span id="demo"></span>
                 <div class="containn">
                     <div class="container bootstrap snippets bootdey">
                         <div class="row">
@@ -39,7 +39,14 @@ class livesearch extends view
                                                         <th>Name</th>
                                                         <th>Phone Number</th>
                                                         <th>Address</th>
-                                                        <th>&nbsp;</th>
+                                                        <th><button id="boxx">
+                                                                <a class="table-link text-info" href="<?php echo URLROOT . 'customers/NewCust'; ?>">
+                                                                    <span class="fa-stack">
+                                                                        <i class="fa fa-square fa-stack-2x"></i>
+                                                                        <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </button> </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -53,7 +60,7 @@ class livesearch extends view
                                                             <td><?php echo $row['phone_number'] ?></td>
                                                             <td><?php echo $row['address'] ?></td>
 
-                                                            <td  style="width: 25%;" >
+                                                            <td style="width: 25%;">
                                                                 <button id="boxx">
                                                                     <a class="table-link text-info" href="<?php echo URLROOT . 'customers/Editcustomer'; ?>?id=<?php echo $row['id'] ?>">
                                                                         <span class="fa-stack">

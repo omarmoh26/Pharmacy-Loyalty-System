@@ -160,9 +160,26 @@ class CheckoutModel extends model
           else
                return $result;
      }
+     public function updateProdQuant()
+     {    $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
 
+          $sql1="SELECT product_id,quantity FROM `order_description` WHERE order_id=$this->orderID GROUP BY product_id";
+          $result1 = mysqli_query($conn, $sql1);
+          while ($row = mysqli_fetch_array($result1)) {
+               $sql2="SELECT quantity FROM `product` WHERE id=". $row['product_id'];
+               $result2 = mysqli_query($conn, $sql2);
 
-
+               $oldQuant = mysqli_fetch_array($result2);
+               if($oldQuant['quantity'] == 0 || ($oldQuant['quantity']-$row['quantity'])<=0 ){
+                    $newQuant=0;
+               }
+               else{
+                    $newQuant=$oldQuant['quantity']-$row['quantity'];
+               }
+               $sql3 = "UPDATE `product` SET `quantity`=$newQuant WHERE id=". $row['product_id'];
+               mysqli_query($conn, $sql3);
+          }
+     }
 
      public function getCustomerName($id)
      {    $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
@@ -187,4 +204,6 @@ class CheckoutModel extends model
                return $row['points'];
           }
      }
+
+
 }
