@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/form.css">
 </head>
 
 <?php
@@ -30,8 +30,7 @@ class Addemployee extends view
 			</div> 
 			<div class="main-login main-center">
     <form action="$action" name="myForm" class="form-horizontal" method="post" onsubmit="return(validate());" >
-    <span id="demo"></span>
-    <br>
+    
 EOT;
     echo $text;
     $this->printName();
@@ -41,8 +40,8 @@ EOT;
     $text = <<<EOT
     <div class="form-group">
     <div class="cols-sm-10">
+    <br>
           <input type="submit" value="Add" class="form-control btn btn-lg btn-primary btn-block">
-    <span id="demo"></span>
           
           </div>
           <div class="message" id="message_name">
@@ -72,7 +71,7 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
   ?>
-    <span id="username"></span>
+    <span id="username" class="username-error"></span>
   <?php
     $this->printInput('text', 'username', $val, $err, $valid);
   }
@@ -84,7 +83,7 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
   ?>
-    <span id="password"></span>
+    <span id="password" class="password-error"></span>
   <?php
     $this->printInput('password', 'password', $val, $err, $valid);
   }
@@ -95,7 +94,7 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
   ?>
-    <span id="confirm_password"></span>
+    <span id="confirm_password" class="confirm_password-error"></span>
 <?php
     $this->printInput('password', 'confirm_password', $val, $err, $valid);
   }
@@ -108,7 +107,7 @@ EOT;
     <div class="form-group">
 						<div class="cols-sm-10">
 							<div class="input-group">
-							
+						
       <label for="$fieldName"> $label:</label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" onkeyup="validate();">
       <span class="invalid-feedback">$err</span>
