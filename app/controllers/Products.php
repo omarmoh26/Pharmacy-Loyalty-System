@@ -8,7 +8,7 @@ class Products extends Controller
         $AdminView = new Viewproducts($this->getModel(), $this);
         $AdminView->output();
     }
-    public function deleteproduct() 
+    public function deleteproduct()
     {
         redirect('products/Viewproducts');
         $viewPath = VIEWS_PATH . 'pages/Products/Deleteproduct.php';
@@ -18,7 +18,7 @@ class Products extends Controller
     }
     public function addproducts()
     {
-        $addproductsModel= $this->getModel();
+        $addproductsModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
             $addproductsModel->setName(trim($_POST['name']));
@@ -33,13 +33,13 @@ class Products extends Controller
             }
             if (empty($addproductsModel->getPrice())) {
                 $addproductsModel->setPriceErr('Please enter a price');
-            } 
+            }
             if (empty($addproductsModel->getPtype())) {
                 $addproductsModel->setPtypeErr('Please choose a type');
-            } 
+            }
             if (empty($addproductsModel->getQuantity())) {
                 $addproductsModel->setQuantityErr('Please enter the quantity');
-            } 
+            }
 
             if (
                 empty($addproductsModel->getNameErr()) &&
@@ -47,7 +47,7 @@ class Products extends Controller
                 empty($addproductsModel->getPtypeErr()) &&
                 empty($addproductsModel->getQuantityErr())
             ) {
-               
+
                 if ($addproductsModel->AddNewProduct()) {
                     redirect('products/viewproducts');
                 } else {
@@ -56,17 +56,19 @@ class Products extends Controller
             }
         }
 
-
-
-
-
-
-
-
-
         $viewPath = VIEWS_PATH . 'pages/products/Addproducts.php';
         require_once $viewPath;
         $addproductsView = new Addproducts($this->getModel(), $this);
         $addproductsView->output();
     }
+    
+    public function receipt()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Orders/receipt.php';
+        require_once $viewPath;
+        $AdminView = new receipt($this->getModel(), $this);
+        $AdminView->output();
+    }
+
+
 }
