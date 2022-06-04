@@ -156,13 +156,7 @@ class Pages extends Controller
         $livesearchView->output();
     }
 
-    public function addproducts()
-    {
-        $viewPath = VIEWS_PATH . 'pages/products/Addproducts.php';
-        require_once $viewPath;
-        $addproductsView = new Addproducts($this->getModel(), $this);
-        $addproductsView->output();
-    }
+    
 
 
     public function viewcustomers()
@@ -260,5 +254,13 @@ class Pages extends Controller
         require_once $viewPath;
         $CheckoutView = new Checkout($this->getModel(), $this);
         $CheckoutView->output();
+    }
+    
+    public function Vieworders()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Vieworders.php';
+        require_once $viewPath;
+        $ViewordersView = new Vieworders($this->getModel(), $this);
+        $ViewordersView->output();
     }
 }

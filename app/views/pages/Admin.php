@@ -92,7 +92,7 @@ class Admin extends View
         <div class="fonn"><?php echo $this->model->getOrderCount() ?></div>
       </div>
       <div class="cardd-btn">
-        <a href="#">Orders</a>
+        <a href="<?php echo URLROOT; ?>pages/ViewOrders">Orders</a>
       </div>
     </div>
 
@@ -118,7 +118,7 @@ class Admin extends View
       </div>
 
       <div class="cardd-btn">
-        <a href="<?php echo URLROOT; ?>pages/viewproducts">Products</a>
+        <a href="<?php echo URLROOT; ?>products/viewproducts">Products</a>
       </div>
     </div>
     <div class="thrd cardd4">

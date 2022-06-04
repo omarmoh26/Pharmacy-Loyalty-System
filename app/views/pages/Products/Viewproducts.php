@@ -36,6 +36,7 @@ class Viewproducts extends View
                                                 <th><span>Name</span></th>
                                                 <th><span>Price</span></th>
                                                 <th><span>Product Type</span></th>
+                                                <th><span>Quantity</span></th>
                                                 <th>&nbsp;</th>
                                             </tr>
                                         </thead>
@@ -48,6 +49,8 @@ class Viewproducts extends View
                                                     <td><?php echo $row['name']; ?></td>
                                                     <td><?php echo $row['Price']; ?></td>
                                                     <td><?php echo $row['Type']; ?></td>
+                                                    <td><?php echo $row['quantity']; ?></td>
+                                                    
 
 
 

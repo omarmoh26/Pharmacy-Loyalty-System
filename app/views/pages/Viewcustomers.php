@@ -71,8 +71,6 @@ class Viewcustomer extends View
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
-
-
                                     </table>
                                 </div>
                             </div>

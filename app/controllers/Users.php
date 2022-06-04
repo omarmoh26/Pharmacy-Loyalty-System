@@ -96,7 +96,7 @@ class Users extends Controller
                 if ($AddemployeeModel->signup()) {
                     redirect('pages/Viewemployees');
                 } else {
-                    die('Error in sign up');
+                    die('Error in adding the employee');
                 }
             }
         }

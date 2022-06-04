@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id'])) {
               </li>
 
               <li>
-                <a href="<?php echo URLROOT . 'pages/Addproducts'; ?>">Add Products</a>
+                <a href="<?php echo URLROOT . 'products/Addproducts'; ?>">Add Products</a>
               </li>
 
             </ul>

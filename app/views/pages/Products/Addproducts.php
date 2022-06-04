@@ -1,21 +1,22 @@
-<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css"></head>
+<head>
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css">
+</head>
 
 <?php
 class Addproducts extends view
 {
-    public function output()
-    {
-        $title = $this->model->title;
-        
-        require APPROOT . '/views/inc/header.php';
-        $this->printForm();
-        require APPROOT . '/views/inc/footer.php';
-    }
-    
-    private function printForm()
-    {
-        $action = URLROOT . 'pages/Viewusers';
-        $text = <<<EOT
+  public function output()
+  {
+
+    require APPROOT . '/views/inc/header.php';
+    $this->printForm();
+    require APPROOT . '/views/inc/footer.php';
+  }
+
+  private function printForm()
+  {
+    $action = URLROOT . 'products/addproducts';
+    $text = <<<EOT
 
     <div class="container">
 		<div class="row main">
@@ -29,13 +30,32 @@ class Addproducts extends view
 EOT;
     echo $text;
     $this->printName();
-    $this->printUsername();
-    $this->printPassword();
-    $this->printConfirmPassword();
+    $this->printPrice();
+    $this->printQuantity();
+    $result = $this->model->getAllTypes();
+?>
+    <div class="form-group">
+      <div class="cols-sm-10">
+        <div class="input-group">
+          <label for="Type"> Type:</label>
+        </div>
+        <span class="invalid-feedback"><?php $this->model->getPtypeErr(); ?></span>
+        <select name="type" class="form-select" aria-label="Default select example" style="max-width:90%;">
+          <option value="" selected>Select Type</option>
+      </div>
+    </div>
+    <?php
+    while ($row = mysqli_fetch_array($result)) { ?>
+      <option value="<?php echo $row['ID']; ?>"><?php echo $row['Type']; ?></option>
+
+
+<?php }
     $text = <<<EOT
+    </select><br>
+   
     <div class="form-group">
     <div class="cols-sm-10">
-          <input type="submit" value="Register" class="form-control btn btn-lg btn-primary btn-block">
+          <input type="submit" value="Add" class="form-control btn btn-lg btn-primary btn-block">
           </div>
           <div class="message" id="message_name">
           </div>
@@ -52,32 +72,24 @@ EOT;
     $err = $this->model->getNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('text', 'barcode', $val, $err, $valid);
-  }
-  private function printUsername()
-  {
-    $val = $this->model->getUsername();
-    $err = $this->model->getUsernameErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
     $this->printInput('text', 'name', $val, $err, $valid);
   }
-
-  private function printPassword()
+  private function printPrice()
   {
-    $val = $this->model->getPassword();
-    $err = $this->model->getPasswordErr();
+    $val = $this->model->getPrice();
+    $err = $this->model->getPriceErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('password', 'quantity', $val, $err, $valid);
+    $this->printInput('text', 'price', $val, $err, $valid);
   }
-  private function printConfirmPassword()
+
+  private function printQuantity()
   {
-    $val = $this->model->getConfirmPassword();
-    $err = $this->model->getConfirmPasswordErr();
+    $val = $this->model->getQuantity();
+    $err = $this->model->getQuantityErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('password', 'price', $val, $err, $valid);
+    $this->printInput('text', 'quantity', $val, $err, $valid);
   }
 
   private function printInput($type, $fieldName, $val, $err, $valid)
