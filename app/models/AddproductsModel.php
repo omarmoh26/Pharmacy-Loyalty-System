@@ -1,5 +1,4 @@
 <?php
-require_once 'UserModel.php';
 class AddproductsModel extends Model
 {
     protected $name;

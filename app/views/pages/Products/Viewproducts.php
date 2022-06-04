@@ -56,7 +56,7 @@ class Viewproducts extends View
 
                                                     <td style="width: 20%;">
                                                         <button id="boxx">
-                                                            <a class="table-link text-info" href="#">
+                                                            <a class="table-link text-info" href="<?php echo URLROOT . 'Products/Editproducts'; ?>?id=<?php echo $row['id'] ?>">
                                                                 <span class="fa-stack">
                                                                     <i class="fa fa-square fa-stack-2x"></i>
                                                                     <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>

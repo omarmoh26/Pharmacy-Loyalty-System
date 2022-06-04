@@ -81,7 +81,7 @@ EOT;
 
   private function printID()
   {
-    $val = $id = $_GET['id'];
+    $val = $_GET['id'];
     $err = $this->model->getnameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
