@@ -239,7 +239,7 @@ class Pages extends Controller
                     if ($checkoutModel->addOrderDetails()) {
                         $checkoutModel->updateProdQuant();
 
-                        redirect('customers/OldCust');
+                        redirect('Products/receipt');
                     } else {
                         die('Error in adding order details');
                     }
