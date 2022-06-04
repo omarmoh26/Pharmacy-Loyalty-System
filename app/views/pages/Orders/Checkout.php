@@ -97,7 +97,7 @@ class Checkout extends View
                             <div id="ifCash" style="visibility:hidden; display:inline;">
                                 <!-- CASHH -->
                                 <input type='text' id='cashonly' name='cashonly' placeholder=' Cash amount....' onkeyup="javascript:cashinput(<?php echo  $_SESSION['item_total']; ?>,<?php echo $customerPoints; ?> )"><br>
-                                <div id='cashonlyerorr' style='visibility:hidden;  display:inline; color:red; font-family: monospace;'>Enter minimum of <?php echo  $_SESSION['item_total']; ?> EGP</div>
+                                <div id='cashonlyerorr' style='visibility:hidden;  display:inline; color:red; font-family: monospace;'>Enter a number minimum of <?php echo  $_SESSION['item_total']; ?> EGP</div>
                             </div>
                         </label>
                         <label class="rad-label">
@@ -108,7 +108,7 @@ class Checkout extends View
                                 <!-- CASHH AND POINTS -->
                                 <input type='text' id='cashNpoints' name='cashNpoints' placeholder=' Cash amount....' onkeyup="javascript:cashinput(<?php echo ($_SESSION['item_total'] - ($customerPoints * 0.1)); ?>,<?php echo $customerPoints; ?> )">
                                 <div id='cperorr' style='visibility:hidden;  display:inline; color:red; font-family: monospace;'><?php if (($_SESSION['item_total'] - ($customerPoints * 0.1)) < 0) echo "";
-                                                                                                                                    else echo "Enter minimum of " . ($_SESSION['item_total'] - ($customerPoints * 0.1)) . "EGP"; ?> </div>
+                                                                                                                                    else echo "Enter a number minimum of " . ($_SESSION['item_total'] - ($customerPoints * 0.1)) . "EGP"; ?> </div>
                             </div>
                         </label>
 
@@ -170,6 +170,20 @@ class Checkout extends View
 }
 ?>
 <script>
+    var pattern = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*.,?]).+$");
+    var upp = new RegExp(
+        "^(?=.*[A-Z]).+$"
+    );
+    var loww = new RegExp(
+        "^(?=.*[a-z]).+$"
+    );
+    var digitt = new RegExp(
+        "^(?=.*\\d).+$"
+    );
+    var special = new RegExp(
+        "^(?=.*[-+_!@#$%^&*.,?]).+$"
+    );
+
     function showselected() {
         if (document.getElementById('cash').checked) {
             document.getElementById('ifCash').style.visibility = 'visible';
@@ -195,6 +209,9 @@ class Checkout extends View
             if (document.getElementById('cashonly').value < total) {
                 document.getElementById('cashonlyerorr').style.visibility = 'visible';
                 return false;
+            } else if ((upp.test(document.getElementById('cashonly').value)) || (loww.test(document.getElementById('cashonly').value)) || (special.test(document.getElementById('cashonly').value))) {
+                document.getElementById('cashonlyerorr').style.visibility = 'visible';
+                return false;
             } else {
                 document.getElementById('cashonlyerorr').style.visibility = 'hidden';
             }
@@ -204,6 +221,9 @@ class Checkout extends View
 
         if (document.getElementById('cashNpoints').value != "") {
             if (document.getElementById('cashNpoints').value < (total - (points * 0.1))) {
+                document.getElementById('cperorr').style.visibility = 'visible';
+                return false;
+            } else if ((upp.test(document.getElementById('cashNpoints').value)) || (loww.test(document.getElementById('cashNpoints').value)) || (special.test(document.getElementById('cashNpoints').value))) {
                 document.getElementById('cperorr').style.visibility = 'visible';
                 return false;
             } else {
@@ -216,7 +236,13 @@ class Checkout extends View
             document.getElementById('cperorr').style.visibility = 'visible';
             document.getElementById('cashonlyerorr').style.visibility = 'visible';
             return false;
-        } else {
+        } 
+        else if (document.getElementById('cashNpoints').value == "" && document.getElementById('cashonly').value == "" && (document.getElementById('p').checked)) {
+            document.getElementById('cperorr').style.visibility = 'hidden';
+            document.getElementById('cashonlyerorr').style.visibility = 'hidden';
+            return false;
+        }
+        else {
             document.getElementById('cperorr').style.visibility = 'hidden';
             document.getElementById('cashonlyerorr').style.visibility = 'hidden';
 

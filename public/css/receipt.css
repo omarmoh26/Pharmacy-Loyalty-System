@@ -19,7 +19,7 @@
   height: 70%;
   width: 710px;
   background-color: rgba(255, 255, 255, 0.803);
-  top: 20px;
+  top: 70px;
   left: 80px;
   border-radius: 20px;
   overflow-y: scroll;
@@ -117,9 +117,9 @@ th {
   font-size: 20px;
 }
 .done-frame {
-  position: fixed;
-  left: 1040px;
-  top:620;
+  position: relative;
+  left: 700px;
+  top:80;
   width: 100;
   color: rgb(0, 0, 0);
   height: 10px;
@@ -132,10 +132,9 @@ th {
 }
 
 .print-frame {
-  position: fixed;
-  /* top: 1%; */
-  left: 950px;
-  top:620;
+  position: relative;
+  left: 600px;
+  top:70;
   width: 100;
   color: rgb(0, 0, 0);
   height: 10px;
