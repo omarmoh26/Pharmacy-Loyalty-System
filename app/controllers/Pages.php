@@ -238,8 +238,7 @@ class Pages extends Controller
                 if ($checkoutModel->getorderID()) {
                     if ($checkoutModel->addOrderDetails()) {
                         $checkoutModel->updateProdQuant();
-
-                        redirect('Products/receipt');
+                        redirect("Products/receipt?oid=".$checkoutModel->getOrder_ID());
                     } else {
                         die('Error in adding order details');
                     }

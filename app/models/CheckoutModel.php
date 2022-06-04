@@ -104,6 +104,14 @@ class CheckoutModel extends model
      {
           return $this->discount;
      }
+     public function setOrder_ID($orderID)
+     {
+          $this->orderID = $orderID;
+     }
+     public function getOrder_ID()
+     {
+          return $this->orderID;
+     }
 
 
      public function newOrder()
