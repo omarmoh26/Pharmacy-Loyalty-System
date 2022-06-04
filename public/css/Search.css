@@ -9,7 +9,7 @@
   left: 0px;
   padding-right: 40px;
   color: rgb(0, 128, 255);
-  top: -40px;
+  top: 10px;
   outline: none;
   letter-spacing: 2px;
   font-size: 18px;
@@ -42,9 +42,10 @@
 }
 .searcht {
   position: relative;
-  top: -60px;
+  bottom: 40px;
+  top: 1px;
   left: 20px;
-  height: 220px;
+  height: 490px;
   width: 560px;
   border-radius: 20px;
   overflow-y: scroll;

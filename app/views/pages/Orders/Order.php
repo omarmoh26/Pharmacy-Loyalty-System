@@ -17,7 +17,7 @@ class Order extends View
         $custoemrName = $this->model->getCustomerName($customerID);
 
         $_SESSION['cart'] = "";
-        $_SESSION['item_total']="";
+        $_SESSION['item_total'] = "";
 
         $_SESSION['cart'] = new Cart();
         if (!empty($_POST['cart'])) {
@@ -42,7 +42,7 @@ class Order extends View
         require APPROOT . '/views/inc/header.php';
 
         $action = URLROOT . 'pages/Order';
-                $text = <<<EOT
+        $text = <<<EOT
                 <form action="$action" method="post">
                 EOT
 ?>
@@ -51,9 +51,7 @@ class Order extends View
             <!-- -------------------------------------LEFT SIDE--------------------------------------- -->
 
             <div class="left">
-            <div class="checkout">
-                    <a href="<?php echo URLROOT . 'pages/Checkout'; ?>?cid=<?php echo $customerID ?>">Checkout</a>
-                </div>
+
                 <div class="container" style="max-width:50%;">
                     <input type="text" class="input-search" id="live_search" autocomplete="off" placeholder="Search for products...">
                 </div>
@@ -142,10 +140,14 @@ class Order extends View
 
                     </div>
 
+
+                </div>
+                <div class="checkout">
+                    <a href="<?php echo URLROOT . 'pages/Checkout'; ?>?cid=<?php echo $customerID ?>">Checkout</a>
                 </div>
             </div>
-            
-            
+
+
 
     <?php
         <<<EOT
@@ -159,7 +161,6 @@ class Order extends View
     ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
-        
         $(document).ready(function() {
 
             $("#live_search").keyup(function() {
