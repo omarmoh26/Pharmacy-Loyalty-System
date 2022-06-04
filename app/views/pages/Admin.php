@@ -33,18 +33,18 @@ class Admin extends View
       
 
       $dataPoints = array(
-        array("y" => 25, "label" => "Jan"),
-      array("y" => 15, "label" => "Feb"),
-      array("y" => 25, "label" => "Mar"),
-      array("y" => 5, "label" => "Apr"),
-      array("y" => 10, "label" => "May"),
-      array("y" => 54, "label" => "Jun"),
-      array("y" => 20, "label" => "Jul"),
-      array("y" => 20, "label" => "Aug"),
-      array("y" => 20, "label" => "Sept"),
-      array("y" => 20, "label" => "Oct"),
-      array("y" => 20, "label" => "Nov"),
-      array("y" => 20, "label" => "Dec")
+        array("y" => 500, "label" => "Sept"),
+        array("y" => 750, "label" => "Oct"),
+        array("y" => 850, "label" => "Nov"),
+        array("y" => 700, "label" => "Dec"),
+        array("y" => 650, "label" => "Jan"),
+      array("y" => 800, "label" => "Feb"),
+      array("y" => 1100, "label" => "Mar"),
+      array("y" => 1000, "label" => "Apr"),
+      array("y" => 900, "label" => "May"),
+      array("y" => $this->model->getTotalSum(), "label" => "Jun"),
+      array("y" => 0, "label" => "Jul"),
+      array("y" => 0, "label" => "Aug")
       )
       ?>
       <script>
@@ -70,7 +70,7 @@ class Admin extends View
               markerSize: 10,
               xValueType: "dateTime",
               xValueFormatString: "MMMM",
-              yValueFormatString: "$#,##0.00",
+              yValueFormatString: "#,##0 EGP",
               dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
             }]
           });

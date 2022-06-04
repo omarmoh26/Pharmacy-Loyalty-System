@@ -37,5 +37,14 @@ class AdminModel extends model
           $name = mysqli_fetch_assoc($result);
           return $name['count'];
      }
+     
 
+     public function getTotalSum()
+     {
+          $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
+          $sql = "SELECT Sum(total) as total FROM `orders`";
+          $result = mysqli_query($conn, $sql);
+          $name = mysqli_fetch_assoc($result);
+          return $name['total'];
+     }
 }
