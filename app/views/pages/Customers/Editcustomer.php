@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/form.css">
 </head>
 
 <?php
@@ -28,8 +28,7 @@ class Editcustomer extends view
     </div> 
     <div class="main-login main-center">
   <form action="$action"class="form-horizontal" method="post" name="myForm" onsubmit="return(validate());">
-  <span id="demo"></span>
-        <br>
+ 
 EOT;
     echo $text;
     $this->printName();
@@ -56,7 +55,9 @@ EOT;
     $val = $this->model->getcustomerName($id);
     $err = $this->model->getNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
+?>
+    <span id="name" class="-error"></span>
+  <?php
     $this->printInput('text', 'name', $val, $err, $valid);
   }
   private function printphone_number()
@@ -65,7 +66,9 @@ EOT;
     $val = $this->model->getcustomerphone_number($id);
     $err = $this->model->getphone_numberErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
+  ?>
+    <span id="phone_number" class="-error"></span>
+  <?php
     $this->printInput('text', 'phone_number', $val, $err, $valid);
   }
 
@@ -75,7 +78,9 @@ EOT;
     $val = $this->model->getcustomeraddress($id);
     $err = $this->model->getaddressErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
+  ?>
+    <span id="address" class="-error"></span>
+<?php
     $this->printInput('text', 'address', $val, $err, $valid);
   }
 
@@ -148,33 +153,44 @@ EOT;
 
     //////NAME
     if (document.myForm.name.value.length == "") {
-      document.getElementById("demo").innerHTML = "Please provide a name"
+      document.getElementById("name").innerHTML = "Please provide a name"
       return false;
     } else if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
-      document.getElementById("demo").innerHTML = "name must contain letters only"
+      document.getElementById("name").innerHTML = "name must contain letters only"
       return false;
+    } else {
+      document.getElementById("name").innerHTML = "";
     }
 
     //////phone number
     if (document.myForm.phone_number.value == "") {
-      document.getElementById("demo").innerHTML = "Please provide Phone number"
-      return false;
-    } else if (document.myForm.phone_number.value.length > 11) {
-      document.getElementById("demo").innerHTML = "phone number is not valid"
-      return false;
-    }else if (document.myForm.phone_number.value[0] != "0") {
-      document.getElementById("demo").innerHTML = "phone number is not valid"
+      document.getElementById("phone_number").innerHTML = "Please provide Phone number"
       return false;
     }
-    // || document.myForm.phone_number.value[0] != "0"
-    /////address
-    if ((special.test(document.myForm.address.value))) {
-      document.getElementById("demo").innerHTML = "address is not valid"
+    else if ((upp.test(document.myForm.phone_number.value))||(loww.test(document.myForm.phone_number.value))||(special.test(document.myForm.phone_number.value))) {
+      document.getElementById("phone_number").innerHTML = "phone number must contain numbers only"
+      return false;
+    }
+    else if (document.myForm.phone_number.value.length > 11) {
+      document.getElementById("phone_number").innerHTML = "phone number is not valid"
+      return false;
+    } else if (document.myForm.phone_number.value[0] != "0") {
+      document.getElementById("phone_number").innerHTML = "phone number is not valid"
       return false;
     } else {
-      document.getElementById("demo").innerHTML = "";
-      return (true);
-
+      document.getElementById("phone_number").innerHTML = "";
+    }
+    /////address
+    if ((special.test(document.myForm.address.value))) {
+      document.getElementById("address").innerHTML = "address is not valid"
+      return false;
+    } else {
+      document.getElementById("address").innerHTML = "";
+    }
+    if (document.getElementById("name").innerHTML == "" &&
+      document.getElementById("phone_number").innerHTML == "" &&
+      document.getElementById("address").innerHTML == "") {
+      return true;
     }
   }
 

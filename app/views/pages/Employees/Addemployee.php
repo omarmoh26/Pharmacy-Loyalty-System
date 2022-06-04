@@ -60,7 +60,7 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
 ?>
-    <span id="name" class="name-error"></span>
+    <span id="name" class="-error"></span>
   <?php
     $this->printInput('text', 'name', $val, $err, $valid);
   }
@@ -71,7 +71,7 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
   ?>
-    <span id="username" class="username-error"></span>
+    <span id="username" class="-error"></span>
   <?php
     $this->printInput('text', 'username', $val, $err, $valid);
   }
@@ -83,7 +83,7 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
   ?>
-    <span id="password" class="password-error"></span>
+    <span id="password" class="-error"></span>
   <?php
     $this->printInput('password', 'password', $val, $err, $valid);
   }
@@ -94,7 +94,7 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
   ?>
-    <span id="confirm_password" class="confirm_password-error"></span>
+    <span id="confirm_password" class="-error"></span>
 <?php
     $this->printInput('password', 'confirm_password', $val, $err, $valid);
   }

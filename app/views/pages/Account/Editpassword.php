@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/form.css">
 </head>
 
 <?php
@@ -55,7 +55,9 @@ EOT;
     $val = $this->model->getoldPassword();
     $err = $this->model->getoldPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
+    ?>
+    <span id="old_password" class="-error"></span>
+  <?php
     $this->printInput('password', 'old_password', $val, $err, $valid);
   }
 
@@ -64,7 +66,9 @@ EOT;
     $val = $this->model->getnewPassword();
     $err = $this->model->getnewPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
+    ?>
+    <span id="new_password" class="-error"></span>
+  <?php
     $this->printInput('password', 'new_password', $val, $err, $valid);
   }
   private function printConfirmPassword()
@@ -72,7 +76,9 @@ EOT;
     $val = $this->model->getConfirmPassword();
     $err = $this->model->getConfirmPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
+    ?>
+    <span id="confirm_password" class="-error"></span>
+  <?php
     $this->printInput('password', 'confirm_password', $val, $err, $valid);
   }
   private function printID()
@@ -144,38 +150,49 @@ EOT;
       !(loww.test(document.myForm.old_password.value)) ||
       !(digitt.test(document.myForm.old_password.value))) {
 
-      document.getElementById("demo").innerHTML = "Wrong old password "
+      document.getElementById("old_password").innerHTML = "Wrong old password "
       return false;
+    }
+    else{
+      document.getElementById("old_password").innerHTML = "";
     }
     //////new PASSWORD
     if (document.myForm.new_password.value == "") {
 
-      document.getElementById("demo").innerHTML = "Please enter a new password "
+      document.getElementById("new_password").innerHTML = "Please enter a new password "
       return false;
     } else if (document.myForm.new_password.value.length < 8) {
 
-      document.getElementById("demo").innerHTML = "Please enter an 8 characters password "
+      document.getElementById("new_password").innerHTML = "Please enter an 8 characters password "
       return false;
     }
     //////digit,uppercase,lowercase
     else if (!(upp.test(document.myForm.new_password.value))) {
-      document.getElementById("demo").innerHTML = "password must contain an uppercase letter "
+      document.getElementById("new_password").innerHTML = "password must contain an uppercase letter "
       return false;
     } else if (!(loww.test(document.myForm.new_password.value))) {
-      document.getElementById("demo").innerHTML = "password must contain a lowercase letter "
+      document.getElementById("new_password").innerHTML = "password must contain a lowercase letter "
       return false;
     } else if (!(digitt.test(document.myForm.new_password.value))) {
-      document.getElementById("demo").innerHTML = "password must contain a digit "
+      document.getElementById("new_password").innerHTML = "password must contain a digit "
       return false;
     }
+    else{
+      document.getElementById("new_password").innerHTML = "";
+    }
     //////
-    else if (document.myForm.new_password.value != document.myForm.confirm_password.value) {
-      document.getElementById("demo").innerHTML = "Password don't match "
+    if (document.myForm.new_password.value != document.myForm.confirm_password.value) {
+      document.getElementById("confirm_password").innerHTML = "Password don't match "
       return false;
-    } else {
-      document.getElementById("demo").innerHTML = "";
-      return (true);
+    } 
+    else {
+      document.getElementById("confirm_password").innerHTML = "";
+    }
 
+    if (document.getElementById("old_password").innerHTML == "" &&
+      document.getElementById("new_password").innerHTML == "" &&
+      document.getElementById("confirm_password").innerHTML == "") {
+      return true;
     }
   }
 

@@ -1,31 +1,7 @@
-.name-error
+.-error
 {
     position: relative;
-    top:90px;
-    left:-10px;
-    font-weight: bold;
-    color: rgb(138, 0, 0);
-}
-.username-error
-{
-    position: relative;
-    top:90px;
-    left:-10px;
-    font-weight: bold;
-    color: rgb(138, 0, 0);
-}
-.password-error
-{
-    position: relative;
-    top:90px;
-    left:-10px;
-    font-weight: bold;
-    color: rgb(138, 0, 0);
-}
-.confirm_password-error
-{
-    position: relative;
-    top:90px;
+    top:88px;
     left:-10px;
     font-weight: bold;
     color: rgb(138, 0, 0);

@@ -27,8 +27,7 @@ class Login extends view
 			</div> 
 			<div class="main-login main-center">
     <form action="$action" name="myForm" method="post" onsubmit="return(validate());">
-    <span id="demo"></span>
-    <br>
+    
 EOT;
 
     echo $text;
@@ -78,7 +77,8 @@ EOT;
     <div class="form-group">
     <div class="cols-sm-10">
       <div class="input-group">
-
+      <span id="demo"></span>
+      <br>
       <label for="$fieldName"> $label:</label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" required="" >
       <span class="invalid-feedback">$err</span>

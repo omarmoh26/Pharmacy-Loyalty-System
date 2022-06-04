@@ -1,4 +1,4 @@
-<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/Addemployee.css"></head>
+<head><link rel="stylesheet" href="<?php echo URLROOT; ?>css/form.css"></head>
 
 <?php
 class Editemployee extends view
@@ -26,8 +26,7 @@ class Editemployee extends view
 			</div> 
 			<div class="main-login main-center">
     <form action="$action" name="myForm" class="form-horizontal" method="post" onsubmit="return(validate());">
-    <span id="demo"></span>
-        <br>
+    
 EOT;
     echo $text;
     $this->printName();
@@ -55,7 +54,9 @@ EOT;
     $val = $this->model->getEmployeeName($id);
     $err = $this->model->getNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
+    ?>
+    <span id="name" class="-error"></span>
+  <?php
     $this->printInput('text', 'name', $val, $err, $valid);
   }
   private function printUsername()
@@ -64,7 +65,9 @@ EOT;
     $val = $this->model->getEmployeeUserName($id);
     $err = $this->model->getUsernameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
+    ?>
+    <span id="username" class="-error"></span>
+  <?php
     $this->printInput('text', 'username', $val, $err, $valid);
   }
   private function printID()
@@ -134,22 +137,29 @@ EOT;
     
     //////NAME
     if (document.myForm.name.value.length == "") {
-      document.getElementById("demo").innerHTML ="Please provide a name" 
+      document.getElementById("name").innerHTML ="Please provide a name" 
       return false;
     } 
     else if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
-      document.getElementById("demo").innerHTML ="name must contain letters only"  
+      document.getElementById("name").innerHTML ="name must contain letters only"  
       return false;
     }
+    else {
+      document.getElementById("name").innerHTML = "";
+    }
+
     //////USERNAME
     if (document.myForm.username.value == "") {
-      document.getElementById("demo").innerHTML ="Please provide your username" 
+      document.getElementById("username").innerHTML ="Please provide your username" 
       return false;
     } 
     else{
-    document.getElementById("demo").innerHTML = "";
-    return (true);
-    
+    document.getElementById("username").innerHTML = "";
+    }
+
+    if (document.getElementById("name").innerHTML == "" &&
+      document.getElementById("username").innerHTML == "" ) {
+      return true;
     }
   }
   

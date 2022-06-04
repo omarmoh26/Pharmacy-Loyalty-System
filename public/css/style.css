@@ -348,13 +348,13 @@ a.article:hover {
 }
 #demo 
 {
-position:fixed;
-top:20;
-left:540;
+position:relative;
+top:0;
+left:0;
 width:550px;
 height: 25px;
-color: rgb(212, 26, 26);
-font-size:20px;
+color: rgb(143, 0, 0);
+font-size:16.8px;
 font-weight:1000;
 border-radius: 20px;
 text-align: center;
