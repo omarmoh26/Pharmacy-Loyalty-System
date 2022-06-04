@@ -40,6 +40,7 @@ class Vieworders extends View
                                                 <th><span>Change</span></th>
                                                 <th><span>Added Points</span></th>
                                                 <th><span>Used Points</span></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -59,7 +60,16 @@ class Vieworders extends View
                                                     <td><?php echo $row['t_change'] ?></td>
                                                     <td><?php echo $row['added_points'] ?></td>
                                                     <td><?php echo $row['used_points'] ?></td>
-
+                                                    <td style="width: 20%;">
+                                                        <button id="boxx">
+                                                            <a class="table-link text-info" href="<?php echo URLROOT . 'pages/Viewodetails'; ?>?id=<?php echo $row['order_id'] ?>">
+                                                                <span class="fa-stack">
+                                                                    <i class="fa fa-eye fa-stack-2x"></i>
+                                                                    <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </a>
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>

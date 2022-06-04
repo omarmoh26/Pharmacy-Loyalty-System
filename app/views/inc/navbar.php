@@ -52,6 +52,19 @@ if (isset($_SESSION['user_id'])) {
           </li>
 
           <li>
+
+            <a href="#OrderSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Orders </a>
+            <ul class="collapse list-unstyled" id="OrderSubmenu">
+
+              <li>
+                <a href="<?php echo URLROOT . 'pages/Vieworders'; ?>">View Orders</a>
+              </li>
+
+            </ul>
+
+          </li>
+
+          <li>
             <a href="#AccountSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account</a>
             <ul class="collapse list-unstyled" id="AccountSubmenu">
 
