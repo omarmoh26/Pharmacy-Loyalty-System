@@ -60,6 +60,9 @@ EOT;
     $err = $this->model->getNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
+?>
+    <span id="name" class="name-error"></span>
+  <?php
     $this->printInput('text', 'name', $val, $err, $valid);
   }
   private function printUsername()
@@ -68,6 +71,9 @@ EOT;
     $err = $this->model->getUsernameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
+  ?>
+    <span id="username"></span>
+  <?php
     $this->printInput('text', 'username', $val, $err, $valid);
   }
 
@@ -77,6 +83,9 @@ EOT;
     $err = $this->model->getPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
+  ?>
+    <span id="password"></span>
+  <?php
     $this->printInput('password', 'password', $val, $err, $valid);
   }
   private function printConfirmPassword()
@@ -85,6 +94,9 @@ EOT;
     $err = $this->model->getConfirmPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
+  ?>
+    <span id="confirm_password"></span>
+<?php
     $this->printInput('password', 'confirm_password', $val, $err, $valid);
   }
 
@@ -98,7 +110,7 @@ EOT;
 							<div class="input-group">
 							
       <label for="$fieldName"> $label:</label>
-      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" onkeyup="return(validate());">
+      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" onkeyup="validate();">
       <span class="invalid-feedback">$err</span>
       </div>
       <div class="message" id="message_mail">
@@ -129,52 +141,69 @@ EOT;
 
     //////NAME
     if (document.myForm.name.value.length == "") {
-      document.getElementById("demo").innerHTML = "Please provide your name"
+      document.getElementById("name").innerHTML = "Please provide your name";
       return false;
-    } else if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
-      document.getElementById("demo").innerHTML = "name must contain letters only"
+    } 
+     if (!(/^[a-zA-Z]+$/.test(document.myForm.name.value))) {
+      document.getElementById("name").innerHTML = "name must contain letters only";
       return false;
+    } else {
+      document.getElementById("name").innerHTML = "";
     }
+
     //////USERNAME
-
-
     if (document.myForm.username.value == "") {
-      document.getElementById("demo").innerHTML = "Please provide your username"
+      document.getElementById("username").innerHTML = "Please provide your username";
       return false;
-    } else if (document.myForm.username.value.toUpperCase() == "ADMIN") {
-      document.getElementById("demo").innerHTML = "Username canot be admin "
+    }  if (document.myForm.username.value.toUpperCase() == "ADMIN") {
+      document.getElementById("username").innerHTML = "Username canot be admin ";
       return false;
+    } else {
+      document.getElementById("username").innerHTML = "";
     }
+
     //////PASSWORD
     if (document.myForm.password.value == "") {
 
-      document.getElementById("demo").innerHTML = "Please enter a password "
+      document.getElementById("password").innerHTML = "Please enter a password ";
       return false;
-    } else if (document.myForm.password.value.length < 8) {
+    }  if (document.myForm.password.value.length < 8) {
 
-      document.getElementById("demo").innerHTML = "Please enter an 8 characters password "
+      document.getElementById("password").innerHTML = "Please enter an 8 characters password ";
       return false;
     }
     //////digit,uppercase,lowercase
-    else if (!(upp.test(document.myForm.password.value))) {
-      document.getElementById("demo").innerHTML = "password must contain an uppercase letter "
+     if (!(upp.test(document.myForm.password.value))) {
+      document.getElementById("password").innerHTML = "password must contain an uppercase letter ";
       return false;
-    } else if (!(loww.test(document.myForm.password.value))) {
-      document.getElementById("demo").innerHTML = "password must contain a lowercase letter "
+    }  if (!(loww.test(document.myForm.password.value))) {
+      document.getElementById("password").innerHTML = "password must contain a lowercase letter ";
       return false;
-    } else if (!(digitt.test(document.myForm.password.value))) {
-      document.getElementById("demo").innerHTML = "password must contain a digit "
+    } if (!(digitt.test(document.myForm.password.value))) {
+      document.getElementById("password").innerHTML = "password must contain a digit ";
+      return false;
+    }  {
+      document.getElementById("password").innerHTML = "";
+    }
+
+    if (document.myForm.confirm_password.value == "") {
+      document.getElementById("confirm_password").innerHTML = "Please enter a confirm password ";
       return false;
     }
-    //////
-    else if (document.myForm.password.value != document.myForm.confirm_password.value) {
-      document.getElementById("demo").innerHTML = "Password don't match "
+     if (document.myForm.password.value != document.myForm.confirm_password.value) {
+      document.getElementById("confirm_password").innerHTML = "Password doesnt match ";
       return false;
     } else {
-      document.getElementById("demo").innerHTML = "";
-      return (true);
-
+      document.getElementById("confirm_password").innerHTML = "";
     }
+
+    if (document.getElementById("name").innerHTML == "" &&
+      document.getElementById("username").innerHTML == "" &&
+      document.getElementById("password").innerHTML == "" &&
+      document.getElementById("confirm_password").innerHTML == "") {
+      return true;
+    }
+    //////
   }
 
   //-->
