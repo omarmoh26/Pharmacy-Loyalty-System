@@ -1,6 +1,5 @@
 <?php
-require_once 'CustomerModel.php';
-class ViewodetailsModel extends CustomerModel
+class ViewodetailsModel extends model
 {
     public  $title = 'View Orders Page';
 
