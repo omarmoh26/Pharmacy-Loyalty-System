@@ -110,7 +110,6 @@ class Products extends Controller
     }
 
 
-    
     public function receipt()
     {
         $viewPath = VIEWS_PATH . 'pages/Orders/receipt.php';

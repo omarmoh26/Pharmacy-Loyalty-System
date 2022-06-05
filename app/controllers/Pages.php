@@ -11,13 +11,6 @@ class Pages extends Controller
     }
 
 
-    public function viewusers()
-    {
-        $viewPath = VIEWS_PATH . 'pages/viewusers.php';
-        require_once $viewPath;
-        $View = new ViewUsers($this->getModel(), $this);
-        $View->output();
-    }
     //done
     public function User()
     {
@@ -34,9 +27,6 @@ class Pages extends Controller
         $AdminView = new Admin($this->getModel(), $this);
         $AdminView->output();
     }
-
-
-
 
     public function Editname()
     {
@@ -131,7 +121,6 @@ class Pages extends Controller
         $Editpasswordview->output();
     }
 
-
     public function Deleteaccount()
     {
         $viewPath = VIEWS_PATH . 'pages/Account/Deleteaccount.php';
@@ -155,9 +144,6 @@ class Pages extends Controller
         $livesearchView = new livesearch($this->getModel(), $this);
         $livesearchView->output();
     }
-
-    
-
 
     public function viewcustomers()
     {
