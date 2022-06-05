@@ -17,21 +17,6 @@ class Admin extends View
 ?>
     <div class="containz">
       <?php
-      
-        // array("x" => 946665000000, "y" => 25, "label" => "Jan"),
-        // array("x" => 978287400000, "y" => 15, "label" => "Feb"),
-        // array("x" => 1009823400000, "y" => 25, "label" => "Mar"),
-        // array("x" => 1041359400000, "y" => 5, "label" => "Apr"),
-        // array("x" => 1072895400000, "y" => 10, "label" => "May"),
-        // array("x" => 1104517800000, "y" => 54, "label" => "Jun"),
-        // array("x" => 1136053800000, "y" => 20, "label" => "Jul"),
-        // array("x" => 1167589800000, "y" => 20, "label" => "Aug"),
-        // array("x" => 1199125800000, "y" => 20, "label" => "Sept"),
-        // array("x" => 1230748200000, "y" => 20, "label" => "Oct"),
-        // array("x" => 1262284200000, "y" => 20, "label" => "Nov"),
-        // array("x" => 1293820200000, "y" => 20, "label" => "Dec")
-      
-
       $dataPoints = array(
         array("y" => 2000, "label" => "Sept"),
         array("y" => 2400, "label" => "Oct"),
@@ -41,10 +26,8 @@ class Admin extends View
       array("y" => 2300, "label" => "Feb"),
       array("y" => 2400, "label" => "Mar"),
       array("y" => 2500, "label" => "Apr"),
-      array("y" => 1500, "label" => "May"),
-      array("y" => $this->model->getTotalSum(), "label" => "Jun"),
-      array("y" => 0, "label" => "Jul"),
-      array("y" => 0, "label" => "Aug")
+      array("y" => 2150, "label" => "May"),
+      array("y" => $this->model->getTotalSum(), "label" => "Jun")
       )
       ?>
       <script>
@@ -53,7 +36,7 @@ class Admin extends View
           var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             title: {
-              text: "Revenue by Year"
+              text: "Revenue to June 2022"
             },
             axisX: {
               valueFormatString: "DD-MMM-YYYY",

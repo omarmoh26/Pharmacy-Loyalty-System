@@ -173,9 +173,7 @@ class Checkout extends View
             document.getElementById('cashNpoints').value = ''
         }
         if (document.getElementById('p').checked) {
-            document.getElementById('show-me').style.visibility = 'visible';
-            return false;
-            
+            document.getElementById('show-me').style.visibility = 'visible';            
         } else document.getElementById('show-me').style.visibility = 'hidden';
 
     }
@@ -202,7 +200,10 @@ class Checkout extends View
             } else if ((upp.test(document.getElementById('cashNpoints').value)) || (loww.test(document.getElementById('cashNpoints').value)) || (special.test(document.getElementById('cashNpoints').value))) {
                 document.getElementById('cperorr').style.visibility = 'visible';
                 return false;
-            } else {
+            } else if(document.getElementById('cashNpoints').value<(total-(points*0.1))){
+                document.getElementById('cperorr').style.visibility = 'visible';
+                return false;
+            }else {
                 document.getElementById('cperorr').style.visibility = 'hidden';
             }
         } else {
@@ -216,6 +217,12 @@ class Checkout extends View
             document.getElementById('cperorr').style.visibility = 'hidden';
             document.getElementById('cashonlyerorr').style.visibility = 'hidden';
 
+        }
+        if((document.getElementById('p').checked)){
+            if(total>(points * 0.1)){
+                document.getElementById('show-me').style.visibility = 'visible';            
+                return false;
+            }
         }
 
         return true;

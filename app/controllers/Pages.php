@@ -214,7 +214,7 @@ class Pages extends Controller
 
                 // change = (paid)-(total)-(customerpoints*0.1)
                 $change = $checkoutModel->getpaid() - ($total - ($custpoints * 0.1));
-                $checkoutModel->setusedpoints(($checkoutModel->getpaid() - $total - $change) * 10);
+                $checkoutModel->setusedpoints(abs(($checkoutModel->getpaid() - $total - $change) * 10));
                 $checkoutModel->settchange($change);
                 $checkoutModel->setdiscount($custpoints * 0.1);
             }
