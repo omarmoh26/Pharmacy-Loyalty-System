@@ -174,6 +174,7 @@ class Checkout extends View
         }
         if (document.getElementById('p').checked) {
             document.getElementById('show-me').style.visibility = 'visible';
+            return false;
             
         } else document.getElementById('show-me').style.visibility = 'hidden';
 
@@ -208,10 +209,6 @@ class Checkout extends View
             document.getElementById('cperorr').style.visibility = 'hidden';
         }
         if (document.getElementById('cashNpoints').value == "" && document.getElementById('cashonly').value == "" && !(document.getElementById('p').checked)) {
-            document.getElementById('cperorr').style.visibility = 'hidden';
-            document.getElementById('cashonlyerorr').style.visibility = 'hidden';
-            return false;
-        } else if (document.getElementById('cashNpoints').value == "" && document.getElementById('cashonly').value == "" && (document.getElementById('p').checked)) {
             document.getElementById('cperorr').style.visibility = 'hidden';
             document.getElementById('cashonlyerorr').style.visibility = 'hidden';
             return false;
