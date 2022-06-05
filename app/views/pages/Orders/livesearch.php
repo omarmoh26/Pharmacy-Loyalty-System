@@ -18,7 +18,7 @@ class livesearch extends view
 
             $input = $_POST['input'];
 
-            $query = "SELECT product.id,product.name,product.Price, product_type.Type FROM product,product_type where product.quantity!=0 and (product.Product_Type= product_type.ID and product.name LIKE'{$input}%')";
+            $query = "SELECT product.id,product.name,product.Price, product_type.Type FROM product,product_type where product.quantity!=0 and product.Product_Type= product_type.ID and product.name LIKE'{$input}%'";
             $result = mysqli_query($con, $query);
             if (mysqli_num_rows($result) > 0) { ?>
 

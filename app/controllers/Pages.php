@@ -101,8 +101,15 @@ class Pages extends Controller
                 empty($EditpasswordModel->getnewPasswordErr()) &&
                 empty($EditpasswordModel->getConfirmPasswordErr())
             ) {
-                //Hash Password
-                // $registerModel->setPassword(password_hash($registerModel->getPassword(), PASSWORD_DEFAULT));
+                $pepper = "c1isvFdxMDdmjOlvxpecFw";
+                $pwd = $_POST['new_password'];
+                $cpwd=$_POST['confirm_password'];
+
+                $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
+                $cpwd_peppered = hash_hmac("sha256", $cpwd, $pepper);
+
+                $EditpasswordModel->setnewPassword(password_hash($pwd_peppered, PASSWORD_ARGON2ID));
+                $EditpasswordModel->setConfirmPassword(password_hash($cpwd_peppered, PASSWORD_ARGON2ID));
 
                 if ($EditpasswordModel->newpass()) {
                     $_SESSION['user_password'] = $EditpasswordModel->getnewPassword();
@@ -204,10 +211,10 @@ class Pages extends Controller
                 $checkoutModel->setpaid(trim($_POST['cashNpoints']));
 
                 $checkoutModel->setaddedpoints(0);
-                
+
                 // change = (paid)-(total)-(customerpoints*0.1)
                 $change = $checkoutModel->getpaid() - ($total - ($custpoints * 0.1));
-                $checkoutModel->setusedpoints(($checkoutModel->getpaid()-$total-$change)*10);
+                $checkoutModel->setusedpoints(($checkoutModel->getpaid() - $total - $change) * 10);
                 $checkoutModel->settchange($change);
                 $checkoutModel->setdiscount($custpoints * 0.1);
             }
@@ -224,7 +231,7 @@ class Pages extends Controller
                 if ($checkoutModel->getorderID()) {
                     if ($checkoutModel->addOrderDetails()) {
                         $checkoutModel->updateProdQuant();
-                        redirect("Products/receipt?oid=".$checkoutModel->getOrder_ID());
+                        redirect("Products/receipt?oid=" . $checkoutModel->getOrder_ID());
                     } else {
                         die('Error in adding order details');
                     }
@@ -241,7 +248,7 @@ class Pages extends Controller
         $CheckoutView = new Checkout($this->getModel(), $this);
         $CheckoutView->output();
     }
-    
+
     public function Vieworders()
     {
         $viewPath = VIEWS_PATH . 'pages/Vieworders.php';

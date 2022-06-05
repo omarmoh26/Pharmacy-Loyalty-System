@@ -10,13 +10,16 @@ class LoginModel extends UserModel
         $this->dbh->bind(':username', $this->username);
 
         $record = $this->dbh->single();
-        $hash_pass = $record->password;
 
-        //if (password_verify($this->password,  $hash_pass)) {
-        if($this->password == $hash_pass) {
+        $pepper = "c1isvFdxMDdmjOlvxpecFw";
+        $pwd = $this->password;
+        $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
+        $pwd_hashed = $record->password;
+        
+        if (password_verify($pwd_peppered, $pwd_hashed)) {
             return $record;
         } else {
-            return false; 
+            return false;
         }
     }
 }

@@ -2,7 +2,7 @@
 require_once 'UserModel.php';
 class AddemployeeModel extends UserModel
 {
-    public  $title = 'User Registration Page';
+    public  $title = 'User Add Employee Page';
     protected $name;
     protected $nameErr;
     protected $confirmPassword;

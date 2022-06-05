@@ -7,7 +7,7 @@ class ViewodetailsModel extends model
     {
         $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
         $sql="SELECT `order_description`.`order_id`,`product`.`name`,`order_description`.`quantity` FROM `order_description`,`product` 
-                WHERE order_id=$id AND `order_description`.`product_id`=`product`.`id`;";
+                WHERE order_id=$id AND `order_description`.`product_id`=`product`.`id`";
         $result = mysqli_query($conn,$sql);	
         if (!$result)
             trigger_error("<h1 style='color:red;'>fatal error in executing query</h1>",E_USER_WARNING);

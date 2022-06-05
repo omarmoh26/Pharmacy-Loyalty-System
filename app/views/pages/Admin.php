@@ -33,15 +33,15 @@ class Admin extends View
       
 
       $dataPoints = array(
-        array("y" => 500, "label" => "Sept"),
-        array("y" => 750, "label" => "Oct"),
-        array("y" => 850, "label" => "Nov"),
-        array("y" => 700, "label" => "Dec"),
-        array("y" => 650, "label" => "Jan"),
-      array("y" => 800, "label" => "Feb"),
-      array("y" => 1100, "label" => "Mar"),
-      array("y" => 1000, "label" => "Apr"),
-      array("y" => 900, "label" => "May"),
+        array("y" => 2000, "label" => "Sept"),
+        array("y" => 2400, "label" => "Oct"),
+        array("y" => 2600, "label" => "Nov"),
+        array("y" => 2200, "label" => "Dec"),
+        array("y" => 2000, "label" => "Jan"),
+      array("y" => 2300, "label" => "Feb"),
+      array("y" => 2400, "label" => "Mar"),
+      array("y" => 2500, "label" => "Apr"),
+      array("y" => 1500, "label" => "May"),
       array("y" => $this->model->getTotalSum(), "label" => "Jun"),
       array("y" => 0, "label" => "Jul"),
       array("y" => 0, "label" => "Aug")
@@ -61,8 +61,8 @@ class Admin extends View
             },
             axisY: {
               title: "Revenue in Egyptian pound",
-              valueFormatString: "#0,,.",
-              suffix: "k EGP",
+              valueFormatString: "#,##0.##",
+              suffix: "EGP",
             },
             data: [
               {

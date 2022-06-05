@@ -1,60 +1,7 @@
 <?php
 class Users extends Controller
 {
-    public function register()
-    {
-        $registerModel = $this->getModel();
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Process form
-            $registerModel->setName(trim($_POST['name']));
-            $registerModel->setUsername(trim($_POST['username']));
-            $registerModel->setPassword(trim($_POST['password']));
-            $registerModel->setConfirmPassword(trim($_POST['confirm_password']));
-
-            //validation
-            if (empty($registerModel->getName())) {
-                $registerModel->setNameErr('Please enter a name');
-            }
-            if (empty($registerModel->getUsername())) {
-                $registerModel->setUsernameerr('Please enter an a username');
-            } elseif ($registerModel->usernameExist($_POST['username'])) {
-                $registerModel->setUsernameerr('username is already registered');
-            }
-            if (empty($registerModel->getPassword())) {
-                $registerModel->setPasswordErr('Please enter a password');
-            } elseif (strlen($registerModel->getPassword()) < 4) {
-                $registerModel->setPasswordErr('Password must contain at least 4 characters');
-            }
-
-            if ($registerModel->getPassword() != $registerModel->getConfirmPassword()) {
-                $registerModel->setConfirmPasswordErr('Passwords do not match');
-            }
-
-            if (
-                empty($registerModel->getNameErr()) &&
-                empty($registerModel->getUsernameerr()) &&
-                empty($registerModel->getPasswordErr()) &&
-                empty($registerModel->getConfirmPasswordErr())
-            ) {
-                //Hash Password
-               // $registerModel->setPassword(password_hash($registerModel->getPassword(), PASSWORD_DEFAULT));
-
-                if ($registerModel->signup()) {
-                    //header('location: ' . URLROOT . 'users/login');
-                    flash('register_success', 'You have registered successfully');
-                    redirect('users/login');
-                } else {
-                    die('Error in sign up');
-                }
-            }
-        }
-        // Load form
-        //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
-        $viewPath = VIEWS_PATH . 'users/Register.php';
-        require_once $viewPath;
-        $view = new Register($this->getModel(), $this);
-        $view->output();
-    }
+    
     public function addemployee()
     {
         $AddemployeeModel = $this->getModel();
@@ -91,7 +38,10 @@ class Users extends Controller
                 empty($AddemployeeModel->getConfirmPasswordErr())
             ) {
                 //Hash Password
-               // $AddemployeeModel->setPassword(password_hash($AddemployeeModel->getPassword(), PASSWORD_DEFAULT));
+                $pepper = "c1isvFdxMDdmjOlvxpecFw";
+                $pwd = $_POST['password'];
+                $pwd_peppered = hash_hmac("sha256", $pwd, $pepper);
+                $AddemployeeModel->setPassword(password_hash($pwd_peppered, PASSWORD_ARGON2ID));
 
                 if ($AddemployeeModel->signup()) {
                     redirect('pages/Viewemployees');
@@ -160,9 +110,9 @@ class Users extends Controller
         $_SESSION['user_password'] = $user->password;
         $_SESSION['type'] = $user->type;
         //header('location: ' . URLROOT . 'pages');
-        if($user->type==2)
+        if ($user->type == 2)
             redirect('customers/oldcust');
-        else if($user->type==1)
+        else if ($user->type == 1)
             redirect('pages/Admin');
         else
             redirect('pages');
@@ -181,8 +131,8 @@ class Users extends Controller
     {
         return isset($_SESSION['user_id']);
     }
-    
-     public function Editemployee()
+
+    public function Editemployee()
     {
         $EditemployeeModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -190,7 +140,7 @@ class Users extends Controller
             $EditemployeeModel->setId(trim($_POST['id']));
             $EditemployeeModel->setName(trim($_POST['name']));
             $EditemployeeModel->setUsername(trim($_POST['username']));
-            
+
 
             if (empty($EditemployeeModel->getName())) {
                 $EditemployeeModel->setNameErr('Please enter a name');
@@ -201,7 +151,7 @@ class Users extends Controller
             }
             // else if($EditemployeeModel->getUsername() != trim($_POST['username'])) {
             //     if(!($EditemployeeModel->usernameExist($_POST['username']))){
-                    
+
             //     }
             // } 
 
@@ -221,13 +171,67 @@ class Users extends Controller
         require_once $viewPath;
         $AdminView = new Editemployee($this->getModel(), $this);
         $AdminView->output();
-    }  
+    }
     public function Deleteemployee()
-    {   
+    {
         redirect('pages/Viewemployees');
         $viewPath = VIEWS_PATH . 'pages/Employees/Deleteemployee.php';
         require_once $viewPath;
         $AdminView = new Deleteemployee($this->getModel(), $this);
         $AdminView->output();
+    }
+    public function register()
+    {
+        $registerModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            $registerModel->setName(trim($_POST['name']));
+            $registerModel->setUsername(trim($_POST['username']));
+            $registerModel->setPassword(trim($_POST['password']));
+            $registerModel->setConfirmPassword(trim($_POST['confirm_password']));
+
+            //validation
+            if (empty($registerModel->getName())) {
+                $registerModel->setNameErr('Please enter a name');
+            }
+            if (empty($registerModel->getUsername())) {
+                $registerModel->setUsernameerr('Please enter an a username');
+            } elseif ($registerModel->usernameExist($_POST['username'])) {
+                $registerModel->setUsernameerr('username is already registered');
+            }
+            if (empty($registerModel->getPassword())) {
+                $registerModel->setPasswordErr('Please enter a password');
+            } elseif (strlen($registerModel->getPassword()) < 4) {
+                $registerModel->setPasswordErr('Password must contain at least 4 characters');
+            }
+
+            if ($registerModel->getPassword() != $registerModel->getConfirmPassword()) {
+                $registerModel->setConfirmPasswordErr('Passwords do not match');
+            }
+
+            if (
+                empty($registerModel->getNameErr()) &&
+                empty($registerModel->getUsernameerr()) &&
+                empty($registerModel->getPasswordErr()) &&
+                empty($registerModel->getConfirmPasswordErr())
+            ) {
+                //Hash Password
+                // $registerModel->setPassword(password_hash($registerModel->getPassword(), PASSWORD_DEFAULT));
+
+                if ($registerModel->signup()) {
+                    //header('location: ' . URLROOT . 'users/login');
+                    flash('register_success', 'You have registered successfully');
+                    redirect('users/login');
+                } else {
+                    die('Error in sign up');
+                }
+            }
+        }
+        // Load form
+        //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
+        $viewPath = VIEWS_PATH . 'users/Register.php';
+        require_once $viewPath;
+        $view = new Register($this->getModel(), $this);
+        $view->output();
     }
 }

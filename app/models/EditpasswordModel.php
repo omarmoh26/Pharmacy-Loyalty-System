@@ -90,7 +90,6 @@ class EditpasswordModel extends UserModel
     }
     public function newpass()
     {
-        // $id=$_SESSION['user_id'];
         $conn = new mysqli("localhost", "root", "", "pharmacy_loyalty_system");
         $sql="UPDATE users SET password='$this->newPassword' WHERE id='$this->id' ";
         $result=mysqli_query($conn,$sql);	
