@@ -39,6 +39,7 @@ class livesearch extends view
                                                         <th>Name</th>
                                                         <th>Phone Number</th>
                                                         <th>Address</th>
+                                                        <th>Points</th>
                                                         <th><button id="boxx">
                                                                 <a class="table-link text-info" href="<?php echo URLROOT . 'customers/NewCust'; ?>">
                                                                     <span class="fa-stack">
@@ -59,6 +60,7 @@ class livesearch extends view
                                                             <td><?php echo $row['name'] ?></td>
                                                             <td><?php echo $row['phone_number'] ?></td>
                                                             <td><?php echo $row['address'] ?></td>
+                                                            <td><?php echo $row['points'] ?></td>
 
                                                             <td style="width: 25%;">
                                                                 <button id="boxx">

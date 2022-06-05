@@ -107,7 +107,7 @@ class Checkout extends View
                             <div id="ifPC" style="visibility:hidden; display:inline;">
                                 <!-- CASHH AND POINTS -->
                                 <input type='text' id='cashNpoints' name='cashNpoints' placeholder=' Cash amount....' onkeyup="javascript:cashinput(<?php echo ($_SESSION['item_total'] - ($customerPoints * 0.1)); ?>,<?php echo $customerPoints; ?> )">
-                                <div id='cperorr' style='visibility:hidden;  display:inline; color:red; font-family: monospace;'><?php if (($_SESSION['item_total'] - ($customerPoints * 0.1)) < 0) echo "";
+                                <div id='cperorr' style='visibility:hidden;  display:inline; color:red; font-family: monospace;'><?php if (($_SESSION['item_total'] - ($customerPoints * 0.1)) < 0) echo "Choose Cash Only or Points Only";
                                                                                                                                     else echo "Enter a number minimum of " . ($_SESSION['item_total'] - ($customerPoints * 0.1)) . "EGP"; ?> </div>
                             </div>
                         </label>
@@ -134,32 +134,6 @@ class Checkout extends View
                     </div>
                 </div>
             </form>
-            <!-- <div class="text2">
-
-                </br>
-                </br>
-                <span class="brmin"></span>
-                <p2>Added Points : </p2>
-                <span class="brmin"></span>
-                <p3>Used Points : </p2>
-                    <span class="brmin"></span>
-
-                    <p4 class="boldd">Total Points :
-                </p3>
-                <hr>
-
-                <p4>Price : <?php
-                            // echo  $_SESSION['item_total'] . "  EGP"; 
-                            ?></p4>
-                <span class="brmin"></span>
-                <p5>Disscount : </p5>
-                <span class="brmin"></span>
-
-                <p6 class="boldd">Total Price : </p6>
-
-                <a class="wrapper2" href="<?php //echo URLROOT . 'customers/OldCust'; 
-                                            ?>">Done</a>
-            </div> -->
         </div>
 
         </div>
@@ -200,6 +174,7 @@ class Checkout extends View
         }
         if (document.getElementById('p').checked) {
             document.getElementById('show-me').style.visibility = 'visible';
+            
         } else document.getElementById('show-me').style.visibility = 'hidden';
 
     }
@@ -220,7 +195,7 @@ class Checkout extends View
         }
 
         if (document.getElementById('cashNpoints').value != "") {
-            if (document.getElementById('cashNpoints').value < (total - (points * 0.1))) {
+            if (total<(points * 0.1)) {
                 document.getElementById('cperorr').style.visibility = 'visible';
                 return false;
             } else if ((upp.test(document.getElementById('cashNpoints').value)) || (loww.test(document.getElementById('cashNpoints').value)) || (special.test(document.getElementById('cashNpoints').value))) {
@@ -233,16 +208,14 @@ class Checkout extends View
             document.getElementById('cperorr').style.visibility = 'hidden';
         }
         if (document.getElementById('cashNpoints').value == "" && document.getElementById('cashonly').value == "" && !(document.getElementById('p').checked)) {
-            document.getElementById('cperorr').style.visibility = 'visible';
-            document.getElementById('cashonlyerorr').style.visibility = 'visible';
-            return false;
-        } 
-        else if (document.getElementById('cashNpoints').value == "" && document.getElementById('cashonly').value == "" && (document.getElementById('p').checked)) {
             document.getElementById('cperorr').style.visibility = 'hidden';
             document.getElementById('cashonlyerorr').style.visibility = 'hidden';
             return false;
-        }
-        else {
+        } else if (document.getElementById('cashNpoints').value == "" && document.getElementById('cashonly').value == "" && (document.getElementById('p').checked)) {
+            document.getElementById('cperorr').style.visibility = 'hidden';
+            document.getElementById('cashonlyerorr').style.visibility = 'hidden';
+            return false;
+        } else {
             document.getElementById('cperorr').style.visibility = 'hidden';
             document.getElementById('cashonlyerorr').style.visibility = 'hidden';
 

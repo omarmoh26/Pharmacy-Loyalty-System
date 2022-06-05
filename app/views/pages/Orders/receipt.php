@@ -72,7 +72,7 @@ class receipt extends View
                     <br>
                     <h>disscount: <?php echo $row['discount'] ?></h>
                     <br>
-                    <h>toal after disscount:</h>
+                    <h>total after disscount: <?php echo $row['total']-$row['discount'] ?></h>
                     <br>
                     <h>paid: <?php echo $row['paid'] ?></h>
                     <br>
